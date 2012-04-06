@@ -1,0 +1,383 @@
+/* CSS Document */
+
+/***********************************************************************************************/
+/*  Referencia para los tabs                                                                   */
+/*  http://www.highdots.com/css-tab-designer 												   */	
+/*                                           												   */
+/*  Referencia para opacidad                        										   */
+/*  http://gemablog-.blogspot.com/2007/07/efecto-translcido-en-la-narvbar-barra.html		   */
+/*																							   */	
+/*  Referencia para las esquinas redondeadas (Se logra obtener solo en FireFox)			   	   */
+/*	http://www.the-art-of-web.com/css/border-radius/										   */
+/*																							   */			
+/***********************************************************************************************/
+
+
+
+/******************************/
+/*    Estilo para el body     */
+/******************************/
+body{
+background-image:url(../imagenes/fondoAbs2.png);
+background-repeat:repeat-x;
+background-attachment: fixed;
+}
+/******************************/
+/*  FIN Estilo para el body   */
+/******************************/
+
+
+
+/******************************/
+/*    Estilos para los divs   */
+/******************************/
+.divWrapper{
+width:970px;
+position:relative; 
+margin-left:-485px; 
+left:50%; 
+border:thin  ridge;
+border-width: 3px;
+-moz-border-radius: 9px;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+.divBanner{
+height:166px;
+background-image:url(../imagenes/Banner2.png);
+background-repeat:no-repeat;
+}
+
+.divMenu{
+background-image: url(../imagenes/fondoMenu.png);
+text-align: center ;
+}
+
+.divPrincipal{
+overflow:hidden;
+border-top:thin solid ;
+background-image:url(../imagenes/fondoCont2.png);
+background-attachment:fixed;
+background-position:center;
+}
+
+.divPublicidad{
+width:281px;
+float:left; 
+border-right:thin solid;
+margin-right:10px;
+margin-left:10px;
+}
+
+.divPublicidadPoliticas{
+width:281px;
+float:left; 
+margin-right:10px;
+margin-left:0px;
+}
+
+.divContenido{
+text-align:justify; 
+font-family:Arial, Helvetica, sans-serif;
+margin-right:20px;
+overflow:hidden;
+}
+
+.divContenidoServicios, .divContenidoProductos, .divContenidoPoliticas{
+text-align:justify; 
+margin-right:20px;
+padding-left:20px;
+overflow:hidden;
+border-left: groove;
+}
+
+.MenuProductos
+{
+width:281px; 
+float:left; 
+border-right: thin solid;
+margin-right:20px;
+margin-left:0px;
+}
+
+.MenuServicios
+{
+width:281px; 
+float:left; 
+margin-right:10px;
+margin-left:0px;
+}
+
+/*****************************/
+/* FIN Estilos para los divs */
+/*****************************/
+
+
+
+/******************************/
+/*   Estilos para los menus   */
+/******************************/
+ul.menu {
+margin:1px;
+}
+
+ul.menu li{ 
+display:inline; 
+margin-left:2px; 
+border-right: ridge;
+border-left:ridge; 
+border-top:ridge; 
+-moz-border-radius: 5px;
+}
+
+ul.menu li a{
+color: #000066;
+text-decoration:none;
+font-family: Geneva, Arial, Helvetica, sans-serif ;
+font-style:italic;
+font-weight:bold;
+padding-top:2px;
+padding-left:7px;
+padding-right:2px;
+}
+
+ul.menu #current a{
+color: #FFFFFF;
+font-weight:bold;
+}
+ul.menu #current{
+background-color: #0033CC;
+}
+
+ul.menu li a:hover
+{
+background-color: #0033FF;
+color:#FFFFFF;
+padding-left:9px;
+padding-right:9px;
+}
+
+
+/******************************************
+Modificciones Leonardo Ayala - Ronny Solis
+*******************************************/
+/******************************
+    Menu de Productos
+*******************************/
+
+.MenuProductos ul li 
+{
+list-style:none;
+margin-bottom:38px;
+}
+
+li.SubMenuDesplegable
+{
+margin-left:0px;
+}
+
+li.SubMenuDesplegable span
+{
+display: none; 
+position: absolute;
+margin-left:20px;
+}
+
+li.SubMenuDesplegable:hover span
+{
+display:inline;
+}
+
+/*Modificado por ART*/
+
+ul.SubMenuDesplegable2 li:hover a
+{
+display:inline;
+color: #FFFFFF;
+background-color:#0066CC;
+}
+
+ul.SubMenuDesplegable2 li:hover
+{
+color: #FFFFFF;
+background-color:#0066CC;
+}
+
+ul.SubMenuDesplegable2 li
+{
+padding:3px; 
+margin:0;
+text-decoration:none;
+background-image:url(../imagenes/boton2.png);
+border-style:outset;
+}
+/*FIN Modificado por ART*/
+
+ul.SubMenuDesplegable2
+{
+padding:0px;
+}
+ul.SubMenuDesplegable2 a
+{
+text-decoration:none;
+color: #000099;
+font-weight:bold;
+font-family: Geneva, Arial, Helvetica, sans-serif ;
+}
+/******************************
+  Fin Menu de Productos
+*******************************/
+
+
+/*Modificado por ART*/
+/******************************
+    Menu de Servicios
+*******************************/
+.MenuServicios ul
+{
+margin:0;
+padding-top:10px;
+padding-left:25px;
+}
+
+.MenuServicios li
+{
+list-style:none;
+background-image:url(../imagenes/boton12.png);
+background-repeat:no-repeat;
+width:230px;
+height:36px;
+margin:0;
+border:thin solid;
+}
+.MenuServicios li:hover
+{
+background:url(../imagenes/boton22.png);
+}
+
+.MenuServicios li a
+{
+text-decoration:none;
+padding-left:30px;
+font-size:14px;
+font-weight:bold;
+color:#000066;
+}
+
+.MenuServicios li:hover a
+{
+color:#FFFFFF;
+}
+
+/******************************
+  Fin Menu de Servicios
+*******************************/
+
+/******************************/
+/* FIN Estilos para los menus */
+/******************************/
+
+
+
+
+
+/******************************/
+/*    Estilos para titulos    */
+/******************************/
+.tituloSubrayado 
+{
+text-decoration: underline;
+font-style:italic;
+}
+#tituloQuienesSomos, #tituloBienvenida, #tituloPoliticas
+{
+color: #0033FF;
+font-family: Geneva, Arial, Helvetica, sans-serif ;
+}
+#tituloQuienesSomos span, #tituloBienvenida span, #tituloPoliticas span
+{
+border-bottom: groove #0033FF;
+}
+/******************************/
+/*  FIN Estilos para Titulos  */
+/******************************/
+
+
+
+/******************************/
+/*  Estilos para los span     */
+/******************************/
+span{font-weight:bold;}
+.palabraSubrayada 
+{
+text-decoration: underline;
+font-style:italic;
+}
+.iniciales {color: #0033FF;}
+/******************************/
+/* FIN Estilos para los span  */
+/******************************/
+
+
+/******************************/
+/*  Estilos para los parrafos */
+/******************************/
+#descripcion{visibility:hidden;}
+
+/******************************/
+/* FIN Estilos para los span  */
+/******************************/
+
+
+/******************************/
+/*  Estilos para imagenes     */
+/******************************/
+img{padding-bottom:4px; padding-top:2px;}
+
+/******************************/
+/* FIN Estilos para imagenes  */
+/******************************/
+
+
+
+/******************************/
+/*  Estilos para enlaces      */
+/******************************/
+a.toolTip
+{
+text-decoration:none;
+}
+
+a.toolTip img
+{
+border:none;
+padding-left:30px;
+padding-top:10px;
+}
+
+a.toolTip span
+{
+display:none; 
+padding:2px 3px;
+margin-left:8px; 
+width:130px;
+}
+
+a.toolTip:hover span 
+{
+display:inline; 
+position:absolute; 
+background:#ffffff; 
+border:2px groove #0000FF; 
+color:#6c6c6c;
+}
+/******************************/
+/* FIN Estilos para enlaces   */
+/******************************/
+
+
+/*Ultimos cambios*/
+#cambios{text-align:right;}
+#fuente2{text-decoration:none;}
+
+#textoSombreado1, #textoSombreado2{display:inline;}

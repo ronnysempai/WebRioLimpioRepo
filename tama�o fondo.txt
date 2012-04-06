@@ -1,0 +1,8 @@
+ing fondo 1090x1202 pixeles
+
+señalar azul oscuro
+color fondo:#35398E
+
+
+color fondo:#00a6e2
+

@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<script src="jquery-ui-1.8.14.custom/js/jquery-1.5.1.min.js"></script> 
+	
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.core.js"></script> 
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.widget.js"></script> 
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.mouse.js"></script> 
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.draggable.js"></script> 
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.droppable.js"></script> 
+
+	<script src="js/efectosRioLimpio.js"></script>
+	
+	<script src="js/mouse.js"></script>
+  
+  <script>
+				
+				/*menu 2*/
+				
+				function mainmenu(){
+				// Oculto los submenus
+				$(" #nav ul ").css({display: "none"});
+				// Defino que submenus deben estar visibles cuando se pasa el mouse por encima
+				$(" #nav li").hover(function(){
+					$(this).find('ul:first:hidden').css({visibility: "visible",display: "none"}).slideDown(400);
+					},function(){ 
+						$(this).find('ul:first').slideUp(400);
+					});
+				}
+				$(document).ready(function(){
+					mainmenu();
+				});
+				//fin menu 2
+				
+			///
+			
+	</script> 
+	
+	
+
+<link rel="stylesheet" type="text/css" href="CSS/estilo.css" />
+
+<link rel="stylesheet" type="text/css" href="CSS/estilo_menu.css" />
+<link rel="stylesheet" type="text/css" href="CSS/estilo_efecto.css" />
+
+<title>Inicio</title>
+
+
+</head>
+
+<body onload='efectoDespliegaAbajo()'>
+
+<div class="divWrapper">
+
+		<div id="nubes1" >
+	
+		</div>
+	
+		<div id="nubes2" >
+	
+		</div>
+
+
+  <div class="divEncabezado">
+
+  <div class="divPrimerEncabezado" > </div>
+  
+   
+
+  </div><!--Encabezado-->
+
+  <div class="divSegundoEncabezado">
+		
+		   <div class="divMenu"> 
+    
+			<div id="menu">
+				<ul id="nav">
+					<li><a href="#" class='menu_principal'>Inicio</a>
+						<ul class="submenu">
+							<li><a href="problematica.html">Problematica</a></li>
+							<li><a href="objetivos.html">Objetivos</a></li>
+						</ul>
+						
+					</li>
+					
+					<li><a href="se.html" class='menu_principal' >SE</a>
+						
+					</li>
+					
+					<li><a href="#" class='menu_principal' >No3</a>
+						<ul class="submenu">
+							<li><a href="contaminacion_nitratos.html">La contaminación del agua por nitratos</a></li>
+							
+							<li><a href="contaminacion_aguas.html">Contaminación de las aguas</a>
+								
+							</li>
+						</ul>
+					</li>
+					
+					<li><a href="acerca_de.html" class='menu_principal'>Acerca de</a>
+						
+					</li>
+					
+					
+				</ul>
+				</div>
+	
+					
+   </div><!--Menu-->
+
+		
+   </div> 
+
+  
+  
+<div id='principal' class="divPrincipal">
+
+   
+
+
+	<h2>Integrantes</h2>
+
+	<div id='allan' class='divContenedorFotos' >  
+	
+	
+	
+	<div class='divNombre' > Allan Antonio Córdova Duque</div>
+	
+	
+	<a href="#" >acordov@espol.edu.ec</a>
+	
+			<div class='divLinksContactos'>
+			
+				<div class='imgFace'>
+					
+					
+					</div>
+					
+					<div class='imgTwitter'>
+					
+					</div>
+			
+			</div>
+			
+				
+	</div> 
+	
+	<div id='enrique' class='divContenedorFotos'>  
+	
+	
+		 <div class='divNombre' >Enrique Gustavo Guevara Caizapanta</div> 
+		
+			<a href="#" >egueva@espol.edu.ec</a>
+	
+			<div class='divLinksContactos'>
+	
+				<div class='imgFace'>
+					
+					
+					</div>
+					
+					<div class='imgTwitter'>
+					
+					</div>
+	
+			</div>
+	
+	
+	</div>
+	
+	<div id='ronny' class='divContenedorFotos'>
+	
+	 <div class='divNombre' >Ronny Alfredo SolisRodriguez</div> 
+	
+	
+	<a href="#" >rsolis@espol.edu.ec</a>
+	
+	
+				<div class='divLinksContactos'>
+				
+					<div class='imgFace'>
+						
+						
+						</div>
+						
+						<div class='imgTwitter'>
+						
+						</div>
+				
+				</div>
+				
+				
+	</div>
+	
+	 
+		
+</div><!--Principal-->
+
+<div class='divPiePagina'> </div>
+
+</div><!--Wrapper-->
+
+</body>
+
+<script>
+
+</script>
+
+</html>

@@ -1,0 +1,135 @@
+* { padding:0px; margin:0px; }
+
+
+#menu {
+ //background-image:url(nav_bg.png);
+ background-repeat:repeat-x;
+ height:30px; 
+ width:500px; 
+ margin-left:10px; 
+ padding-left:70px; 
+ 
+ //border:1px solid red;
+ 
+ }
+ 
+#nav { list-style:none; }
+
+#nav li { float:left;
+ //background-image:url(none); 
+ background-repeat:no-repeat;
+ background-position:right; }
+
+/*estilo texto links*/
+#nav li a 
+{
+
+	 display:block;
+	 /*
+	 padding:7px 10px; 
+	 */
+	 padding-left:7px;
+	 padding-right:7px;
+	 padding-top:4.5px;
+	 
+	 
+	 text-decoration:none; 
+	/*color:#CCCCCC; */
+	color:#ffffff; 
+	font-weight:bold;
+
+}
+/**/
+
+#nav li a:hover 
+{ color:#FFFFFF;
+ /*
+ background-color:#00a6e2;
+ */
+ background-color:#cca537;
+ }
+
+ .menu_principal
+ {
+ 
+	margin-left:40px;
+	border-left:1px solid #cca537;
+	border-right:1px solid #cca537;
+	
+ }
+ 
+/* Submenu */
+
+/*Estilo menu que se desplega*/
+#nav ul.submenu 
+{
+
+/*bordes*/
+/* border:1px solid #000000;*/
+border-right:3px solid #cca537;
+border-left:3px solid #cca537;
+border-top:3px solid #cca537;
+border-bottom:3px solid #cca537;
+/**/
+
+
+padding:5px; 
+position:absolute; 
+list-style:none; 
+
+background-color:#35398E;
+color:blue;
+
+}
+
+
+/**/
+
+
+/*Estilo cada opcion desplegada */
+#nav ul.submenu li 
+{
+
+float:none; 
+background-image:none;
+/* border-bottom:1px solid #999999;*/
+ /*
+ padding-left:15px;
+padding-right:15px;
+ 
+ */
+	width:200px;
+}
+/**/
+ 
+/* Subsubmenu */
+
+#nav ul.subsubmenu 
+{
+
+ border:1px solid #000000;
+ padding:5px;
+ position:absolute; 
+ list-style:none; 
+background-color:#35398E; 
+margin-left:150px;
+ margin-top:-30px;
+ 
+ font-size:15px;
+ 
+}
+
+#nav ul.subsubmenu li 
+{
+ float:none;
+ background-image:none; 
+ //border-bottom:1px solid #999999;
+ min-width:200px;
+ 
+ 
+}
+
+
+ul li ul {
+   /* Resto de estilos... */
+   display: none;}

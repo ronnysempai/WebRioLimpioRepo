@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<script src="jquery-ui-1.8.14.custom/js/jquery-1.5.1.min.js"></script> 
+	
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.core.js"></script> 
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.widget.js"></script> 
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.mouse.js"></script> 
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.draggable.js"></script> 
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.droppable.js"></script> 
+	
+	
+	
+	<link rel="stylesheet" href="jquery-ui-1.8.14.custom/development-bundle/themes/base/jquery.ui.all.css" / >
+	
+	<script src="jquery-ui-1.8.14.custom/development-bundle//external/jquery.bgiframe-2.1.2.js"></script>
+	
+	
+	
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.button.js"></script>
+	
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.position.js"></script>
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.resizable.js"></script>
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.dialog.js"></script>
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.effects.core.js"></script>
+	
+	<script src="modal_form/modal_form.js"></script>
+	
+	<script src="js/efectosRioLimpio.js"></script>
+	
+	<script src="js/mouse.js"></script>
+	
+  
+  <script>
+			
+				/*menu 2*/
+				
+				function mainmenu(){	
+				// Oculto los submenus
+				$(" #nav ul ").css({display: "none"});
+				// Defino que submenus deben estar visibles cuando se pasa el mouse por encima
+				$(" #nav li").hover(function(){
+					$(this).find('ul:first:hidden').css({visibility: "visible",display: "none"}).slideDown(400);
+					},function(){ 
+						$(this).find('ul:first').slideUp(400);
+					});
+				}
+				$(document).ready(function(){
+					mainmenu();
+				});
+				//fin menu 2
+				
+			///
+			
+			
+	</script> 
+	
+	
+
+<link rel="stylesheet" type="text/css" href="CSS/estilo.css" />
+<link rel="stylesheet" type="text/css" href="CSS/estilo_menu.css" />
+
+<link rel="stylesheet" type="text/css" href="CSS/estilo_efecto.css" />
+
+
+
+
+
+
+		<script type="text/javascript" src="drag_and-drop/redips-drag-min.js"></script>
+		<script type="text/javascript" src="drag_and-drop/script.js"></script>
+<link rel="stylesheet" type="text/css" href="drag_and-drop/style.css" />
+<title>Aplicacion SE</title>
+
+
+</head>
+
+<body onload='efectoDespliegaAbajo()'>
+
+<div class="divWrapper">
+
+			<div id="nubes1" >
+	
+			</div>
+	
+			<div id="nubes2" >
+	
+			</div>
+
+
+  <div class="divEncabezado">
+
+  <div class="divPrimerEncabezado" > </div>
+  
+   
+
+  </div><!--Encabezado-->
+
+  <div class="divSegundoEncabezado">
+		
+		   <div class="divMenu"> 
+    
+			<div id="menu">
+				<ul id="nav">
+					<li><a href="#" class='menu_principal'>Inicio</a>
+						<ul class="submenu">
+							<li><a href="problematica.html">Problematica</a></li>
+							<li><a href="objetivos.html">Objetivos</a></li>
+						</ul>
+						
+					</li>
+					<!--  -->
+					<li><a href="se.html" class='menu_principal' >SE</a>
+						
+					</li>
+					
+					<li><a href="#" class='menu_principal' >No3</a>
+						<ul class="submenu">
+							<li><a href="contaminacion_nitratos.html">La contaminación del agua por nitratos</a></li>
+							
+							<li><a href="contaminacion_aguas.html">Contaminación de las aguas</a>
+								
+							</li>
+						</ul>
+					</li>
+					
+					<li><a href="acerca_de.html" class='menu_principal'>Acerca de</a>
+						
+					</li>
+					
+					
+				</ul>
+				</div>
+	
+					
+   </div><!--Menu-->
+
+		
+   </div> 
+
+  
+  
+<div id='principal' class="divPrincipal">
+
+   
+
+
+	
+	
+	<div id='imgSE'>
+		<div id="main_container">
+			<div id='drag'>
+			<div id="layout_table" class="grid_table" >
+							<div id="fila1">
+				
+																					<div id="celda1" class="grid_celda">
+																											<div id="barra_opciones" >
+																											
+																													<table>
+																																<colgroup>
+																																	<col  />
+																																</colgroup>
+																																<tbody>
+																																	<tr><td class="dark">
+																																	<div id="icono_poblacion" class="drag green clone"><img id='poblacion' src="imagenes/ciudad3.png" alt="" height="60" width="60" /></div>
+																																	
+																																	</td></tr>
+																																	<tr><td class="dark"><div id="icono_ganadera" class="drag green clone"><img id='ganadera' src="imagenes/vaca3.png" alt="" height="60" width="60" /></div></td></tr>
+																																	<tr><td class="dark"><div id="icono_agricola" class="drag green clone">  <img id='granja_agricola' src="imagenes/granja3.png" alt="" height="60" width="60" />  </div> </td></tr>
+																																	
+																																	
+																																</tbody>
+																																
+																													</table>
+																														<button>Ejecutar  Reglas</button> 
+																											</div>	
+																											
+																							
+																						</div>
+							
+							
+																						<div id="celda2" class="grid_celda">	
+																						
+																						<!-- <div style="border:1px #4AD solid; ">
+																						safafafas
+																						</div> -->
+																										<div id='costado_del_rio'>
+																										
+																												<table>
+																													<!-- <colgroup>
+																														<col />
+																													</colgroup> -->
+																													<tbody>
+																													
+																														<tr> <td class="dark" >     </td> </tr>
+																														<tr> <td class="dark" > </td></tr>
+																														<tr> <td class="dark" > </td></tr>
+																														<tr> <td class="dark" > </td> </tr>
+																														<tr> <td class="dark" > </td> </tr>
+																														<tr> <td class="dark" > </td> </tr>
+																														<tr> <td class="dark" > </td> </tr>
+																														<tr> <td class="dark" > </td> </tr>
+																														<tr> <td class="dark" > </td> </tr>
+																														<tr> <td class="dark" > </td> </tr>
+																														<tr> <td class="dark" > </td> </tr>
+																														
+																														
+																													</tbody>
+																												</table>	
+																												
+																										</div>
+																					</div>
+					
+				
+				
+				</div> 
+			</div> <!--- layout_table-->
+		</div>
+	</div> 
+
+	</div>
+
+</div><!--Principal-->
+
+<!--
+<div class='divPiePagina'></div>
+-->
+
+</div><!--Wrapper-->
+
+
+<div id="dialog-form" title="Create new user">
+	<p class="validateTips">All form fields are required.</p>
+
+	<form>
+	<fieldset>
+		<label for="name">Name</label>
+		<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
+		
+	</fieldset>
+	</form>
+</div>
+
+
+		
+       
+       <div id="backgroundPopup"></div>
+		<!---///-->	
+</body>
+
+
+
+
+</html>

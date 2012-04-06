@@ -1,0 +1,52 @@
+/* Reset */
+			
+			.divMenu
+			{
+				text-align:left;
+			}
+			
+			ul .menu_des li  a:hover, ul .menu_des li  a:active {
+				background-color: #f93;
+				
+				
+			}
+			
+			.menu_des li 
+			{	
+				position: relative;
+				display: inline;
+				margin-left:10px;
+				padding-top:10px;
+				
+				background-color: #f93;
+				
+				/*border: solid #ff0000;*/
+				border-radius: 10px;
+				
+			}
+			
+			.menu_des li  ul  a
+			{	
+				
+				display:block;
+				border: solid #ff0000;
+				padding-right:20px;
+				
+				margin-left:0px;
+				
+				
+			}
+			
+			ul  li  ul  {
+				
+				border:1 solid #ff3300;
+				
+				position: absolute;
+				display: none;
+				padding:0px;
+				
+				background-color: #f93;
+			}
+			
+			
+			
