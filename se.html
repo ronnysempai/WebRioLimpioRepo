@@ -164,7 +164,13 @@
 																																</colgroup>
 																																<tbody>
 																																	<tr><td class="dark">
-																																	<div id="icono_poblacion" class="drag green clone"><img id='poblacion' src="imagenes/ciudad3.png" alt="" height="60" width="60" /></div>
+																																	<div id="icono_poblacion" class="drag green clone"> 
+																																		<a id="toolTip" class="toolTip"  href="#">
+																																		<img id='poblacion' src="imagenes/ciudad3.png" alt="" height="60" width="60" />
+																																		<span>Poblacion o sector urbano</span>
+																																		</a>
+																																		
+																																	</div>
 																																	
 																																	</td></tr>
 																																	<tr><td class="dark"><div id="icono_ganadera" class="drag green clone"><img id='ganadera' src="imagenes/vaca3.png" alt="" height="60" width="60" /></div></td></tr>
@@ -251,6 +257,14 @@
 </body>
 
 
-
+<script>
+$("#icono_poblacion").tooltip({ 
+    track: true, 
+    delay: 0, 
+    showURL: false, 
+    showBody: " - ", 
+    fade: 250 
+});
+</script>
 
 </html>
