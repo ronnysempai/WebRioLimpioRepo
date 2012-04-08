@@ -213,7 +213,7 @@ color:#080809;  //#6c6c6c;
 		-moz-border-radius: 4px; /* FF */
 		/* border:10px green solid; */
 		
-		cursor: move;
+		
 		
 		filter: alpha(opacity=70);
 		/*opacity: 0.9;*/
@@ -228,7 +228,10 @@ color:#080809;  //#6c6c6c;
 
 }
 
-
+.drag a
+{
+	cursor: move;
+}
 
 /* green objects */
 .green 

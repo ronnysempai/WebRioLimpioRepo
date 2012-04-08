@@ -3,7 +3,7 @@
     z-index:999;
     left:-9999px;
     background-color:#dedede;
-    padding:5px;
+    padding:2px;
     border:1px solid #fff;
     width:250px;
 }
@@ -14,4 +14,10 @@
     color:#fff;
     background-color:#222;
     padding:2px 7px;
+}
+
+.tooltip span
+{
+color:yellow;
+font-size:12px;
 }
