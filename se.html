@@ -28,6 +28,8 @@
 	
 	<script src="modal_form/modal_form.js"></script>
 	
+	<script src="Tooltip/scriptToolTip.js"></script>
+	
 	<script src="js/efectosRioLimpio.js"></script>
 	
 	<script src="js/mouse.js"></script>
@@ -64,7 +66,7 @@
 
 <link rel="stylesheet" type="text/css" href="CSS/estilo_efecto.css" />
 
-
+<link rel="stylesheet" type="text/css" href="Tooltip/styleTooltip.css" />
 
 
 
@@ -164,14 +166,14 @@
 																																</colgroup>
 																																<tbody>
 																																	<tr><td class="dark">
-																																	<div id="icono_poblacion" class="drag green clone"> 
-																																		<a id="toolTip" class="toolTip"  href="#">
-																																		<img id='poblacion' src="imagenes/ciudad3.png" alt="" height="60" width="60" />
-																																		<span>Poblacion o sector urbano</span>
-																																		</a>
-																																		
-																																	</div>
 																																	
+																																		<div id="icono_poblacion" class="drag green clone"> 
+																																				
+																																				<img id='poblacion' title="Poblacion" src="imagenes/ciudad3.png" alt="" height="60" width="60" />
+																																				
+																																		</div>
+																																		
+																																	</a>
 																																	</td></tr>
 																																	<tr><td class="dark"><div id="icono_ganadera" class="drag green clone"><img id='ganadera' src="imagenes/vaca3.png" alt="" height="60" width="60" /></div></td></tr>
 																																	<tr><td class="dark"><div id="icono_agricola" class="drag green clone">  <img id='granja_agricola' src="imagenes/granja3.png" alt="" height="60" width="60" />  </div> </td></tr>
@@ -257,14 +259,6 @@
 </body>
 
 
-<script>
-$("#icono_poblacion").tooltip({ 
-    track: true, 
-    delay: 0, 
-    showURL: false, 
-    showBody: " - ", 
-    fade: 250 
-});
-</script>
+
 
 </html>
