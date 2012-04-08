@@ -40,13 +40,33 @@ redips_init = function ()
 			obj_old = rd.obj_old,	// previous element (this is clone element)
 			tac = rd.target_cell;	// target cell
 		// disable dropped DIV element
+		
+		var substring_id;
+		var tags_a;
+		
 		rd.enable_drag(false, obj.id);
 		
 		//alert(obj.id);
-		obj.setAttribute('onClick','alert('+obj.id+')')
 		
-		obj.setAttribute('style','border:1px blue solid; cursor:pointer;');
 		
+		obj.setAttribute('onClick',"alert('aaa')")
+		
+		
+		obj.setAttribute('style','border:1px blue solid; ');
+		
+		if(obj.id!=null)
+	   {	substring_id=obj.id.substring( (obj.id.length-1) -1 )
+			
+			if( substring_id.charAt(0)=='c')
+			{	
+				
+				tags_a=obj.getElementsByTagName('a');
+				
+				if(tags_a!=null)
+				tags_a[0].style.cursor='pointer';
+				
+			}
+		}
 		
 		$( "#name" ).val(obj.id);
 		$( "#dialog-form" ).dialog( "open" );
@@ -56,7 +76,10 @@ redips_init = function ()
 	
 };
 
-
+function test()
+{
+	
+}
 
 // add onload event listener
 if (window.addEventListener) {

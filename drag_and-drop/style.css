@@ -11,50 +11,7 @@ div#drag td,th
 	padding: 2px;
 }
 
-/******************************/
-/*  Estilos para toolTip     */
-/******************************/
-a.toolTip
-{
-text-decoration:none;
-}
 
-a.toolTip img
-{
-		border:none;
-		cursor: move;
-}
-
-a.toolTip span
-{
-	
-	/* border-radius: 5px; */
-	font-size:10px;
-	font-weight: bold;
-	
-	display:none; 
-	
-	/* height:100px; */
-	
-	margin-left:8px; 
-	
-	/* opacity: 0.8; */
-	padding:0px;
-	
-	width:150px;
-	
-	
-}
-
-a.toolTip:hover span 
-{
-display:inline; 
-position:absolute; 
-background:#C3C9CB;  
-border:3px groove #0000FF; 
-color:#080809;  //#6c6c6c;
-}
-/*/**************/
 
 
 
@@ -230,7 +187,7 @@ color:#080809;  //#6c6c6c;
 
 .drag a
 {
-	cursor: move;
+	cursor: move; 
 }
 
 /* green objects */
