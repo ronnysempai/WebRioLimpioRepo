@@ -152,8 +152,8 @@ div#drag td,th
 
 .dark td
 {
-	/* border:1px  #00FF00 solid; */
-	border:1px  #B6D627 solid;
+	 border:1px  yellow solid; 
+	/* border:1px  #B6D627 solid; */
 }
 
 /* drag objects (DIV inside table cells) */

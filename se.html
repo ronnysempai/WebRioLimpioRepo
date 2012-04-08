@@ -30,6 +30,9 @@
 	
 	<script src="Tooltip/scriptToolTip.js"></script>
 	
+	<script src="MenuContextual/jquery.contextmenu.r2.js"></script>
+	<script src="MenuContextual/scriptMenuContextual.js"></script>
+	
 	<script src="js/efectosRioLimpio.js"></script>
 	
 	<script src="js/mouse.js"></script>
@@ -80,7 +83,41 @@
 </head>
 
 <body onload='efectoDespliegaAbajo()'>
+		<!-- Div para menu contextual-->
+									<div class="contextMenu" id="myMenu2">
 
+												<ul>
+
+												  <li id="item_1" onClick="alert('menu1')">Item 1</li>
+
+												  <li id="item_2">Item 2</li>
+
+												  <li id="item_3">Item 3</li>
+
+												  <li id="item_4">Item 4</li>
+
+												  <!-- etc... -->
+
+												</ul>
+
+								</div>
+								
+								<div class="contextMenu" id="myMenu1">
+
+												<ul>
+
+												  <li id="editar"><img src="folder.png" /> Editar</li>
+
+												  <li id="email"><img src="email.png" /> Email</li>
+
+												  <li id="save"><img src="disk.png" /> Save</li>
+
+												  <li id="eliminar"><img src="cross.png" /> Eliminar</li>
+
+												</ul>
+
+								</div>
+		<!--  ------->
 <div class="divWrapper">
 
 			<div id="nubes1" >
@@ -165,27 +202,27 @@
 																																	<col  />
 																																</colgroup>
 																																<tbody>
-																																	<tr><td class="dark">
+																																	<tr><td >
 																																	
 																																		<div id="icono_poblacion" class="drag green clone"> 
 																																				<a href="#" title="Poblacion <span>( Fuente Puntual )</span>">
-																																				<img id='poblacion' title="" src="imagenes/ciudad3.png" alt="" height="60" width="60" />
+																																				<img id='imgPoblacionBarraOpciones' class=''  title="" src="imagenes/ciudad3.png" alt="" height="60" width="60" />
 																																				</a>
 																																		</div>
 																																		 
 																																	
 																																	</td></tr>
-																																	<tr><td class="dark">
+																																	<tr><td >
 																																			<div id="icono_ganadera" class="drag green clone">
 																																				<a href="#" title="Actividad Ganadera <span>( Fuente No Puntual )</span>">
-																																				<img id='ganadera' src="imagenes/vaca3.png" alt="" height="60" width="60" />
+																																				<img id='imgActividadGanaderaBarraOpciones' src="imagenes/vaca3.png" alt="" height="60" width="60" />
 																																				</a>
 																																			</div>
 																																	</td></tr>
-																																	<tr><td class="dark">
+																																	<tr><td >
 																																			<div id="icono_agricola" class="drag green clone">  
 																																				<a href="#" title="Actividad Agricola <span>( Fuente No Puntual )</span>">
-																																				<img id='granja_agricola' src="imagenes/granja3.png" alt="" height="60" width="60" />  
+																																				<img id='imgActividadAgricolaBarraOpciones' src="imagenes/granja3.png" alt="" height="60" width="60" />  
 																																				</a>
 																																			</div>
 																																	</td></tr>
@@ -195,6 +232,7 @@
 																																
 																													</table>
 																														<button>Ejecutar  Reglas</button> 
+																														
 																											</div>	
 																											
 																							
