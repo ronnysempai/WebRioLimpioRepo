@@ -49,7 +49,7 @@ redips_init = function ()
 		//alert(obj.id);
 		
 		
-		obj.setAttribute('onClick',"alert('aaa')")
+		
 		
 		
 		obj.setAttribute('style','border:1px blue solid; ');
@@ -71,6 +71,12 @@ redips_init = function ()
 		$( "#name" ).val(obj.id);
 		$( "#dialog-form" ).dialog( "open" );
 		
+		
+	};
+	
+	rd.myhandler_deleted = function () {
+	
+		alert('deleted ...')
 		
 	};
 	

@@ -8,8 +8,8 @@ $(document).ready(function() {
 
           'editar': function(t) {
 
-            alert('Trigger was '+t.id+'\nAction was Open');
-
+            //alert('Trigger was '+t.id+'\nAction was Open');
+			$( "#dialog-form" ).dialog( "open" );
           },
 
           'email': function(t) {
