@@ -54,16 +54,29 @@ redips_init = function ()
 		
 		obj.setAttribute('style','border:1px blue solid; ');
 		
+		
 		if(obj.id!=null)
 	   {	substring_id=obj.id.substring( (obj.id.length-1) -1 )
+			
 			
 			if( substring_id.charAt(0)=='c')
 			{	
 				
+				
+				
 				tags_a=obj.getElementsByTagName('a');
+				
 				
 				if(tags_a!=null)
 				tags_a[0].style.cursor='pointer';
+				
+				
+				tags_a[0].setAttribute('id','a_'+obj.id);
+				
+				
+				$('#a_'+obj.id).addClass('menuContextual');
+				
+				 inicializacionMenuContextual(obj.id);
 				
 			}
 		}
@@ -74,13 +87,15 @@ redips_init = function ()
 		
 	};
 	
-	rd.myhandler_deleted = function () {
 	
-		alert('deleted ...')
-		
-	};
 	
 };
+
+function eliminarElemento(id)
+{
+	$( "#"+id ).detach();
+	
+}
 
 function test()
 {

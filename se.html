@@ -33,6 +33,7 @@
 	<script src="MenuContextual/jquery.contextmenu.r2.js"></script>
 	<script src="MenuContextual/scriptMenuContextual.js"></script>
 	
+	
 	<script src="js/efectosRioLimpio.js"></script>
 	
 	<script src="js/mouse.js"></script>
@@ -84,35 +85,17 @@
 
 <body onload='efectoDespliegaAbajo()'>
 		<!-- Div para menu contextual-->
-									<div class="contextMenu" id="myMenu2">
 
-												<ul>
-
-												  <li id="item_1" onClick="alert('menu1')">Item 1</li>
-
-												  <li id="item_2">Item 2</li>
-
-												  <li id="item_3">Item 3</li>
-
-												  <li id="item_4">Item 4</li>
-
-												  <!-- etc... -->
-
-												</ul>
-
-								</div>
 								
 								<div class="contextMenu" id="myMenu1">
 
 												<ul>
 
-												  <li id="editar"><img src="folder.png" /> Editar</li>
+												  <li id="editar"> Editar</li>
 
-												  <li id="email"><img src="email.png" /> Email</li>
+												 
 
-												  <li id="save"><img src="disk.png" /> Save</li>
-
-												  <li id="eliminar"><img src="cross.png" /> Eliminar</li>
+												  <li id="eliminar"> Eliminar</li>
 
 												</ul>
 
@@ -205,8 +188,8 @@
 																																	<tr><td >
 																																	
 																																		<div id="icono_poblacion" class="drag green clone"> 
-																																				<a href="#" title="Poblacion <span>( Fuente Puntual )</span>">
-																																				<img id='imgPoblacionBarraOpciones' class=''  title="" src="imagenes/ciudad3.png" alt="" height="60" width="60" />
+																																				<a  href="#" title="Poblacion <span>( Fuente Puntual )</span>">
+																																				<img  class=''  title="" src="imagenes/ciudad3.png" alt="" height="60" width="60" />
 																																				</a>
 																																		</div>
 																																		 
@@ -215,14 +198,14 @@
 																																	<tr><td >
 																																			<div id="icono_ganadera" class="drag green clone">
 																																				<a href="#" title="Actividad Ganadera <span>( Fuente No Puntual )</span>">
-																																				<img id='imgActividadGanaderaBarraOpciones' src="imagenes/vaca3.png" alt="" height="60" width="60" />
+																																				<img  src="imagenes/vaca3.png" alt="" height="60" width="60" />
 																																				</a>
 																																			</div>
 																																	</td></tr>
 																																	<tr><td >
 																																			<div id="icono_agricola" class="drag green clone">  
 																																				<a href="#" title="Actividad Agricola <span>( Fuente No Puntual )</span>">
-																																				<img id='imgActividadAgricolaBarraOpciones' src="imagenes/granja3.png" alt="" height="60" width="60" />  
+																																				<img  src="imagenes/granja3.png" alt="" height="60" width="60" />  
 																																				</a>
 																																			</div>
 																																	</td></tr>
@@ -231,7 +214,7 @@
 																																</tbody>
 																																
 																													</table>
-																														<button>Ejecutar  Reglas</button> 
+																														<button id='bto'>Ejecutar  Reglas</button> 
 																														
 																											</div>	
 																											
@@ -252,7 +235,7 @@
 																													</colgroup> -->
 																													<tbody>
 																													
-																														<tr> <td class="dark" >     </td> </tr>
+																														<tr> <td  class="dark " >     </td> </tr>
 																														<tr> <td class="dark" > </td></tr>
 																														<tr> <td class="dark" > </td></tr>
 																														<tr> <td class="dark" > </td> </tr>
@@ -294,8 +277,11 @@
 
 	<form>
 	<fieldset>
-		<label for="name">Name</label>
-		<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
+		
+		<div id='contenido_formulario_modal'>
+			<label  id="etiqueta" for="name"   >Name</label>
+			<input type="text"  name="name" id="name" class="text ui-widget-content ui-corner-all" />
+		</div>
 		
 	</fieldset>
 	</form>
@@ -307,6 +293,13 @@
        <div id="backgroundPopup"></div>
 		<!---///-->	
 </body>
+
+ <script>
+ //$(".menuContextual").css("border","13px solid red")
+ //$('#etiqueta') .addClass('menuContextual');
+ </script>
+ 
+//
 
 
 
