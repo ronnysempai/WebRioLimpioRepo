@@ -93,6 +93,9 @@ redips_init = function ()
 
 function eliminarElemento(id)
 {
+	var elimina=false;
+	 elimina=confirm("Esta seguro de eliminar el elemento?");
+	if(elimina)
 	$( "#"+id ).detach();
 	
 }

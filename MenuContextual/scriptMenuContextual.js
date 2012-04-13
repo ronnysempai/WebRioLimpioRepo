@@ -29,7 +29,7 @@
 
 					  'eliminar': function(t) {
 
-						alert('Trigger was '+t.id+'\nAction was Delete');
+						
 						eliminarElemento(''+t.id);
 
 					  }
