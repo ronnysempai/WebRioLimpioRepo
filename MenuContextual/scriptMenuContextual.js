@@ -11,7 +11,7 @@
 					  'editar': function(t) {
 
 						//alert('Trigger was '+t.id+'\nAction was Open');
-						$( "#dialog-form" ).dialog( "open" );
+						cargarFormulario(t.id);
 					  },
 
 					  'email': function(t) 

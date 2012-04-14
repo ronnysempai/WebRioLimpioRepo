@@ -77,6 +77,8 @@ redips_init = function ()
 				$('#a_'+obj.id).addClass('menuContextual');
 				
 				 inicializacionMenuContextual(obj.id);
+				 
+				  cargarFormulario(obj.id)
 				
 			}
 		}
