@@ -107,9 +107,9 @@ class ConjuntoDifuso extends Fact
 		
 		function calculoGradoPertenenciaCortado($valorPertenenciaCorte)
 		{
-			var $gradoPertenencia=0;
+			$gradoPertenencia=0;
 				
-				$gradoPertenencia=calculaGradoPertenencia($valorNoDifuso)
+				$gradoPertenencia=calculaGradoPertenencia($valorNoDifuso);
 		
 			if ( $gradoPertenencia  >=$valorPertenenciaCorte )
 				return $valorPertenenciaCorte;

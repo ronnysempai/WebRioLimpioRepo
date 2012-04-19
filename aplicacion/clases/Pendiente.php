@@ -22,9 +22,15 @@ Class Pendiente extends Fact
 		 }
 		
 	
-		function setconjuntosDifusos($conjuntosDifusos)
+		function setConjuntosDifusos($conjuntosDifusos)
 		{
-			
+			$this->conjuntosDifusos=$conjuntosDifusos;
+		}
+		
+		function getPorcentaje()
+		{
+			return $this->porcentaje;	
+		
 		}
 		
 		

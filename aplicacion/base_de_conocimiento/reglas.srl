@@ -1,0 +1,27 @@
+
+rule "Regla1" priority=1
+	context Pendiente $p
+	if $p->porcentaje >= 10 && $p->porcentaje <= 30
+	then 
+		echo '<p>ruler 1</p>';
+		
+	end
+
+rule "Regla2" priority=2
+	context Pendiente $p
+	if $p->porcentaje >= 15 
+	then 
+		echo '<p>ruler 2</p>';
+		
+		echo ' '.$p->porcentaje;
+		
+	end
+
+rule "Regla3" priority=3
+	context Pendiente $p
+	if $p->conjuntosDifusos != null 
+	then 
+		echo '<p>ruler 3</p>';
+		$p->conjuntosDifusos = null;
+		echo ' '.$p->porcentaje;
+	end
