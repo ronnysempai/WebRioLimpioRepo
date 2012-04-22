@@ -5,7 +5,7 @@
 		var $invocationCount = array();
 		
 		var $verbosity = 0;
-		var $maxRulesFiring = 100;
+		var $maxRulesFiring = 1;
 		var $maxFiringPerRule = 0; // 0 is unlimited
 		
 	    function RuleSession(&$ruleBase,&$workingMemory) {
