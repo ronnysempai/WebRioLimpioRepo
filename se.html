@@ -26,7 +26,11 @@
 	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.dialog.js"></script>
 	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.effects.core.js"></script>
 	
-	<script src="modal_form/modal_form.js"></script>
+	
+	<script src="carga_datos/clases.js"></script>
+	<script src="carga_datos/scriptEventos.js"> </script>
+	
+	<script src="modal_form/modal_form.js"> </script>
 	
 	<script src="Tooltip/scriptToolTip.js"></script>
 	
@@ -75,9 +79,9 @@
 
 
 
-		<script type="text/javascript" src="drag_and-drop/redips-drag-min.js"></script>
-		<script type="text/javascript" src="drag_and-drop/script.js"></script>
-<link rel="stylesheet" type="text/css" href="drag_and-drop/style.css" />
+		<script type="text/javascript" src="drag_and_drop/redips-drag-min.js"></script>
+		<script type="text/javascript" src="drag_and_drop/script.js"></script>
+<link rel="stylesheet" type="text/css" href="drag_and_drop/style.css" />
 <title>Aplicacion SE</title>
 
 
@@ -214,7 +218,7 @@
 																																</tbody>
 																																
 																													</table>
-																														<button id='bto'>Ejecutar  Reglas</button> 
+																														<button id='bto' onclick='mostrarArray()'>Ejecutar  Reglas</button> 
 																														
 																											</div>	
 																											
@@ -274,7 +278,7 @@
 
 <div id="dialog-form" title="Ingreso Datos">
 	<p class="validateTips">All form fields are required.</p>
-
+<input type="hidden"  name="idCapa" id="idCapaElemento" />
 	<!-- <form  > -->
 	<fieldset>
 		

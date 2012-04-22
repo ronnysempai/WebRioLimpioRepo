@@ -53,6 +53,18 @@
 								"Aceptar": function() {
 									var bValid = true;
 									
+									if( $( "#ui-dialog-title-dialog-form" ).html()=="Actividad Agricola")
+										almacenarElementoActividadAgricola($('#cultivo').val(),$('#numero_hectareas').val(),$('#clima').val(), $('#pendiente').val())
+									else
+									if( $( "#ui-dialog-title-dialog-form" ).html()=="Actividad Ganadera")
+										 almacenarElementoActividadGanadera($('#numero_animales').val())
+									else
+										if( $( "#ui-dialog-title-dialog-form" ).html()=="Poblacion")
+										almacenarElementoPoblacaion($('#numero_habitantes').val() )
+									
+									$( this ).dialog( "close" );
+									
+									
 									
 								},
 								"Cancelar": function() {
@@ -143,6 +155,7 @@
 		{
 					
 					cargaFormularioPorTipoFuenteContaminacion(id_fuente_contaminacion)
+					$( "#idCapaElemento" ).val(id_fuente_contaminacion);
 						$( "#dialog-form" ).dialog( "open" );
 		
 		}

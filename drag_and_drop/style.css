@@ -1,0 +1,241 @@
+
+
+
+/* table cells */
+div#drag td,th
+{
+	/*border-style: solid;*/
+	height: 50px;
+	text-align: center;
+	font-size: 10pt;
+	padding: 2px;
+}
+
+
+
+
+
+#barra_opciones
+{
+	
+	/* background-color: #636271; */ 
+	background-color:#3F4C6B;   /* ///#0c650c; */
+	
+	/* border:1px  #dfdc0a solid; */
+	/*  border: 1px #f83a07 solid; */
+	
+	border: 3px #d7d3d2 solid;
+	 border-radius: 8px;
+	/* box-shadow: 5px 9px 10px rgb(0,0,0,0.5); */
+	box-shadow: 5px 9px 10px rgb(248,15,7,0.9);
+	height: 300px;
+	margin-left:10px;
+	margin-top:10px;
+	
+	opacity: 0.8;
+	
+	
+	
+	width: 100px;
+	
+	
+
+	
+}
+
+#barra_opciones button
+	{
+		margin-top:45px;
+		
+	}
+
+#barra_opciones table 
+	{
+		
+		
+		margin-left:15px;
+		
+		
+	}
+
+
+	#barra_opciones td
+	{
+		border-style: 1px #444 solid;
+		
+		
+		
+	}
+
+	#celda1
+	{
+		margin-left:5px;
+	}
+
+	
+	#celda2
+	{
+		/* border:3px gray solid; */
+		margin-left:75px;
+	}
+		
+	
+	#costado_del_rio
+	{	
+		
+		/* border:1px  #800000 solid ; */
+		margin:1px 3px;
+		width:80px;
+		
+	}
+	
+	
+	
+	#costado_del_rio table
+	{	
+		/* border:1px  yellow solid ; */
+	}
+		
+	#costado_del_rio td
+	{	
+	
+		 /* border:1px  #444 solid ;  */
+		
+		height:60px;
+		width:60px;
+	
+		
+	}
+	
+	
+	
+	#fila1
+	{
+		/* border:1px  #444 solid ; */
+		text-align:left;
+	
+	}
+	
+		/* message line */
+	#message
+	{
+		background-color: #aaa;
+		color: white;
+		margin-top: 10px;
+		text-align: center;
+		
+	}
+
+
+/* blank cells (upper left corner) */
+	.blank 
+	{
+		background-color: white;
+		
+	}
+
+
+
+/* dark cells (first column and table header) */
+.dark
+{
+	color: #848484;
+	
+	height:90px;
+	
+
+	
+	width:60px;
+	
+	
+}
+
+.dark td
+{
+	 border:1px  yellow solid; 
+	/* border:1px  #B6D627 solid; */
+}
+
+/* drag objects (DIV inside table cells) */
+.drag
+{
+		
+		/*background-color: white;*/
+		/*height: 40px;*/
+		
+		/* round corners */
+		/* without width, IE6/7 will not apply filter/opacity to the element ?! */
+		
+		border-radius: 4px; /* Opera, Chrome */
+		-moz-border-radius: 4px; /* FF */
+		/* border:10px green solid; */
+		
+		
+		
+		filter: alpha(opacity=70);
+		/*opacity: 0.9;*/
+		font-size: 25pt; /* needed for cloned object */
+		
+		height: 60px;
+		line-height: 40px;
+		margin: auto;
+		text-align: center;
+		width: 60px;
+		/* z-index: 10; */
+
+}
+
+.drag a
+{
+	cursor: move; 
+}
+
+/* green objects */
+.green 
+{
+	border: 2px solid #499B33;
+}
+
+
+.grid_celda
+{
+		/*border: 1px  solid  blue;*/
+		display:inline-block; 
+		
+		
+		min-height: 350px;
+	
+		vertical-align: top;
+		
+		
+}
+
+.grid_fila
+{
+		display: table-row;
+		
+		border: 1px  solid  blue;
+}
+
+
+.grid_table
+{
+	/*
+	border:1px  #444 solid ;
+	text-align:left;
+	*/
+}
+	
+	
+/* last row and last column without border */
+.noborder
+{
+
+	border-width: 0px;
+}
+
+
+
+	
+	
+
