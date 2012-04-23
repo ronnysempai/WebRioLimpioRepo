@@ -160,6 +160,48 @@
 		
 		}
 		
+		function cargarDatosFormArray(idCapa)
+		{
+				
+					for (i=0;i<arrayActividadAgricola.length;i++)
+					{
+							if(arrayActividadAgricola[i]!=null)
+							if (arrayActividadAgricola[i].getIdCapa()== idCapa)
+							{	$( "#idCapaElemento" ).val(idCapa);
+								$( "#cultivo" ).val(''+arrayActividadAgricola[i].getCultivo());
+								$( "#numero_hectareas" ).val(''+arrayActividadAgricola[i].getNumeroHectareas());
+								$( "#clima" ).val(''+arrayActividadAgricola[i].getEstadoClima());
+								$( "#pendiente" ).val(''+arrayActividadAgricola[i].getPendiente());
+								return;
+							}
+					}		 
+					
+					for (i=0;i<arrayActividadGanadera.length;i++)
+					{
+							if(arrayActividadGanadera[i]!=null)
+							if (arrayActividadGanadera[i].getIdCapa()== idCapa)
+							{	$( "#idCapaElemento" ).val(idCapa);
+								
+								$( "#numero_animales" ).val(''+arrayActividadGanadera[i].getNumeroAnimales());
+								
+								return;
+							}
+					}		 
+					
+					for (i=0;i<arrayPoblacion.length;i++)
+					{		
+							if(arrayPoblacion[i]!=null)
+							if (arrayPoblacion[i].getIdCapa()== idCapa)
+							{	$( "#idCapaElemento" ).val(idCapa);
+								
+								$( "#numero_habitantes" ).val(''+arrayPoblacion[i].getNumeroHabitantes());
+								
+								return;
+							}
+					}		 
+		
+		}
+		
 		function cargaFormularioPorTipoFuenteContaminacion(id)
 		{
 			var  id_cortado;
@@ -175,6 +217,8 @@
 			else
 			if(id_cortado=='ganadera')
 				agregarElementosFormularioActividadGanadera();
+				
+			 cargarDatosFormArray(id);	
 		}
 		
 		$(function() {

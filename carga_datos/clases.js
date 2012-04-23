@@ -26,6 +26,10 @@ function ActividadAgricola(cultivo,numeroHectareas,estadoClima,pendiente)
 		return this.estadoClima;
 		};
 		 
+		 this.getPendiente= function() {
+		return this.pendiente;
+		};
+		 
 		 
 		 this.setIdCapa = function(idCapa) {
 		this.idCapa = idCapa;
