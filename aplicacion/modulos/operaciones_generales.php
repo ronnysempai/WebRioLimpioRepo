@@ -87,5 +87,28 @@
 	print_r($actividadAgricola2);
 	echo '<p>---</p>';
 	
+				/*
+				$str_obj_json = '{
+			   "elemento1": "valor1",
+			   "elemento2": 22,
+			   "elemento3": null,
+			   "masCosas": {
+				  "voy": "ahora",
+				  "vengo": "ya"
+			   }
+			}';
+			
+			*/
+			/*
+			
+			$str_obj_json ='[ {"nombre": "valor"} , {"idCapa":"idcdf","nombre": "valor"} ]';
+			
+			
+			$obj_php = json_decode($str_obj_json);
+			
+			echo '<div> JSON </div>';
+			print_r($obj_php);
+			echo '<p>'.$obj_php[1]->idCapa.'</p>';
+			*/
 	
 ?>

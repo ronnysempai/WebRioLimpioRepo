@@ -110,9 +110,134 @@ var arrayPoblacion=new Array();
 				if(arrayPoblacion[i]!=null)
 				poblacion=poblacion+' '+arrayPoblacion[i].getIdCapa();
 		}		
+		
+		//var str = '{"id":1,"name":"Test1"},{"id":2,"name":"Test2"}';
+		var str = '{"idCapa":"'+arrayActividadAgricola[0].idCapa+'","cultivo":"'+arrayActividadAgricola[0].cultivo+'"},{"numHab":'+arrayPoblacion[0].numeroHabitantes+'}';
+		var jsonObj = $.parseJSON('[' + str + ']');
+
 
 		
-		alert ( ' \n'+agricola+'\n '+ganadera+'\n '+poblacion )
+		alert ( ' \n'+agricola+'\n '+ganadera+'\n '+poblacion+'\n '+jsonObj[1].numHab )
 		
 		
+	}
+	
+	
+	function codificacionJSONDeArreglos()
+	{
+		
+		var cad='';
+		
+		if(arrayActividadAgricola!=null)
+		for (i=0;i<arrayActividadAgricola.length;i++)
+		{
+			
+				if(arrayActividadAgricola[i]!=null)
+				{
+					cad+='{';
+					cad += ' "idCapa": ';
+					cad += ' "'+arrayActividadAgricola[i].getIdCapa()+'" ';
+					
+					cad += ' "cultivo": ';
+					cad += ' "'+arrayActividadAgricola[i].getCultivo()+'" ';
+					
+					cad += ' "numeroHectareas": ';
+					cad += ' "'+arrayActividadAgricola[i].getNumeroHectareas()+'" ';
+					
+					cad += ' "estadoClima": ';
+					cad += ' "'+arrayActividadAgricola[i].getestadoClima()+'" ';
+					
+					cad += ' "pendiente": ';
+					cad += ' "'+arrayActividadAgricola[i].getPendiente()+'" ';
+					
+					cad+='}';
+				
+				if (i < arrayActividadAgricola.length - 1) 
+				{
+					cad += ',';
+				}
+				
+
+			}
+		}		 
+		
+		
+		if(arrayActividadGanadera!=null)
+		for (i=0;i<arrayActividadAgricola.length;i++)
+		{
+			
+				if(arrayActividadAgricola[i]!=null)
+				{
+					cad+='{';
+					cad += ' "idCapa": ';
+					cad += ' "'+arrayActividadAgricola[i].getIdCapa()+'" ';
+					
+					cad += ' "cultivo": ';
+					cad += ' "'+arrayActividadAgricola[i].getCultivo()+'" ';
+					
+					cad += ' "numeroHectareas": ';
+					cad += ' "'+arrayActividadAgricola[i].getNumeroHectareas()+'" ';
+					
+					cad += ' "estadoClima": ';
+					cad += ' "'+arrayActividadAgricola[i].getestadoClima()+'" ';
+					
+					cad += ' "pendiente": ';
+					cad += ' "'+arrayActividadAgricola[i].getPendiente()+'" ';
+					
+					cad+='}';
+				
+				if (i < arrayActividadAgricola.length - 1) 
+				{
+					cad += ',';
+				}
+				
+
+			}
+			
+			
+			
+		}
+		
+		
+		if(arrayActividadGanadera!=null)
+		for (i=0;i<arrayactividadGanadera.length;i++)
+		{
+			
+				if(arrayactividadGanadera[i]!=null)
+				{
+					cad+='{';
+					cad += ' "idCapa": ';
+					cad += ' "'+arrayactividadGanadera[i].getIdCapa()+'" ';
+					
+					
+					cad += ' "numeroAnimales": ';
+					cad += ' "'+arrayactividadGanadera[i].getNumeroAnimales()+'" ';
+					
+					
+					cad+='}';
+				
+				if (i < arrayactividadGanadera.length - 1) 
+				{
+					cad += ',';
+				}
+				
+
+			}
+			
+			
+			
+		}
+		
+		
+		//var str = '{"id":1,"name":"Test1"},{"id":2,"name":"Test2"}';
+		var str = '{"idCapa":"'+arrayActividadAgricola[0].idCapa+'","cultivo":"'+arrayActividadAgricola[0].cultivo+'"},{"numHab":'+arrayPoblacion[0].numeroHabitantes+'}';
+		var jsonObj = $.parseJSON('[' + str + ']');
+
+
+		
+		alert ( ' \n'+agricola+'\n '+ganadera+'\n '+poblacion+'\n '+jsonObj[1].numHab )
+		
+		
+		
+	
 	}
