@@ -176,6 +176,21 @@
 			if(id_cortado=='ganadera')
 				agregarElementosFormularioActividadGanadera();
 		}
+		
+		$(function() {
+							$( "#dialog" ).css("color","green");
+							
+							$( "#dialog" ).css("font-weight","bold");
+							$( "#dialog" ).css("margin-right","50px");
+							$( "#ui-dialog-title-dialog" ).css('color','"red')
+							
+		});
+		
+		function mostrarResultados()
+		{
+			$( "#dialog" ).dialog();
+		
+		}
 			
 			
 			/* fin prueba */
