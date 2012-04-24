@@ -53,17 +53,7 @@
 								"Aceptar": function() {
 									var bValid = true;
 									
-									if( $( "#ui-dialog-title-dialog-form" ).html()=="Actividad Agricola")
-										almacenarElementoActividadAgricola($('#cultivo').val(),$('#numero_hectareas').val(),$('#clima').val(), $('#pendiente').val())
-									else
-									if( $( "#ui-dialog-title-dialog-form" ).html()=="Actividad Ganadera")
-										 almacenarElementoActividadGanadera($('#numero_animales').val())
-									else
-										if( $( "#ui-dialog-title-dialog-form" ).html()=="Poblacion")
-										almacenarElementoPoblacaion($('#numero_habitantes').val() )
-									
-									$( this ).dialog( "close" );
-									
+									botonAceptarFormulario();
 									
 									
 								},
@@ -219,6 +209,46 @@
 				agregarElementosFormularioActividadGanadera();
 				
 			 cargarDatosFormArray(id);	
+		}
+		
+		
+		function botonAceptarFormulario()
+		{
+				
+				idCapa=$( "#idCapaElemento" ).val();
+				if( !estaElementoEnArreglos(idCapa) )
+				{
+							if( $( "#ui-dialog-title-dialog-form" ).html()=="Actividad Agricola")
+										almacenarElementoActividadAgricola($('#cultivo').val(),$('#numero_hectareas').val(),$('#clima').val(), $('#pendiente').val())
+									else
+									if( $( "#ui-dialog-title-dialog-form" ).html()=="Actividad Ganadera")
+										 almacenarElementoActividadGanadera($('#numero_animales').val())
+									else
+										if( $( "#ui-dialog-title-dialog-form" ).html()=="Poblacion")
+										almacenarElementoPoblacaion($('#numero_habitantes').val() )
+									
+									
+									$( '#dialog-form' ).dialog( "close" );
+									
+				
+				}
+				else
+				{
+							if( $( "#ui-dialog-title-dialog-form" ).html()=="Actividad Agricola")
+										modificarElementoActividadAgricola()
+									else
+									if( $( "#ui-dialog-title-dialog-form" ).html()=="Actividad Ganadera")
+										 modificarElementoActividadGanadera()
+									else
+										if( $( "#ui-dialog-title-dialog-form" ).html()=="Poblacion")
+										modificarElementoPoblacaion()
+									
+									
+									$( '#dialog-form' ).dialog( "close" );
+									
+				
+				}
+		
 		}
 		
 		$(function() {

@@ -25,6 +25,33 @@ var arrayPoblacion=new Array();
 
 	}
 	
+	
+	function modificarElementoActividadAgricola()
+	{
+			
+			
+			idCapa=$( "#idCapaElemento" ).val();
+			
+			
+			
+			for (i=0;i<arrayActividadAgricola.length;i++)
+					{
+							if(arrayActividadAgricola[i]!=null)
+							if (arrayActividadAgricola[i].getIdCapa()== idCapa)
+							{	
+							    arrayActividadAgricola[i].setCultivo($( "#cultivo" ).val())	;
+								arrayActividadAgricola[i].setNumeroHectareas(	$( "#numero_hectareas" ).val() );
+								arrayActividadAgricola[i].setEstadoClima(	$( "#clima" ).val() );
+								arrayActividadAgricola[i].setPendiente(	$( "#pendiente" ).val()  );
+								return;
+							}
+					}		 
+			
+			
+			
+
+	}
+	
 	function almacenarElementoActividadGanadera(numeroAnimales)
 	{
 			var actividadGanadera = new ActividadGanadera();
@@ -40,6 +67,33 @@ var arrayPoblacion=new Array();
 
 	}
 	
+	function modificarElementoActividadGanadera()
+	{
+		
+			
+			idCapa=$( "#idCapaElemento" ).val();
+			
+			
+			
+			for (i=0;i<arrayActividadGanadera.length;i++)
+					{
+							if(arrayActividadGanadera[i]!=null)
+							if (arrayActividadGanadera[i].getIdCapa()== idCapa)
+							{	
+							   
+								arrayActividadGanadera[i].setNumeroAnimales(	$( "#numero_animales" ).val() );
+								
+								return;
+							}
+					}		 
+			
+			
+			
+
+	}
+	
+	
+	
 	function almacenarElementoPoblacaion(numeroHabitantes)
 	{
 			var poblacion = new Poblacion();
@@ -51,6 +105,31 @@ var arrayPoblacion=new Array();
 			var  longitudArray=arrayPoblacion.length;
 			
 			arrayPoblacion[longitudArray]=poblacion;
+			
+			
+			
+
+	}
+	
+	function modificarElementoPoblacaion()
+	{
+		
+			
+			idCapa=$( "#idCapaElemento" ).val();
+			
+			
+			
+			for (i=0;i<arrayPoblacion.length;i++)
+					{
+							if(arrayPoblacion[i]!=null)
+							if (arrayPoblacion[i].getIdCapa()== idCapa)
+							{	
+							   
+								arrayPoblacion[i].setNumeroHabitantes(	$( "#numero_habitantes" ).val() );
+								
+								return;
+							}
+					}		 
 			
 			
 			
@@ -85,6 +164,33 @@ var arrayPoblacion=new Array();
 	
 	}
 	
+	
+	function estaElementoEnArreglos(idCapa)
+	{
+				for (i=0;i<arrayActividadAgricola.length;i++)
+				{
+						if(arrayActividadAgricola[i]!=null)
+						if(arrayActividadAgricola[i].getIdCapa()==idCapa)
+							return true;
+						
+				}		 
+		
+				for (i=0;i<arrayActividadGanadera.length;i++)
+						{
+								if(arrayActividadGanadera[i]!=null)
+									if(arrayActividadGanadera[i].getIdCapa()==idCapa)
+										return true;
+						}		 
+		
+				for (i=0;i<arrayPoblacion.length;i++)
+				{
+						if(arrayPoblacion[i]!=null)
+								if(arrayPoblacion[i].getIdCapa()==idCapa)
+										return true;
+				}		
+				
+				return false;
+	}
 	
 	function mostrarArray()
 	{
