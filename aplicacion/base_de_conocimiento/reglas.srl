@@ -4,7 +4,7 @@ rule "Regla1" priority=0
 	if $actividadAgricola->pendiente->porcentaje >= 5 && $actividadAgricola->estadoClima == "lluvioso" && $actividadAgricola->cultivo->ciclo=="largo"
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Barreras_Vivas";
-		echo '<p>regla1 agricola</p>';
+	
 		
 	end
 
@@ -13,7 +13,7 @@ rule "Regla2" priority=0
 	if $actividadAgricola->pendiente->porcentaje >= 15 
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Zanjas_de_Ladera";
-		echo '<p>regla2 agricola</p>';
+	
 		
 	end
 
@@ -22,7 +22,7 @@ rule "Regla3" priority=0
 	if $actividadAgricola->pendiente->porcentaje >= 5 &&  $actividadAgricola->pendiente->porcentaje<=12
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Siembra_en_contorno";
-		echo '<p>regla3 agricola</p>';
+		
 		
 	end
 
@@ -31,7 +31,7 @@ rule "Regla4" priority=0
 	if $actividadAgricola->pendiente->porcentaje < 5 &&  $actividadAgricola->estadoClima=="lluvioso"
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Cultivos_Cobertura_Abonos_verdes";
-		echo '<p>regla4 agricola</p>';
+		
 		
 	end
 
@@ -41,7 +41,7 @@ rule "Regla5" priority=0
 	if $actividadAgricola->pendiente->porcentaje >=2 &&  $actividadAgricola->pendiente->porcentaje <5
 	then 
 		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=30;
-		echo '<p>regla5 agricola</p>';
+		
 		
 	end
 
@@ -50,7 +50,7 @@ rule "Regla6" priority=0
 	if $actividadAgricola->pendiente->porcentaje >=5 &&  $actividadAgricola->pendiente->porcentaje <10
 	then 
 		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=28;
-		echo '<p>regla6 agricola</p>';
+		
 		
 	end	
 
@@ -59,7 +59,7 @@ rule "Regla7" priority=0
 	if $actividadAgricola->pendiente->porcentaje >=10 &&  $actividadAgricola->pendiente->porcentaje <20
 	then 
 		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=20;
-		echo '<p>regla7 agricola</p>';
+		
 		
 	end	
 
@@ -68,7 +68,7 @@ rule "Regla8" priority=0
 	if $actividadAgricola->pendiente->porcentaje >=20 &&  $actividadAgricola->pendiente->porcentaje <30
 	then 
 		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=14;
-		echo '<p>regla8 agricola</p>';
+		
 		
 	end	
 
@@ -77,7 +77,7 @@ rule "Regla9" priority=0
 	if $actividadAgricola->pendiente->porcentaje >=30 &&  $actividadAgricola->pendiente->porcentaje <40
 	then 
 		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=10;
-		echo '<p>regla9 agricola</p>';
+		
 		
 	end	
 
@@ -86,7 +86,7 @@ rule "Regla10" priority=0
 	if $actividadAgricola->pendiente->porcentaje >=40 
 	then 
 		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=6;
-		echo '<p>regla10 agricola</p>';
+		
 		
 	end	
 

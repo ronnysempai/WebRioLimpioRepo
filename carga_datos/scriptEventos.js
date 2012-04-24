@@ -136,16 +136,16 @@ var arrayPoblacion=new Array();
 									{
 										cad+='{';
 										cad += ' "idCapa": ';
-										cad += ' "'+arrayActividadAgricola[i].getIdCapa()+'" ';
+										cad += ' "'+arrayActividadAgricola[i].getIdCapa()+'" , ';
 										
 										cad += ' "cultivo": ';
-										cad += ' "'+arrayActividadAgricola[i].getCultivo()+'" ';
+										cad += ' "'+arrayActividadAgricola[i].getCultivo()+'" , ';
 										
 										cad += ' "numeroHectareas": ';
-										cad += ' "'+arrayActividadAgricola[i].getNumeroHectareas()+'" ';
+										cad += ' "'+arrayActividadAgricola[i].getNumeroHectareas()+'" , ';
 										
 										cad += ' "estadoClima": ';
-										cad += ' "'+arrayActividadAgricola[i].getEstadoClima()+'" ';
+										cad += ' "'+arrayActividadAgricola[i].getEstadoClima()+'" , ';
 										
 										cad += ' "pendiente": ';
 										cad += ' "'+arrayActividadAgricola[i].getPendiente()+'" ';
@@ -173,10 +173,10 @@ var arrayPoblacion=new Array();
 								{
 									cad+='{';
 									cad += ' "idCapa": ';
-									cad += ' "'+arrayActividadGanadera[i].getIdCapa()+'" ';
+									cad += ' "'+arrayActividadGanadera[i].getIdCapa()+'" , ';
 									
 									
-									cad += ' "numeroHabitantes": ';
+									cad += ' "numeroAnimales": ';
 									cad += ' "'+arrayActividadGanadera[i].getNumeroAnimales()+'" ';
 									
 									
@@ -203,10 +203,10 @@ var arrayPoblacion=new Array();
 								{
 									cad+='{';
 									cad += ' "idCapa": ';
-									cad += '"'+arrayPoblacion[i].getIdCapa()+'" ';
+									cad += '"'+arrayPoblacion[i].getIdCapa()+'" , ';
 									
 									
-									cad += ' "numeroAnimales": ';
+									cad += ' "numeroHabitantes": ';
 									cad += '"'+arrayPoblacion[i].getNumeroHabitantes()+'" ';
 									
 									
@@ -227,12 +227,28 @@ var arrayPoblacion=new Array();
 				cad='['+cad+']';
 				
 		
-		
-		alert(cad+'     -');
+			//alert(cad);
+			return cad;
 		var jsonObj = $.parseJSON('[' + cad + ']');
 
-
-		
-		
 	
+	
+	}
+	
+	
+	function enviarDatosSistemaExperto()
+	{
+			var datosCodificadosJSON='';		
+					
+					datosCodificadosJSON=codificacionJSONDeArreglos();
+					
+							$.ajax({
+										type: "POST",
+										url: "aplicacion/modulos/operaciones_generales.php",
+										data: "datos="+datosCodificadosJSON,
+										success: function(datos)
+										{
+									   alert( "Se guardaron los datos: " + datos);
+									  }
+							});
 	}

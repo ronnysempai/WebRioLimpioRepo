@@ -8,7 +8,29 @@
 	require_once('../clases/ControlReglas.php');
 	
 	
-	$controlReglas=new ControlReglas();
+	
+	$datos=$_POST['datos'];
+	
+	if(!empty($datos))
+	{
+		
+		$str_obj_json =$datos;
+			
+			echo '>>>'.$str_obj_json;
+			//$str_obj_json ='[ {"nombre": "valor"} , {"idCapa":"idcdf","nombre": "valor"} ]';
+			
+			$obj_php = json_decode($str_obj_json);
+		
+			print_r($obj_php);
+				for($i=0;  $i< count($obj_php); $i++)
+				{
+						echo '<p>*****'.$obj_php[$i]->idCapa.'</p>';
+						
+				}
+				
+				exit;
+	}
+	
 	
 	$pendiente= new Pendiente();
 	
