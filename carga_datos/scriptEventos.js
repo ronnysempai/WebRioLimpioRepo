@@ -140,28 +140,39 @@ var arrayPoblacion=new Array();
 	function eliminarElementoDeArray(idCapa)
 	{
 		
+		
+		
+			
+		
 		for (i=0;i<arrayActividadAgricola.length;i++)
 		{
 				if(arrayActividadAgricola[i]!=null)
 				if (arrayActividadAgricola[i].getIdCapa()== idCapa)
-					delete arrayActividadAgricola[i];
+					arrayActividadAgricola.splice( i, 1 );
+					//delete arrayActividadAgricola[i];
 		}		 
 		
 		for (i=0;i<arrayActividadGanadera.length;i++)
 		{
 				if(arrayActividadGanadera[i]!=null)
 				if (arrayActividadGanadera[i].getIdCapa()== idCapa)
-					delete arrayActividadGanadera[i];
+					arrayActividadGanadera.splice( i, 1 );
+					//delete arrayActividadGanadera[i];
+					
 		}		 
 		
 		for (i=0;i<arrayPoblacion.length;i++)
 		{		
 				if(arrayPoblacion[i]!=null)
 				if (arrayPoblacion[i].getIdCapa()== idCapa)
-					delete arrayPoblacion[i];
+					arrayPoblacion.splice( i, 1 );
+					//delete arrayPoblacion[i];
 		}		 
 		
-	
+		arrayActividadAgricola.filter(Boolean);
+		
+		
+		
 	}
 	
 	
@@ -233,102 +244,121 @@ var arrayPoblacion=new Array();
 	{
 		
 		var cad='';
-					
-					if(arrayActividadAgricola!=null)
-					for (i=0;i<arrayActividadAgricola.length;i++)
-					{
-						
-									if(arrayActividadAgricola[i]!=null)
-									{
-										cad+='{';
-										cad += ' "idCapa": ';
-										cad += ' "'+arrayActividadAgricola[i].getIdCapa()+'" , ';
-										
-										cad += ' "cultivo": ';
-										cad += ' "'+arrayActividadAgricola[i].getCultivo()+'" , ';
-										
-										cad += ' "numeroHectareas": ';
-										cad += ' "'+arrayActividadAgricola[i].getNumeroHectareas()+'" , ';
-										
-										cad += ' "estadoClima": ';
-										cad += ' "'+arrayActividadAgricola[i].getEstadoClima()+'" , ';
-										
-										cad += ' "pendiente": ';
-										cad += ' "'+arrayActividadAgricola[i].getPendiente()+'" ';
-										
-										cad+='}';
-									
-											if (i < arrayActividadAgricola.length - 1) 
+		
+		var cadActividadAgricola='';
+		var cadActividadGanadera='';
+		var cadPoblacion='';
+		
+					if(arrayActividadAgricola!=null && arrayActividadAgricola.length!=0)
+					{		for (i=0;i<arrayActividadAgricola.length;i++)
+							{
+								
+											if(arrayActividadAgricola[i]!=null)
 											{
-												cad += ',';
-											}
-									
+												cadActividadAgricola+='{';
+												cadActividadAgricola += ' "idCapa": ';
+												cadActividadAgricola += ' "'+arrayActividadAgricola[i].getIdCapa()+'" , ';
+												
+												cadActividadAgricola += ' "cultivo": ';
+												cadActividadAgricola += ' "'+arrayActividadAgricola[i].getCultivo()+'" , ';
+												
+												cadActividadAgricola += ' "numeroHectareas": ';
+												cadActividadAgricola += ' "'+arrayActividadAgricola[i].getNumeroHectareas()+'" , ';
+												
+												cadActividadAgricola += ' "estadoClima": ';
+												cadActividadAgricola += ' "'+arrayActividadAgricola[i].getEstadoClima()+'" , ';
+												
+												cadActividadAgricola += ' "pendiente": ';
+												cadActividadAgricola += ' "'+arrayActividadAgricola[i].getPendiente()+'" ';
+												
+												cadActividadAgricola+='}';
+											
+													if (i < arrayActividadAgricola.length - 1) 
+													{
+														cadActividadAgricola += ',';
+													}
+											
 
-								}
-					}		 
-					
-			cad+=',';
-		
-		
-		
-				if(arrayActividadGanadera!=null)
-				for (i=0;i<arrayActividadGanadera.length;i++)
-				{
-					
-								if(arrayActividadGanadera[i]!=null)
-								{
-									cad+='{';
-									cad += ' "idCapa": ';
-									cad += ' "'+arrayActividadGanadera[i].getIdCapa()+'" , ';
-									
-									
-									cad += ' "numeroAnimales": ';
-									cad += ' "'+arrayActividadGanadera[i].getNumeroAnimales()+'" ';
-									
-									
-									cad+='}';
-								
-										if (i < arrayActividadGanadera.length - 1) 
-										{
-											cad += ',';
 										}
-								
+							}		 
+				}
+		
+				if(arrayActividadGanadera!=null  && arrayActividadGanadera.length!=0)
+				{		
+						for (i=0;i<arrayActividadGanadera.length;i++)
+						{
+							
+										if(arrayActividadGanadera[i]!=null)
+										{
+											cadActividadGanadera+='{';
+											cadActividadGanadera += ' "idCapa": ';
+											cadActividadGanadera += ' "'+arrayActividadGanadera[i].getIdCapa()+'" , ';
+											
+											
+											cadActividadGanadera += ' "numeroAnimales": ';
+											cadActividadGanadera += ' "'+arrayActividadGanadera[i].getNumeroAnimales()+'" ';
+											cadActividadGanadera+='}';
+										
+												if (i < arrayActividadGanadera.length - 1) 
+												{
+													cadActividadGanadera += ',';
+												}
+										
 
-							}
+									}
 					
+					}
 					
 					
 				}
 				
-				cad+=',';
-				if(arrayPoblacion!=null)
-				for (i=0;i<arrayPoblacion.length;i++)
-				{
-					
-								if(arrayPoblacion[i]!=null)
-								{
-									cad+='{';
-									cad += ' "idCapa": ';
-									cad += '"'+arrayPoblacion[i].getIdCapa()+'" , ';
-									
-									
-									cad += ' "numeroHabitantes": ';
-									cad += '"'+arrayPoblacion[i].getNumeroHabitantes()+'" ';
-									
-									
-									cad+='}';
+				if(arrayPoblacion!=null  && arrayPoblacion.length!=0)
+				{			for (i=0;i<arrayPoblacion.length;i++)
+							{
 								
-										if (i < arrayPoblacion.length - 1) 
-										{
-											cad += ',';
+											if(arrayPoblacion[i]!=null)
+											{
+												cadPoblacion+='{';
+												cadPoblacion += ' "idCapa": ';
+												cadPoblacion += '"'+arrayPoblacion[i].getIdCapa()+'" , ';
+												
+												
+												cadPoblacion += ' "numeroHabitantes": ';
+												cadPoblacion += '"'+arrayPoblacion[i].getNumeroHabitantes()+'" ';
+												
+												
+												cadPoblacion+='}';
+											
+													if (i < arrayPoblacion.length - 1) 
+													{
+														cadPoblacion += ',';
+													}
+											
+												
 										}
-								
-									
-							}
 					
 					
 					
-				}
+						}
+						
+					}
+				
+			if(cadActividadAgricola!='')
+				cad+=	cadActividadAgricola;
+				
+				
+			if(cadActividadGanadera !='')
+			if(cad!='')
+				cad+=','+cadActividadGanadera;
+			else
+				cad+=cadActividadGanadera;
+			
+			if(cadPoblacion!='')
+				if(cad!='')
+					cad+=','+cadPoblacion;
+				else
+					cad+=cadPoblacion;
+				
 				
 				cad='['+cad+']';
 				
