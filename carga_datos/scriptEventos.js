@@ -384,7 +384,13 @@ var arrayPoblacion=new Array();
 										data: "datos="+datosCodificadosJSON,
 										success: function(datos)
 										{
-									   alert( "Se guardaron los datos: " + datos);
+											//var jsonObj = $.parseJSON(datos);
+											
+											$( "#dialog" ).html("Se guardaron los datos: " + datos);
+											
+											
+											$( "#dialog" ).dialog();
+												//alert( "Se guardaron los datos: " + datos);
 									  }
 							});
 	}

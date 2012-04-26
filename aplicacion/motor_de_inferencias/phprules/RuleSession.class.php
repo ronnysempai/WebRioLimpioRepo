@@ -64,7 +64,7 @@
 	    		
 	    	if ($loop >= $this->maxRulesFiring) {
 	    		if ($this->verbosity > 0)
-	    			print "Max firing count for all rules reached!\n";
+	    			//print "Max firing count for all rules reached!\n";
 	    		error_log("phprules: Max firing count for all rules reached!");
 	    		return false;
 	    	}

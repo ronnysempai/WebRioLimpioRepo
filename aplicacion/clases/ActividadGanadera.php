@@ -4,7 +4,8 @@
 
 class ActividadGanadera extends Fact
 {
-
+	
+	var $idCapa;
 	var $masaNitrogenoPromedio;
 	var $numeroAnimales;
 	
@@ -17,6 +18,14 @@ class ActividadGanadera extends Fact
 	
 		}
 	
+	
+	function setIdCapa($idCapa)
+		{  
+				$this->idCapa=$idCapa;
+				
+				
+		}
+		
 		
 		
 		function setMasaNitrogenoPromedio($masaNitrogeno)
@@ -35,6 +44,12 @@ class ActividadGanadera extends Fact
 		}
 		
 			
+		function getIdCapa()
+		{  
+				return $this->idCapa;
+				
+				
+		}
 		
 		function getNumeroAnimales()
 		{  
