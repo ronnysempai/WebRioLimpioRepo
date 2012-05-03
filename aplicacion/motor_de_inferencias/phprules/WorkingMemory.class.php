@@ -12,8 +12,9 @@
 			
 			if (!array_key_exists($class, $this->facts))
 				$this->facts[$class] = array();
-
+			
 			$this->facts[$class][$fact->getObjectId()] = $fact;
+			
 		}
 		
 	
@@ -30,6 +31,8 @@
 		}
 		
 		function setNextClass(&$invocations, $invocation, $context) {
+			
+			
 			if (count($context) == 0) {
 				array_push($invocations, $invocation);
 				return;
@@ -38,7 +41,11 @@
 				$contextKeys = array_keys($context);
 				$var = $contextKeys[0];
 				$class = $context[$var];
+				
 				unset($context[$var]);
+				
+				
+				if (array_key_exists($class, $this->facts)) 
 				foreach ($this->facts[$class] as $object) {
 					$invocation[$var] = $object;
 					$this->setNextClass($invocations, $invocation, $context);

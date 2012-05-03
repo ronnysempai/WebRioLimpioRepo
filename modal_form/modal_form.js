@@ -258,6 +258,7 @@
 							$( "#dialog" ).css("margin-right","50px");
 							$( "#ui-dialog-title-dialog" ).css('color','"red')
 							
+							$( "#ui-dialog-title-dialog" ).css('width','"600px')
 		});
 		
 		function mostrarResultados()

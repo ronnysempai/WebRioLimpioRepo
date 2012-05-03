@@ -384,13 +384,37 @@ var arrayPoblacion=new Array();
 										data: "datos="+datosCodificadosJSON,
 										success: function(datos)
 										{
-											//var jsonObj = $.parseJSON(datos);
+											alert(datos);
+											var jsonObj = $.parseJSON(datos);
+											var s='';
+											//$( "#dialog" ).html("Se guardaron los datos: " + jsonObj.length);
 											
-											$( "#dialog" ).html("Se guardaron los datos: " + datos);
-											
-											
-											$( "#dialog" ).dialog();
-												//alert( "Se guardaron los datos: " + datos);
+											for (i=0;i< jsonObj.length;i++)
+											{
+												if(jsonObj[i].idCapa.indexOf('agricola', 0)!=-1)
+												s+='\n Fuentes de Contaminacion Actividad Agricola \n';
+												//s+='<h3 style="color:#39f ">Fuentes de Contaminacion Actividad Agricola</h3>';
+												
+													
+														/*for (x in jsonObj[i])
+														 {		
+															s+='\n';
+																if(x=='practicaAgricola')
+																s+='Practica Recomendada:';
+																else
+																s+=  ' '+x+':';
+																s+=  jsonObj[i][x];
+																s+='\n';
+															}  
+															*/
+													
+													//s+=jsonObj[i].toSource();
+												
+											}
+											alert(  s);
+											//$( "#dialog" ).html("Se guardaron los datos: " + s);
+											//$( "#dialog" ).dialog();
+												//
 									  }
 							});
 	}

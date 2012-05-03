@@ -3,6 +3,8 @@
 	require_once('../motor_de_inferencias/phprules/phprules.php');
 	require_once('../clases/Pendiente.php');
 	require_once('../clases/ActividadAgricola.php');
+	require_once('../clases/ActividadGanadera.php');
+	require_once('../clases/Poblacion.php');
 	require_once('../clases/Cultivo.php');
 	require_once('../clases/PracticaAgricola.php');
 	
@@ -64,7 +66,18 @@
 						else
 						if(strrpos($obj_php[$i]->idCapa, "ganadera"))
 						{
-							//to do
+							$actividadGanadera= new ActividadGanadera();
+							$actividadGanadera->setNumeroAnimales( $obj_php[$i]->numeroAnimales);
+							$actividadGanadera->setIdCapa($obj_php[$i]->idCapa);
+							$arrFuentesContaminacion[]=$actividadGanadera;
+						}
+						else
+						if(strrpos($obj_php[$i]->idCapa, "poblacion"))
+						{
+							$poblacion= new Poblacion();
+							$poblacion->setNumeroHabitantes( $obj_php[$i]->numeroHabitantes);
+							$poblacion->setIdCapa($obj_php[$i]->idCapa);
+							$arrFuentesContaminacion[]=$poblacion;
 						}
 						
 						
@@ -91,90 +104,88 @@
 							$cadActividadGanadera='';
 							$cadPoblacion='';
 							/*mostrar los dtaos modificados por las reglas en cada objeto*/
-							foreach($arrFuentesContaminacion as $obj)
+							foreach($arrFuentesContaminacion as $i=>$obj)
 							{
 								
 								
 								
 								if(strrpos($obj->idCapa, "agricola") )
 								{
-												$cadActividadAgricola.='{';
-												$cadActividadAgricola.=' "idCapa": ';
-												$cadActividadAgricola.= ' "'.$obj->getIdCapa().'" , ';
+												$datos_resultado.='{';
+												$datos_resultado.=' "idCapa": ';
+												$datos_resultado.= ' "'.$obj->getIdCapa().'" , ';
 												
-												$cadActividadAgricola.= ' "cultivo": ';
-												$cadActividadAgricola.= ' "'.$obj->getCultivo()->getNombre().'" , ';
+												$datos_resultado.= ' "cultivo": ';
+												$datos_resultado.= ' "'.$obj->getCultivo()->getNombre().'" , ';
 												
-												$cadActividadAgricola.= ' "numeroHectareas": ';
-												$cadActividadAgricola.=  ' "'.$obj->getNumeroHectareas().'" , ';
+												$datos_resultado.= ' "numeroHectareas": ';
+												$datos_resultado.=  ' "'.$obj->getNumeroHectareas().'" , ';
 												
-												$cadActividadAgricola.= ' "estadoClima": ';
-												$cadActividadAgricola.=  ' "'.$obj->getEstadoClima().'" , ';
+												$datos_resultado.= ' "estadoClima": ';
+												$datos_resultado.=  ' "'.$obj->getEstadoClima().'" , ';
 												
-												$cadActividadAgricola.=  ' "pendiente": ';
-												$cadActividadAgricola.= ' "'.$obj->getPendiente()->getPorcentaje().'", ';
+												$datos_resultado.=  ' "pendiente": ';
+												$datos_resultado.= ' "'.$obj->getPendiente()->getPorcentaje().'", ';
 												
-												$cadActividadAgricola.=  ' "practicaAgricola": ';
-												$cadActividadAgricola.= ' "'.$obj->getPracticaAgricola()->getNombre().'", ';
+												$datos_resultado.=  ' "practicaAgricola": ';
+												$datos_resultado.= ' "'.$obj->getPracticaAgricola()->getNombre().'", ';
 												
-												$cadActividadAgricola.=  ' "distanciaCurvaNivel": ';
-												$cadActividadAgricola.= ' "'.$obj->getPracticaAgricola()->getDistanciaCurvaNivel().'" ';
-												$cadActividadAgricola.= '}';
+												$datos_resultado.=  ' "distanciaCurvaNivel": ';
+												$datos_resultado.= ' "'.$obj->getPracticaAgricola()->getDistanciaCurvaNivel().'" ';
+												$datos_resultado.= '}';
 												
 
-												
+												if ($i < count($arrFuentesContaminacion) - 1) 
+												{
+														$datos_resultado.= ',';
+												}
+										
 													
 								
 								}
 								else
 									if(strrpos($obj->idCapa, "ganadera"))
 									{
-										$cadActividadGanadera.='{';
-											$cadActividadGanadera.= ' "idCapa": ';
-											$cadActividadGanadera.=' "'.$obj->getIdCapa().'" , ';
+										$datos_resultado.='{';
+											$datos_resultado.= ' "idCapa": ';
+											$datos_resultado.=' "'.$obj->getIdCapa().'" , ';
 											
 											
-											$cadActividadGanadera.=' "numeroAnimales": ';
-											$cadActividadGanadera.= ' "'.$obj->getNumeroAnimales().'", ';
-											$cadActividadGanadera.=' "masaNitrogenoPromedio": ';
-											$cadActividadGanadera.= ' "'.$obj->getMasaNitrogenoPromedio().'" ';
-											$cadActividadGanadera.='}';
+											$datos_resultado.=' "numeroAnimales": ';
+											$datos_resultado.= ' "'.$obj->getNumeroAnimales().'", ';
+											$datos_resultado.=' "masaNitrogenoPromedio": ';
+											$datos_resultado.= ' "'.$obj->getMasaNitrogenoPromedio().'" ';
+											$datos_resultado.='}';
+											
+											if ($i < count($arrFuentesContaminacion) - 1) 
+												{
+														$datos_resultado.= ',';
+												}
 											
 									}
 									else
 									if(strrpos($obj->idCapa, "poblacion"))
 									{
-											$cadPoblacion.='{';
-											$cadPoblacion.= ' "idCapa": ';
-											$cadPoblacion.= ' "'.$obj->getIdCapa().'" , ';
-											$cadPoblacion.= ' "'.$obj->getNumeroHabitantes().'"  ';
-											$cadPoblacion.= ' "'.$obj->getMasaNitrogenoPromedio().'" , ';
-											$cadPoblacion.='}';
+											$datos_resultado.='{';
+											$datos_resultado.= ' "idCapa": ';
+											$datos_resultado.= ' "'.$obj->getIdCapa().'" , ';
+											$datos_resultado.= ' "'.$obj->getNumeroHabitantes().'"  ';
+											$datos_resultado.= ' "'.$obj->getMasaNitrogenoPromedio().'" ';
+											$datos_resultado.='}';
+											
+											if ($i < count($arrFuentesContaminacion) - 1) 
+												{
+														$datos_resultado.= ',';
+												}
 											
 									}
 									
 								
 								
-								//print_r($obj);
+								print_r($obj);
 								
 							}
 							
-								if($cadActividadAgricola!='')
-										$datos_resultado.=	$cadActividadAgricola;
-				
-							if($cadActividadGanadera !='')
-							if($datos_resultado!='')
-								$datos_resultado.=','.$cadActividadGanadera;
-							else
-								$datos_resultado.=$cadActividadGanadera;
-							
-							if($cadPoblacion!='')
-								if($datos_resultado!='')
-									$datos_resultado.=','.$cadPoblacion;
-								else
-									$datos_resultado.=$cadPoblacion;
-								
-								
 								$datos_resultado='['.$datos_resultado.']';
 								
 								echo $datos_resultado;

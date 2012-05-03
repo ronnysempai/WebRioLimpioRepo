@@ -90,4 +90,11 @@ rule "Regla10" priority=0
 		
 	end	
 
+rule "Regla11" priority=1
+	context ActividadGanadera $actividadGanadera 
+	if $actividadGanadera->numeroAnimales >=40 
+	then 
+		$actividadGanadera->masaPromedioNitrogeno=$actividadGanadera->numeroAnimales*10;
+		
+	end	
 	

@@ -1,20 +1,20 @@
 <?php
-	
-	require_once('../motor_de_inferencias/phprules/phprules.php');
 
-class ActividadGanadera extends Fact
+	require_once('../motor_de_inferencias/phprules/phprules.php');
+	
+class Poblacion extends Fact
 {
 	
 	var $idCapa;
 	var $masaNitrogenoPromedio;
-	var $numeroAnimales;
+	var $numeroHabitantes;
 	
 
 		function __construct()
 		{
 				$this->masaNitrogenoPromedio=0;
 				
-				$this->numeroAnimales=0;
+				$this->numeroHabitantes=0;
 	
 		}
 	
@@ -36,9 +36,9 @@ class ActividadGanadera extends Fact
 		}
 		
 		
-		function setNumeroAnimales($numeroAnimales)
+		function setNumeroHabitantes($numeroHabitantes)
 		{  
-				$this->numeroAnimales=$numeroAnimales;
+				$this->numeroHabitantes=$numeroHabitantes;
 				
 				
 		}
@@ -51,9 +51,9 @@ class ActividadGanadera extends Fact
 				
 		}
 		
-		function getNumeroAnimales()
+		function getNumeroHabitantes()
 		{  
-				 return $this->numeroAnimales;
+				 return $this->numeroHabitantes;
 				
 				
 		}
@@ -73,6 +73,7 @@ class ActividadGanadera extends Fact
 		
 		
 		
+
 	
 
 }
