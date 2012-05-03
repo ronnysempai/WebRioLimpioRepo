@@ -156,7 +156,7 @@
 											$datos_resultado.=' "masaNitrogenoPromedio": ';
 											$datos_resultado.= ' "'.$obj->getMasaNitrogenoPromedio().'" ';
 											$datos_resultado.='}';
-											
+											echo $obj->getMasaNitrogenoPromedio();
 											if ($i < count($arrFuentesContaminacion) - 1) 
 												{
 														$datos_resultado.= ',';
@@ -182,7 +182,7 @@
 									
 								
 								
-								print_r($obj);
+								//print_r($obj);
 								
 							}
 							
