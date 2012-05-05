@@ -93,15 +93,20 @@
 			$( "#contenido_formulario_modal" ).append('<div id="capa_form_cultivo"> <label  id="etiqueta_cultivo" >Cultivo</label> </div>');
 			$( "#contenido_formulario_modal #capa_form_cultivo" ).append('<select id="cultivo" class="text ui-widget-content ui-corner-all"  >		</select> ');
 			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="arroz">Arroz</option>');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="trigo">Trigo</option>');
+			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="banana">Banana</option> ');
+			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cacao">Cacao</option> ');
+			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cana_azucar">Caña de azúcar</option> ');
+			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cafe">Cafe</option> ');
+			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cebolla">Cebolla</option> ');
 			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="maiz">Maiz</option>');
 			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="papa">Papa</option>');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="frijol">Frijol</option> ');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="pepino">Pepino</option> ');
-		 	$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cebolla">Cebolla</option> ');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cana_azucar">Caña de azúcar</option> ');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="banana">Banana</option> ');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="algodon">Algodon</option> ');
+			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="soja">Soja</option>');
+			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="tomate">Tomate</option>');
+			
+
+			
+			
+			
 			
 			
 			$( "#contenido_formulario_modal" ).append('<div id="capa_form_hectareas">  <label  id="etiqueta_hectareas" >Numero de Hectareas</label>  </div>');
