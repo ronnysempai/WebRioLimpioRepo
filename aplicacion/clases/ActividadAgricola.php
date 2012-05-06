@@ -7,7 +7,7 @@ class ActividadAgricola extends Fact
 	var $idCapa;
 	var $masaNitrogenoPromedio;
 	var $cultivo;
-	var $numerohectareas;
+	var $numeroHectareas;
 	var $estadoClima;
 	var $pendiente;
 	var $escorrentia;

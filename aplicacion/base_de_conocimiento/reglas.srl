@@ -1,4 +1,13 @@
 
+rule "Regla0" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="cacao"
+	then 
+		$actividadAgricola->masaNitrogenoPromedio=90000000*$actividadAgricola->numeroHectareas;
+	
+	end
+
+
 rule "Regla1" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->pendiente->porcentaje >= 5 && $actividadAgricola->estadoClima == "lluvioso" && $actividadAgricola->cultivo->ciclo=="largo"

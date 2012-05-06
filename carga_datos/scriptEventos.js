@@ -2,7 +2,7 @@
 var arrayActividadAgricola=new Array();
 var arrayActividadGanadera=new Array();
 var arrayPoblacion=new Array();
-
+var RIO=new Rio();
 
 
 	function almacenarElementoActividadAgricola(cultivo,numeroHectareas,estadoClima,pendiente)
@@ -359,6 +359,22 @@ var arrayPoblacion=new Array();
 				else
 					cad+=cadPoblacion;
 				
+				if(cad !='')
+				cad+=',';
+				
+					if( RIO !=null)
+					{
+						cad+='{';
+						
+						cad += ' "idCapa": ';
+						cad += '"'+RIO.getIdCapa()+'" , ';
+						
+						cad += ' "caudal": ';
+						cad += '"'+RIO.getCaudal()+'"  ';
+						cad+='}';	
+					}
+				
+				
 				
 				cad='['+cad+']';
 				
@@ -384,7 +400,7 @@ var arrayPoblacion=new Array();
 										data: "datos="+datosCodificadosJSON,
 										success: function(datos)
 										{
-											alert(datos);
+											
 											var jsonObj = $.parseJSON(datos);
 											var s='';
 											//$( "#dialog" ).html("Se guardaron los datos: " + jsonObj.length);
@@ -396,7 +412,7 @@ var arrayPoblacion=new Array();
 												//s+='<h3 style="color:#39f ">Fuentes de Contaminacion Actividad Agricola</h3>';
 												
 													
-														/*for (x in jsonObj[i])
+														for (x in jsonObj[i])
 														 {		
 															s+='\n';
 																if(x=='practicaAgricola')
@@ -406,7 +422,7 @@ var arrayPoblacion=new Array();
 																s+=  jsonObj[i][x];
 																s+='\n';
 															}  
-															*/
+															
 													
 													//s+=jsonObj[i].toSource();
 												

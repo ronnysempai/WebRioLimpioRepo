@@ -77,6 +77,11 @@
 							$poblacion= new Poblacion();
 							$poblacion->setNumeroHabitantes( $obj_php[$i]->numeroHabitantes);
 							$poblacion->setIdCapa($obj_php[$i]->idCapa);
+							/**/
+							$poblacion->setMasaNitrogenoPromedio($poblacion->getNumeroHabitantes()  *  (4000000 + 550000 )  );
+							//masaNitrogenoPromedio=numeroHabitantes*(  mg promedio de nitrogeno por persona/año en orina +  mg promedio de nitrogeno por persona/año en heces  ) 
+							
+							
 							$arrFuentesContaminacion[]=$poblacion;
 						}
 						
@@ -117,6 +122,9 @@
 												
 												$datos_resultado.= ' "cultivo": ';
 												$datos_resultado.= ' "'.$obj->getCultivo()->getNombre().'" , ';
+												
+												$datos_resultado.= ' "masaNitrogenoPromedio": ';
+												$datos_resultado.= ' "'.$obj->getMasaNitrogenoPromedio().'" , ';
 												
 												$datos_resultado.= ' "numeroHectareas": ';
 												$datos_resultado.=  ' "'.$obj->getNumeroHectareas().'" , ';

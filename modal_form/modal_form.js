@@ -119,8 +119,9 @@
 			$( "#contenido_formulario_modal #capa_form_clima #clima" ).append('<option value="lluvioso">Lluvioso</option>');
 			
 			$( "#contenido_formulario_modal" ).append('<div id="capa_form_pendiente"> <label id="etiqueta_pendiente">Pendiente </> </div> ');
-			$( "#contenido_formulario_modal #capa_form_pendiente").append('<input id="pendiente" type="text" value="" class="text ui-widget-content ui-corner-all"  /> ')
+			$( "#contenido_formulario_modal #capa_form_pendiente").append('<input id="pendiente" type="text" value=""  class="text ui-widget-content ui-corner-all"  /> ')
 			
+			$( "#contenido_formulario_modal #capa_form_pendiente").append('<sapan id="etiqueta_´porcentaje" type="text" value=""  >%</span> ')
 			
 		}
 		
@@ -144,6 +145,20 @@
 			
 			$( "#contenido_formulario_modal" ).append('<div id="capa_form_numero_habitantes"> <label  id="etiqueta_numero_habitantes" >Numero de Habitantes</label> </div>');
 			$( "#contenido_formulario_modal #capa_form_numero_habitantes" ).append('<input id="numero_habitantes" type="text" value="" class="text ui-widget-content ui-corner-all"  >		</select> ');
+		}
+		
+		function cargarFormularioRio()
+		{
+				$( "#ui-dialog-title-dialog-form" ).html("RIO");
+			
+			
+			$( "#contenido_formulario_modal" ).html('');
+			
+			$( "#contenido_formulario_modal" ).append('<div id="capa_form_caudal"> <label  id="etiqueta_caudal" >Caudal</label> </div>');
+			$( "#contenido_formulario_modal #capa_form_caudal" ).append('<input id="caudal" type="text" value="" class="text ui-widget-content ui-corner-all"  > <span >m3/s </span> ');
+			
+			$( "#idCapaElemento" ).val('rio');
+						$( "#dialog-form" ).dialog( "open" );
 		}
 		
 		function cargarFormulario(id_fuente_contaminacion)
@@ -221,6 +236,13 @@
 		{
 				
 				idCapa=$( "#idCapaElemento" ).val();
+				
+				if(idCapa=='rio')
+				{
+				
+					RIO.setCaudal( $('#caudal').val() );
+				}
+				else
 				if( !estaElementoEnArreglos(idCapa) )
 				{
 							if( $( "#ui-dialog-title-dialog-form" ).html()=="Actividad Agricola")
@@ -233,7 +255,7 @@
 										almacenarElementoPoblacaion($('#numero_habitantes').val() )
 									
 									
-									$( '#dialog-form' ).dialog( "close" );
+									
 									
 				
 				}
@@ -249,11 +271,12 @@
 										modificarElementoPoblacaion()
 									
 									
-									$( '#dialog-form' ).dialog( "close" );
+									
 									
 				
 				}
-		
+				$( '#dialog-form' ).dialog( "close" );
+				
 		}
 		
 		$(function() {
