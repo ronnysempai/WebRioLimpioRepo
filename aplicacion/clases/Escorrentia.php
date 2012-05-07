@@ -88,6 +88,63 @@ Class Escorrentia extends Fact
 							
 							
 		}
+		
+		function difuzificarEscorrentia()
+		{
+			$concuntosDifusosDifuzificacion= Array();
+			
+							foreach($this->conjuntosDifusos as $conjuntoDifuso)
+							{
+								if($conjuntoDifuso->getGradoPertenencia()>0)
+								 $concuntosDifusosDifuzificacion[]=$conjuntoDifuso;
+								
+													
+							}
+							
+								$num=0;
+								$dem=0;
+								$valorCrispi=0;
+							
+							if(count($concuntosDifusosDifuzificacion)>0)
+							{
+								$iDfufuso=$concuntosDifusosDifuzificacion[0];
+								$fDfifuso=end($concuntosDifusosDifuzificacion);
+								
+								$i=$iDfufuso->getValorA();
+								$f=$fDfifuso->getValorD();
+								
+								$x=$i;
+								
+								while($x<=$f)
+								{
+									$num=$num + $x*$this->calculaMayorGradoPertenenciaConjuntosDifusos($x,$concuntosDifusosDifuzificacion);
+									
+									$dem=$dem + $this->calculaMayorGradoPertenenciaConjuntosDifusos($x,$concuntosDifusosDifuzificacion);
+									
+									//echo '<'.$x.' -'.$this->calculaMayorGradoPertenenciaConjuntosDifusos($x,$concuntosDifusosDifuzificacion).','.$f.' >';
+									$x+=0.5;
+									
+										
+								}
+								
+								
+								$valorCrispi=$num/$dem;
+							}
+							
+							//echo '\n ValorCrispi '.$valorCrispi;
+							return $valorCrispi;
+		}
+		
+		function calculaMayorGradoPertenenciaConjuntosDifusos($x,$concuntosDifusos)
+		{	$valoresPertenencia=Array();
+						foreach($concuntosDifusos as $conjuntoDifuso)
+						{
+							$valoresPertenencia[]=$conjuntoDifuso->calculoGradoPertenenciaCortado($x,$conjuntoDifuso->getGradoPertenencia());
+							//echo '< '.$x.'-'.$conjuntoDifuso->getNombre().' '.$conjuntoDifuso->calculoGradoPertenenciaCortado($x,$conjuntoDifuso->getGradoPertenencia()).'>';	
+						}
+						
+						return max($valoresPertenencia);
+		}
 	
 		 function setPorcentaje($porcentaje)
 		 {

@@ -23,6 +23,8 @@ class ConjuntoDifuso extends Fact
 				$this->valorB=0;
 				$this->valorC=0;
 				$this->valorD=0;
+				
+				$this->gradoPertenencia=0;
 		}
 		
 		
@@ -77,6 +79,16 @@ class ConjuntoDifuso extends Fact
 			return  $this->valorC;
 		}
 		
+		function getValorD()
+		{
+			return  $this->valorD;
+		}
+		
+		function getGradoPertenencia()
+		{
+			return $this->gradoPertenencia;
+		}
+		
 		function setGradoPertenencia($gradoPertenencia)
 		{
 			$this->gradoPertenencia=$gradoPertenencia;
@@ -98,24 +110,27 @@ class ConjuntoDifuso extends Fact
 			if($valorNoDifuso<=$this->valorA)
 				return 0;
 			else
-			if($valorNoDifuso>=valorA && $valorNoDifuso <=valorB)
+			if($valorNoDifuso>=$this->valorA && $valorNoDifuso <=$this->valorB)
 			{	
-				return (  ( $valorNoDifuso-$valorA ) / ($this->valorB-$this->valorA) );
+				return (  ( $valorNoDifuso- $this->valorA ) / ($this->valorB - $this->valorA) );
 			}
-			if($valorNoDifuso>=valorB && $valorNoDifuso <=valorC)
+			if($valorNoDifuso>=$this->valorB && $valorNoDifuso <=$this->valorC)
 				return ( 1);
 			else
-			if($valorNoDifuso>=valorC && $valorNoDifuso <=valorD)
-				return (   ( $valorD  - $valorNoDifuso) / ($this->valorB-$this->valorA)    );
+			if($valorNoDifuso>=$this->valorC && $valorNoDifuso <=$this->valorD)
+				return (   ( $this->valorD  - $valorNoDifuso) / ($this->valorD - $this->valorC)    );
+			else
+				if($valorNoDifuso>=$this->valorD)
+					return 0;
 			
 			
 		}
 		
-		function calculoGradoPertenenciaCortado($valorPertenenciaCorte)
+		function calculoGradoPertenenciaCortado($valorNoDifuso,$valorPertenenciaCorte)
 		{
 			$gradoPertenencia=0;
 				
-				$gradoPertenencia=calculaGradoPertenencia($valorNoDifuso);
+				$gradoPertenencia=$this->calculaGradoPertenencia($valorNoDifuso);
 		
 			if ( $gradoPertenencia  >=$valorPertenenciaCorte )
 				return $valorPertenenciaCorte;

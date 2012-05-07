@@ -3,6 +3,7 @@
 	require_once('../motor_de_inferencias/phprules/phprules.php');
 	require_once('../clases/Pendiente.php');
 	require_once('../clases/ActividadAgricola.php');
+	require_once('../clases/Escorrentia.php');
 	require_once('../clases/ActividadGanadera.php');
 	require_once('../clases/Poblacion.php');
 	require_once('../clases/Cultivo.php');
@@ -37,6 +38,8 @@
 	
 									$pendiente->setPorcentaje($obj_php[$i]->pendiente);
 									
+									$escorrentia=new Escorrentia();
+									
 									
 									$cultivo=new Cultivo();
 									$cultivo->setNombre($obj_php[$i]->cultivo);
@@ -59,6 +62,7 @@
 									$practica1=new PracticaAgricola();
 									$actividadAgricola->practicaAgricola=$practica1;
 									
+									$actividadAgricola->escorrentia=$escorrentia;
 									
 									$arrFuentesContaminacion[]=$actividadAgricola;
 									
@@ -134,6 +138,9 @@
 												
 												$datos_resultado.=  ' "pendiente": ';
 												$datos_resultado.= ' "'.$obj->getPendiente()->getPorcentaje().'", ';
+												
+												$datos_resultado.=  ' "escorrrentia": ';
+												$datos_resultado.= ' "'.$obj->getEscorrentia()->getPorcentaje().'", ';
 												
 												$datos_resultado.=  ' "practicaAgricola": ';
 												$datos_resultado.= ' "'.$obj->getPracticaAgricola()->getNombre().'", ';

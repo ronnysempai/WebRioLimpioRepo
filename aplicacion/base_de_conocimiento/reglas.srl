@@ -1,9 +1,26 @@
 
+
+rule "Regla_1" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("suave") && $actividadAgricola->estadoClima=="lluvioso"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("moderada", $actividadAgricola->pendiente->getGradoPertenenciaNivel("suave") );
+	end
+
+rule "Regla_2" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("media") && $actividadAgricola->estadoClima=="lluvioso"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("media") );
+	end
+
+
+
 rule "Regla0" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="cacao"
 	then 
-		$actividadAgricola->masaNitrogenoPromedio=90000000*$actividadAgricola->numeroHectareas;
+		$actividadAgricola->masaNitrogenoPromedio=90000000*$actividadAgricola->numeroHectareas*$actividadAgricola->escorrentia->difuzificarEscorrentia();
 	
 	end
 
