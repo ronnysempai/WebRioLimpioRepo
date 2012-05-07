@@ -12,6 +12,8 @@ class ConjuntoDifuso extends Fact
 	var $valorC;
 	var $valorD;
 	
+	var $gradoPertenencia;
+	
 	
 		function __construct()
 		{
@@ -75,6 +77,10 @@ class ConjuntoDifuso extends Fact
 			return  $this->valorC;
 		}
 		
+		function setGradoPertenencia($gradoPertenencia)
+		{
+			$this->gradoPertenencia=$gradoPertenencia;
+		}
 		
 		function calculaGradoPertenencia($valorNoDifuso)
 		{
@@ -115,7 +121,9 @@ class ConjuntoDifuso extends Fact
 				return $valorPertenenciaCorte;
 			else
 			return $gradoPertenencia;
+			
 		}
+		
 		
 		
 		
