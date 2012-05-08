@@ -131,6 +131,7 @@ Class Escorrentia extends Fact
 								$valorCrispi=$num/$dem;
 							}
 							
+							$this->porcentaje=$valorCrispi;
 							//echo '\n ValorCrispi '.$valorCrispi;
 							return $valorCrispi;
 		}

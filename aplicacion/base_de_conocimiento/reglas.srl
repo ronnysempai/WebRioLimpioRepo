@@ -14,18 +14,204 @@ rule "Regla_2" priority=0
 		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("media") );
 	end
 
+rule "Regla_3" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("alta") && $actividadAgricola->estadoClima=="lluvioso"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("alta") );
+	end
 
+rule "Regla_4" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("pronunciada") && $actividadAgricola->estadoClima=="lluvioso"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("muySevera", $actividadAgricola->pendiente->getGradoPertenenciaNivel("pronunciada") );
+	end
 
-rule "Regla0" priority=0
+rule "Regla_5" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("suave") && $actividadAgricola->estadoClima=="seco"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("ligera", $actividadAgricola->pendiente->getGradoPertenenciaNivel("suave") );
+	end
+
+rule "Regla_6" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("media") && $actividadAgricola->estadoClima=="seco"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("moderada", $actividadAgricola->pendiente->getGradoPertenenciaNivel("media") );
+	end
+
+rule "Regla_7" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("alta") && $actividadAgricola->estadoClima=="seco"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("alta") );
+	end
+
+rule "Regla_8" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("pronunciada") && $actividadAgricola->estadoClima=="seco"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("pronunciada") );
+	end
+
+rule "Regla_9" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="arroz"
+	then 
+		$actividadAgricola->masaNitrogenoPromedio=68*1000000*$actividadAgricola->numeroHectareas*$actividadAgricola->escorrentia->difuzificarEscorrentia();
+	
+	end	
+
+rule "Regla_10" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="azucar"
+	then 
+		$actividadAgricola->masaNitrogenoPromedio=150*1000000*$actividadAgricola->numeroHectareas*$actividadAgricola->escorrentia->difuzificarEscorrentia();
+	
+	end	
+
+rule "Regla_11" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="banana"
+	then 
+		$actividadAgricola->masaNitrogenoPromedio=250*1000000*$actividadAgricola->numeroHectareas*$actividadAgricola->escorrentia->difuzificarEscorrentia();
+	
+	end	
+
+	
+rule "Regla_12" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="cacao"
 	then 
-		$actividadAgricola->masaNitrogenoPromedio=90000000*$actividadAgricola->numeroHectareas*$actividadAgricola->escorrentia->difuzificarEscorrentia();
+		$actividadAgricola->masaNitrogenoPromedio=90*1000000*$actividadAgricola->numeroHectareas*$actividadAgricola->escorrentia->difuzificarEscorrentia();
 	
 	end
 
+rule "Regla_13" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="cafe"
+	then 
+		$actividadAgricola->masaNitrogenoPromedio=90*1000000*$actividadAgricola->numeroHectareas*$actividadAgricola->escorrentia->difuzificarEscorrentia();
+	
+	end	
 
-rule "Regla1" priority=0
+
+
+rule "Regla_14" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="cebolla"
+	then 
+		$actividadAgricola->masaNitrogenoPromedio=58*1000000*$actividadAgricola->numeroHectareas*$actividadAgricola->escorrentia->difuzificarEscorrentia();
+	
+	end	
+
+rule "Regla_15" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="maiz"
+	then 
+		$actividadAgricola->masaNitrogenoPromedio=46*1000000*$actividadAgricola->numeroHectareas*$actividadAgricola->escorrentia->difuzificarEscorrentia();
+	
+	end	
+
+rule "Regla_16" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="papa"
+	then 
+		$actividadAgricola->masaNitrogenoPromedio=58*1000000*$actividadAgricola->numeroHectareas*$actividadAgricola->escorrentia->difuzificarEscorrentia();
+	
+	end	
+
+rule "Regla_17" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="soja"
+	then 
+		$actividadAgricola->masaNitrogenoPromedio=50*1000000*$actividadAgricola->numeroHectareas*$actividadAgricola->escorrentia->difuzificarEscorrentia();
+	
+	end	
+
+rule "Regla_18" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="tomate"
+	then 
+		$actividadAgricola->masaNitrogenoPromedio=58*1000000*$actividadAgricola->numeroHectareas*$actividadAgricola->escorrentia->difuzificarEscorrentia();
+	
+	end	
+
+rule "Regla_19" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="arroz"
+	then 
+		$actividadAgricola->cultivo->ciclo="corto";
+	end	
+	
+rule "Regla_20" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="azucar"
+	then 
+		$actividadAgricola->cultivo->ciclo="corto";
+	end	
+
+rule "Regla_21" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="banana"
+	then 
+		$actividadAgricola->cultivo->ciclo="largo";
+	end		
+
+rule "Regla_22" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="cacao"
+	then 
+		$actividadAgricola->cultivo->ciclo="largo";
+	end		
+
+rule "Regla_23" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="cafe"
+	then 
+		$actividadAgricola->cultivo->ciclo="largo";
+	end		
+
+rule "Regla_24" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="cebolla"
+	then 
+		$actividadAgricola->cultivo->ciclo="corto";
+	end		
+
+rule "Regla_25" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="maiz"
+	then 
+		$actividadAgricola->cultivo->ciclo="corto";
+	end		
+
+rule "Regla_26" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="papa"
+	then 
+		$actividadAgricola->cultivo->ciclo="corto";
+	end		
+
+rule "Regla_27" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="soja"
+	then 
+		$actividadAgricola->cultivo->ciclo="corto";
+	end		
+
+rule "Regla_28" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->cultivo->nombre=="tomate"
+	then 
+		$actividadAgricola->cultivo->ciclo="corto";
+	end		
+
+
+
+rule "Regla_29" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->pendiente->porcentaje >= 5 && $actividadAgricola->estadoClima == "lluvioso" && $actividadAgricola->cultivo->ciclo=="largo"
 	then 
@@ -34,7 +220,7 @@ rule "Regla1" priority=0
 		
 	end
 
-rule "Regla2" priority=0
+rule "Regla_30" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >= 15 
 	then 
@@ -43,7 +229,7 @@ rule "Regla2" priority=0
 		
 	end
 
-rule "Regla3" priority=0
+rule "Regla_31" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >= 5 &&  $actividadAgricola->pendiente->porcentaje<=12
 	then 
@@ -52,7 +238,7 @@ rule "Regla3" priority=0
 		
 	end
 
-rule "Regla4" priority=0
+rule "Regla_32" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje < 5 &&  $actividadAgricola->estadoClima=="lluvioso"
 	then 
@@ -62,7 +248,7 @@ rule "Regla4" priority=0
 	end
 
 
-rule "Regla5" priority=0
+rule "Regla_33" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=2 &&  $actividadAgricola->pendiente->porcentaje <5
 	then 
@@ -71,7 +257,7 @@ rule "Regla5" priority=0
 		
 	end
 
-rule "Regla6" priority=0
+rule "Regla_34" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=5 &&  $actividadAgricola->pendiente->porcentaje <10
 	then 
@@ -80,7 +266,7 @@ rule "Regla6" priority=0
 		
 	end	
 
-rule "Regla7" priority=0
+rule "Regla_35" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=10 &&  $actividadAgricola->pendiente->porcentaje <20
 	then 
@@ -89,7 +275,7 @@ rule "Regla7" priority=0
 		
 	end	
 
-rule "Regla8" priority=0
+rule "Regla_36" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=20 &&  $actividadAgricola->pendiente->porcentaje <30
 	then 
@@ -98,7 +284,7 @@ rule "Regla8" priority=0
 		
 	end	
 
-rule "Regla9" priority=0
+rule "Regla_37" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=30 &&  $actividadAgricola->pendiente->porcentaje <40
 	then 
@@ -107,20 +293,12 @@ rule "Regla9" priority=0
 		
 	end	
 
-rule "Regla10" priority=0
+rule "Regla_38" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=40 
 	then 
 		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=6;
 		
-		
-	end	
-
-rule "Regla11" priority=1
-	context ActividadGanadera $actividadGanadera 
-	if $actividadGanadera->numeroAnimales >=40 
-	then 
-		$actividadGanadera->masaNitrogenoPromedio=$actividadGanadera->numeroAnimales*10;
 		
 	end	
 	

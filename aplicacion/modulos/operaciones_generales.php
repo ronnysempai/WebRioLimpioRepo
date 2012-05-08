@@ -43,7 +43,7 @@
 									
 									$cultivo=new Cultivo();
 									$cultivo->setNombre($obj_php[$i]->cultivo);
-									$cultivo->setCiclo('largo');
+									
 									
 									
 									$actividadAgricola=new ActividadAgricola();
