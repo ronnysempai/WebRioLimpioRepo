@@ -5,7 +5,7 @@
 class Rio extends Fact
 {
 	
-	var $idCapa;
+	
 	var $caudal;
 	var $cargaContaminante;
 	var $concentracionContaminante;

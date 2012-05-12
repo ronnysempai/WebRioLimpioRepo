@@ -3,6 +3,7 @@ var arrayActividadAgricola=new Array();
 var arrayActividadGanadera=new Array();
 var arrayPoblacion=new Array();
 var RIO=new Rio();
+var arrayResultados=new Array();
 
 
 	function almacenarElementoActividadAgricola(cultivo,numeroHectareas,estadoClima,pendiente)
@@ -387,6 +388,95 @@ var RIO=new Rio();
 	
 	}
 	
+	function muestraResultado(indice)
+	{
+			var l=arrayResultados.length;
+			var a=null;
+			var texto='';
+			
+			$( "#dialog" ).html('');
+			$( "#ui-dialog-title-dialog" ).css('color','"red');
+							
+											for (atributo in arrayResultados[indice])
+											{
+												if(arrayResultados[indice][atributo].indexOf('agricola', 0)!=-1)
+												texto+='<h3 style="color:#31B404 ">Fuentes de Contaminacion Actividad Agricola</h3>';
+												
+													texto+='<div>';
+													if(atributo=='practicaAgricola')
+														texto+='Practica Recomendada:';
+													else													
+													texto+=  ' '+atributo+':';
+													
+													texto+=  ' '+arrayResultados[indice][atributo]+'';
+													texto+='</div>';
+											}
+											
+											
+											/*$(document).mousemove(function(e){
+												alert(e.pageX +', '+ e.pageY);
+													});
+												*/	
+											$( "#dialog" ).html("<div id='id_capa_resultados' > Los Resultados son: " +texto +'</div>');
+											
+											$( "#dialog" ).dialog({
+														autoOpen: false,
+														title: 'Dialogo Básico',
+														height: 300,
+														width: 550,
+														modal: false
+														}); 
+												$( "#dialog" ).dialog("option", "position", [719, 150]);
+											$( "#dialog" ).dialog('open');
+			 
+	}
+	
+	function muestraResultadosBeta(jsonObj)
+	{
+								var s='';
+								var pos_x=0;
+								var pos_y=0;
+								var posicion=0;
+					
+											//$( "#dialog" ).html("Se guardaron los datos: " + jsonObj.length);
+											
+											
+											for (i=0;i< jsonObj.length;i++)
+											{
+												if(jsonObj[i].idCapa.indexOf('agricola', 0)!=-1)
+												s+='<h3 style="color:#31B404 ">Fuentes de Contaminacion Actividad Agricola</h3>';
+												
+													
+														for (atributo in jsonObj[i])
+														 {		
+															
+															s+='<div>';
+																if(atributo=='practicaAgricola')
+																s+='Practica Recomendada:';
+																else
+																s+=  ' '+atributo+':';
+																
+																s+=  jsonObj[i][atributo];
+																//s+='\n';
+																s+='</div>';
+																
+																
+															}  
+															
+													
+													//s+=jsonObj[i].toSource(); //convierte objeto JSON a cadena d texto
+												
+											}
+											//alert(  s);
+											
+											$( "#ui-dialog-title-dialog" ).css('color','"red')
+							
+											
+											$( "#dialog" ).html("<div id='id_capa_resultados' > Los Resultados son: " + s+'</div>');
+											$( "#dialog" ).dialog();
+											
+		
+	}
 	
 	function enviarDatosSistemaExperto()
 	{
@@ -403,34 +493,42 @@ var RIO=new Rio();
 											
 											var jsonObj = $.parseJSON(datos);
 											var s='';
-											//$( "#dialog" ).html("Se guardaron los datos: " + jsonObj.length);
 											
+											var pos_x=0;
+											var pos_y=0;
+											var posicion=0;
+					
+											
+											arrayResultados=new Array();
 											for (i=0;i< jsonObj.length;i++)
 											{
-												if(jsonObj[i].idCapa.indexOf('agricola', 0)!=-1)
-												s+='\n Fuentes de Contaminacion Actividad Agricola \n';
-												//s+='<h3 style="color:#39f ">Fuentes de Contaminacion Actividad Agricola</h3>';
 												
-													
-														for (x in jsonObj[i])
+														for (atributo in jsonObj[i])
 														 {		
-															s+='\n';
-																if(x=='practicaAgricola')
-																s+='Practica Recomendada:';
+																
+																if(atributo=='idCapa')
+																	{
+																		posicion=$('#'+jsonObj[i][atributo]).position() ;
+																		pos_x=  posicion.left +65;
+																		pos_y=posicion.top+15;
+																		s+=  ' '+atributo+':';
+																		
+																	
+																		if(document.getElementById('resultado_'+jsonObj[i][atributo]) ==null )
+																		$('#imgSE').append('<div id="resultado_'+ jsonObj[i][atributo]+'" style="position:absolute; background:#E3F6CE; top:'+pos_y+'px; left:'+pos_x+'px;" width="60" height="60"><a  name="" href="#" onclick=muestraResultado('+arrayResultados.length+')>Consulta Resultados</a></div>');
+																		arrayResultados[arrayResultados.length ]=jsonObj[i];
+																		
+																	}
 																else
-																s+=  ' '+x+':';
-																s+=  jsonObj[i][x];
-																s+='\n';
+																	s+=  ' '+atributo+':';
+																
 															}  
 															
 													
-													//s+=jsonObj[i].toSource();
+													
 												
 											}
-											alert(  s);
-											//$( "#dialog" ).html("Se guardaron los datos: " + s);
-											//$( "#dialog" ).dialog();
-												//
+											
 									  }
 							});
 	}

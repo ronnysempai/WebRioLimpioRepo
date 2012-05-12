@@ -280,13 +280,11 @@
 		}
 		
 		$(function() {
-							$( "#dialog" ).css("color","green");
+							$( "#dialog" ).css("color","#000000");
 							
 							$( "#dialog" ).css("font-weight","bold");
 							$( "#dialog" ).css("margin-right","50px");
-							$( "#ui-dialog-title-dialog" ).css('color','"red')
 							
-							$( "#ui-dialog-title-dialog" ).css('width','"600px')
 		});
 		
 		function mostrarResultados()
@@ -294,6 +292,129 @@
 			$( "#dialog" ).dialog();
 		
 		}
+
+
+
+		
+/*prueba animacion*/
+		
+		var canvas= new Array();
+		var ctx= new Array();
+ 
+		var background;
+		var width = 300;
+		var height = 200;
+ 
+		var cloud;
+		var cloud_x=new Array();
+		var variacion1=2;
+		
+		function init(id_canvas) 
+		{
+				var  longitudArray=canvas.length;
+				
+				canvas[longitudArray] = document.getElementById(id_canvas);
+				width = canvas[longitudArray].width;
+				height = canvas[longitudArray].height;
+				ctx[longitudArray] = canvas[longitudArray].getContext("2d");
+			 
+				
+		
+
+		return setInterval(main_loop, 10);
+		}
+ 
+function update(i_pos)
+{
+	if(cloud_x[i_pos]==null)
+		cloud_x[i_pos]=0;
+		
+		cloud_x[i_pos] += 0.5;
+			if (cloud_x[i_pos] > 40 ) {
+				//cloud_x = -cloud.width;
+				 cloud_x[i_pos] = 0;
+			}
+}
+ 
+function draw(indice_ctx) 
+{
+			//ctx.drawImage(background,0,0);
+			var tubX1=0;
+			var tubY1=15;
+			
+			var tubX2=45;
+			var tubY2=30;
 			
 			
+			var tubX3=tubX2;
+			var tubY3=tubY2+10;
+			
+			
+			var tubX4=tubX1;
+			var tubY4=tubY1+15;
+			
+			ctx[indice_ctx].clearRect(0,0,60,60);
+			
+			/*
+			ctx[indice_ctx].fillStyle = '#0431B4';
+			ctx[indice_ctx].rect(0,0,60,60);
+        
+				ctx[indice_ctx].fill(); 
+			*/
+   
+			
+				
+			/*circulos simulando gotas*/
+		    ctx[indice_ctx].fillStyle = '#000';
+			
+		   ctx[indice_ctx].beginPath();
+		   //ctx.arc(cloud_x,75,15,0,(Math.PI/180)*360,true);
+		   ctx[indice_ctx].arc(tubX2+variacion1,tubY3+cloud_x[indice_ctx]-5,2,0,(Math.PI/180)*360,true);
+		   ctx[indice_ctx].arc(tubX2+variacion1+1,tubY3+cloud_x[indice_ctx]-10,2,0,(Math.PI/180)*360,true);
+		   ctx[indice_ctx].arc(tubX2+variacion1-1,tubY3+cloud_x[indice_ctx]-15,2,0,(Math.PI/180)*360,true);
+		 
+			
+		   ctx[indice_ctx].arc(tubX2+cloud_x+5,tubY3+cloud_x[indice_ctx]-5,2,0,(Math.PI/180)*360,true);
+		 
+		   ctx[indice_ctx].fill();
+		   /*/*/
+			
+			/*tubo inclinado*/
+			 //ctx[indice_ctx].fillStyle = '#610B0B';
+			 ctx[indice_ctx].fillStyle ='#2E2E2E';
+			ctx[indice_ctx].beginPath();
+				ctx[indice_ctx].moveTo(tubX1,tubY1);
+				ctx[indice_ctx].lineTo(tubX2,tubY2);
+				ctx[indice_ctx].lineTo(tubX3,tubY3);
+				ctx[indice_ctx].lineTo(tubX4,tubY4);
+				ctx[indice_ctx].fill();
+			
+			/*un solo criculo*/
+			/*
+		   ctx[indice_ctx].fillStyle = '#000';
+		   ctx[indice_ctx].beginPath();
+		   //ctx.arc(cloud_x,75,15,0,(Math.PI/180)*360,true);
+		   ctx[indice_ctx].arc(tubX2+cloud_x-5,cloud_x+tubY2+7,8,0,(Math.PI/180)*360,true);
+		   ctx[indice_ctx].fill();
+		   */
+		   
+		   
+		   
+		   //if(variacion1>5)
+		   variacion1=variacion1*(-1);
+		   
+		   //variacion1 +=0.2;
+		   
+			//ctx.drawImage(cloud, cloud_x, 0);
+}
+ 
+function main_loop() 
+{
+
+			for (i=0;i<canvas.length;i++)
+			{	draw(i);
+				update(i);
+				}
+}
+
 			/* fin prueba */

@@ -1,13 +1,14 @@
 <?php
 
 	require_once('../motor_de_inferencias/phprules/phprules.php');
-	
+	require_once('SistemaTratamientoResidual.php');
 class Poblacion extends Fact
 {
 	
 	var $idCapa;
 	var $masaNitrogenoPromedio;
 	var $numeroHabitantes;
+	var $sistemaTratamientoResidual;
 	
 
 		function __construct()
@@ -15,7 +16,9 @@ class Poblacion extends Fact
 				$this->masaNitrogenoPromedio=0;
 				
 				$this->numeroHabitantes=0;
-	
+				
+				//$this->sistemaTratamientoResidual=new SistemaTratamientoResidual();
+				
 		}
 	
 	
@@ -43,6 +46,12 @@ class Poblacion extends Fact
 				
 		}
 		
+		function setSistemaTratamientoResidual($sistemaTratamientoResidual)
+		{  
+				$this->sistemaTratamientoResidual=$sistemaTratamientoResidual;
+				
+				
+		}
 			
 		function getIdCapa()
 		{  
@@ -66,6 +75,13 @@ class Poblacion extends Fact
 				
 		}
 		
+		function getSistemaTratamientoResidual()
+		{  
+		
+				 return $this->sistemaTratamientoResidual;
+				
+				
+		}
 		
 		
 		

@@ -48,9 +48,16 @@ redips_init = function ()
 		
 		//alert(obj.id);
 		
-		
-		
-		
+				/**/
+				var y=0;
+				 var posicion=$('#'+obj.id).position();
+					y=posicion.top;			
+					/*si es mayor a este limite se elimina por que sale de el area de uso */
+					if(y>=684)
+					{	$( "#"+obj.id ).detach();
+						return;
+					}
+				/**/	
 		
 		obj.setAttribute('style','border:1px blue solid; ');
 		
@@ -76,10 +83,26 @@ redips_init = function ()
 				
 				$('#a_'+obj.id).addClass('menuContextual');
 				
+				
+				 cargarFormulario(obj.id);
 				 inicializacionMenuContextual(obj.id);
 				 
-				  cargarFormulario(obj.id)
+				 
+					
+				 
 				
+				/*Codigo para agregar canvas dinamicamente con posicion absoluta*/
+				/*
+					var x=0;
+					var y=0;
+					
+					var posicion=$('#'+obj.id).position();
+					x=  posicion.left +65;
+					y=posicion.top+15;
+					$('#imgSE').append('<canvas id="canvas_'+obj.id+'" style="position:absolute; top:'+y+'px; left:'+x+'px;" width="60" height="60">---</canvas>');
+					init('canvas_'+obj.id);
+					*/
+				/*----*/
 			}
 		}
 		
@@ -100,6 +123,7 @@ function eliminarElemento(id)
 	
 	if(elimina)
 	{
+		//$( "#canvas_"+id ).detach();
 		$( "#"+id ).detach();
 		eliminarElementoDeArray(id);
 	}

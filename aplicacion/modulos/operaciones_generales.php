@@ -84,6 +84,7 @@
 							/**/
 							$poblacion->setMasaNitrogenoPromedio($poblacion->getNumeroHabitantes()  *  (4000000 + 550000 )  );
 							//masaNitrogenoPromedio=numeroHabitantes*(  mg promedio de nitrogeno por persona/año en orina +  mg promedio de nitrogeno por persona/año en heces  ) 
+							$poblacion->setSistemaTratamientoResidual(new SistemaTratamientoResidual() ); 
 							
 							
 							$arrFuentesContaminacion[]=$poblacion;
@@ -127,7 +128,7 @@
 												$datos_resultado.= ' "cultivo": ';
 												$datos_resultado.= ' "'.$obj->getCultivo()->getNombre().'" , ';
 												
-												$datos_resultado.= ' "masaNitrogenoPromedio": ';
+												$datos_resultado.= ' "Carga Nitrogeno Promedio": ';
 												$datos_resultado.= ' "'.$obj->getMasaNitrogenoPromedio().'" , ';
 												
 												$datos_resultado.= ' "numeroHectareas": ';
@@ -184,15 +185,20 @@
 											$datos_resultado.='{';
 											$datos_resultado.= ' "idCapa": ';
 											$datos_resultado.= ' "'.$obj->getIdCapa().'" , ';
-											$datos_resultado.= ' "'.$obj->getNumeroHabitantes().'"  ';
-											$datos_resultado.= ' "'.$obj->getMasaNitrogenoPromedio().'" ';
+											$datos_resultado.= ' "numeroHabitantes": ';
+											$datos_resultado.= ' "'.$obj->getNumeroHabitantes().'" , ';
+											$datos_resultado.= ' "Garga Nitrogeno Promedio": ';
+											$datos_resultado.= ' "'.$obj->getMasaNitrogenoPromedio().'", ';
+											$datos_resultado.= ' "Sietama de Tratamiento": ';
+											$datos_resultado.= ' "'.$obj-> getSistemaTratamientoResidual()-> getNombre().'" ';
+											
 											$datos_resultado.='}';
 											
 											if ($i < count($arrFuentesContaminacion) - 1) 
 												{
 														$datos_resultado.= ',';
 												}
-											
+											//echo $datos_resultado;
 									}
 									
 								

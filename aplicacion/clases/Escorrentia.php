@@ -89,7 +89,7 @@ Class Escorrentia extends Fact
 							
 		}
 		
-		function difuzificarEscorrentia()
+		function defuzificarEscorrentia()
 		{
 			$concuntosDifusosDifuzificacion= Array();
 			
