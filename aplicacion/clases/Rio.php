@@ -36,6 +36,22 @@ class Rio extends Fact
 				
 		}
 		
+		function setCarga($carga)
+		{
+			
+			
+			$this->carga=$carga;
+			
+		}
+		
+		function sumaCarga($cargaAnadida)
+		{
+			$this->carga=$this->carga+$cargaAnadida;
+		}
+		
+		
+		
+		
 		
 	
 		

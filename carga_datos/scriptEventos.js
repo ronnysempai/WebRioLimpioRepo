@@ -413,23 +413,35 @@ var arrayResultados=new Array();
 											}
 											
 											
-											/*$(document).mousemove(function(e){
-												alert(e.pageX +', '+ e.pageY);
-													});
-												*/	
 											$( "#dialog" ).html("<div id='id_capa_resultados' > Los Resultados son: " +texto +'</div>');
 											
-											$( "#dialog" ).dialog({
-														autoOpen: false,
-														title: 'Dialogo Básico',
-														height: 300,
-														width: 550,
-														modal: false
-														}); 
-												$( "#dialog" ).dialog("option", "position", [719, 150]);
+											$( "#dialog" ).dialog("option", "position", [719, 150]);
 											$( "#dialog" ).dialog('open');
 			 
 	}
+	
+	
+
+	/****/
+	function muestraCapaIndicador()
+	{
+					
+					if ($("#capa_resultados").is(":hidden")) 
+					{
+					//$("#capa_resultados").slideDown(500);
+						$("#capa_resultados").slideToggle("slow");
+
+					} 
+					else 
+					{
+						$("#capa_resultados").hide();
+						//$("#capa_resultados").slideDown(500);
+						$("#capa_resultados").slideToggle("slow");
+					}
+					
+
+	}
+	
 	
 	function muestraResultadosBeta(jsonObj)
 	{
@@ -469,7 +481,7 @@ var arrayResultados=new Array();
 											}
 											//alert(  s);
 											
-											$( "#ui-dialog-title-dialog" ).css('color','"red')
+											
 							
 											
 											$( "#dialog" ).html("<div id='id_capa_resultados' > Los Resultados son: " + s+'</div>');
@@ -524,10 +536,9 @@ var arrayResultados=new Array();
 																
 															}  
 															
-													
-													
-												
 											}
+											muestraCapaIndicador();
+											
 											
 									  }
 							});

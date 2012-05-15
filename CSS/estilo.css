@@ -139,6 +139,37 @@ background-attachment: fixed;
 /******************************/
 /*    Estilos para los divs   */
 /******************************/
+
+/* Estilo para capa de mostrar resultados*/
+
+.capaResultado
+{
+	
+	background-color:#E6DF95;
+	/*background-color:#C5E695;*/
+	
+	border-radius: 8px;
+	display:none;
+	
+	
+	margin:10px;
+	margin-top:180px;
+	margin-left:150px;
+	
+	
+	padding-left:15px;
+	padding-right:15px;
+	
+	width:100px;
+	
+	text-align:center;
+	
+}
+
+
+/***/
+
+
 .divWrapper{
 
 overflow:hidden;
@@ -172,6 +203,7 @@ padding-right:80px;
 */
 
 }
+
 
 
 .divPrimerEncabezado
@@ -366,6 +398,8 @@ display:none;
 {
 	text-align:justify;
 	margin:50px;
+	
+	margin-bottom:100px;
 
 }
 

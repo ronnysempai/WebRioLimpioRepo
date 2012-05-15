@@ -95,7 +95,7 @@
 			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="arroz">Arroz</option>');
 			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="banana">Banana</option> ');
 			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cacao">Cacao</option> ');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cana_azucar">Caña de azúcar</option> ');
+			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="azucar">Azúcar</option> ');
 			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cafe">Cafe</option> ');
 			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cebolla">Cebolla</option> ');
 			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="maiz">Maiz</option>');
@@ -280,10 +280,22 @@
 		}
 		
 		$(function() {
+		
+							$( "#dialog" ).dialog({
+														autoOpen: false,
+														title: 'Resultados',
+														height: 300,
+														width: 550,
+														modal: false
+														}); 
+												
+							
 							$( "#dialog" ).css("color","#000000");
 							
 							$( "#dialog" ).css("font-weight","bold");
 							$( "#dialog" ).css("margin-right","50px");
+							
+							
 							
 		});
 		
@@ -355,13 +367,6 @@ function draw(indice_ctx)
 			
 			ctx[indice_ctx].clearRect(0,0,60,60);
 			
-			/*
-			ctx[indice_ctx].fillStyle = '#0431B4';
-			ctx[indice_ctx].rect(0,0,60,60);
-        
-				ctx[indice_ctx].fill(); 
-			*/
-   
 			
 				
 			/*circulos simulando gotas*/

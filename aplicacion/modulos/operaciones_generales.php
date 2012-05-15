@@ -1,13 +1,19 @@
 <?php
 	
 	require_once('../motor_de_inferencias/phprules/phprules.php');
-	require_once('../clases/Pendiente.php');
+	
 	require_once('../clases/ActividadAgricola.php');
-	require_once('../clases/Escorrentia.php');
 	require_once('../clases/ActividadGanadera.php');
-	require_once('../clases/Poblacion.php');
 	require_once('../clases/Cultivo.php');
+	require_once('../clases/Escorrentia.php');
+	require_once('../clases/Pendiente.php');
+	require_once('../clases/Poblacion.php');
 	require_once('../clases/PracticaAgricola.php');
+	require_once('../clases/Rio.php');
+	
+	
+	
+	
 	
 	
 	
@@ -89,6 +95,15 @@
 							
 							$arrFuentesContaminacion[]=$poblacion;
 						}
+						else
+						if(strrpos($obj_php[$i]->idCapa, "rio"))
+						{
+							
+							$rio=new Rio();
+							$rio->setCaudal($obj_php[$i]->caudal);
+							
+						}
+						
 						
 						
 				}
@@ -113,7 +128,7 @@
 							$cadActividadAgricola='';
 							$cadActividadGanadera='';
 							$cadPoblacion='';
-							/*mostrar los dtaos modificados por las reglas en cada objeto*/
+							/*mostrar los datos modificados por las reglas en cada objeto*/
 							foreach($arrFuentesContaminacion as $i=>$obj)
 							{
 								
@@ -189,7 +204,7 @@
 											$datos_resultado.= ' "'.$obj->getNumeroHabitantes().'" , ';
 											$datos_resultado.= ' "Garga Nitrogeno Promedio": ';
 											$datos_resultado.= ' "'.$obj->getMasaNitrogenoPromedio().'", ';
-											$datos_resultado.= ' "Sietama de Tratamiento": ';
+											$datos_resultado.= ' "Sistama de Tratamiento": ';
 											$datos_resultado.= ' "'.$obj-> getSistemaTratamientoResidual()-> getNombre().'" ';
 											
 											$datos_resultado.='}';
@@ -202,10 +217,14 @@
 									}
 									
 								
+								//$rio->sumaCarga(  $obj->getMasaNitrogenoPromedio() );
 								
 								//print_r($obj);
 								
+								
 							}
+							
+							
 							
 								$datos_resultado='['.$datos_resultado.']';
 								

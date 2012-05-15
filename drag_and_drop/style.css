@@ -75,11 +75,15 @@ div#drag td,th
 	
 	#celda2
 	{
-		/* border:3px gray solid; */
+		/* border:3px gray solid;  */
 		margin-left:75px;
 	}
 		
-	
+	#celda3
+	{
+		/* border:3px gray solid;  */
+		margin-left:1px;
+	}
 	#costado_del_rio
 	{	
 		
@@ -212,22 +216,10 @@ div#drag td,th
 		
 }
 
-.grid_fila
-{
-		display: table-row;
-		
-		border: 1px  solid  blue;
-}
 
 
-.grid_table
-{
-	/*
-	border:1px  #444 solid ;
-	text-align:left;
-	*/
-}
-	
+
+
 	
 /* last row and last column without border */
 .noborder
