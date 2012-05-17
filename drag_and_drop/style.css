@@ -75,15 +75,22 @@ div#drag td,th
 	
 	#celda2
 	{
-		/* border:3px gray solid;  */
+		border:3px gray solid;  
 		margin-left:75px;
 	}
 		
 	#celda3
 	{
-		/* border:3px gray solid;  */
+		 border:3px gray solid;  
 		margin-left:1px;
 	}
+	
+	#celda4
+	{
+		 border:3px gray solid;  
+		margin-left:1px;
+	}
+	
 	#costado_del_rio
 	{	
 		
@@ -115,7 +122,7 @@ div#drag td,th
 	
 	#fila1
 	{
-		/* border:1px  #444 solid ; */
+		border:1px  #444 solid ; 
 		text-align:left;
 	
 	}
@@ -158,8 +165,6 @@ div#drag td,th
 {
 	 border:1px  yellow solid; 
 	/* border:1px  #B6D627 solid; */
-	
-
 }
 
 /* drag objects (DIV inside table cells) */

@@ -517,23 +517,29 @@ var arrayResultados=new Array();
 												
 														for (atributo in jsonObj[i])
 														 {		
-																
-																if(atributo=='idCapa')
-																	{
-																		posicion=$('#'+jsonObj[i][atributo]).position() ;
-																		pos_x=  posicion.left +65;
-																		pos_y=posicion.top+15;
+																if(jsonObj[i][atributo]!='rio')
+																	{	if(atributo=='idCapa')
+																		{
+																			posicion=$('#'+jsonObj[i][atributo]).position() ;
+																			pos_x=  posicion.left +65;
+																			pos_y=posicion.top+15;
+																			s+=  ' '+atributo+':';
+																			
+																		
+																			if(document.getElementById('resultado_'+jsonObj[i][atributo]) ==null )
+																			$('#imgSE').append('<div id="resultado_'+ jsonObj[i][atributo]+'" style="position:absolute; background:#E3F6CE; top:'+pos_y+'px; left:'+pos_x+'px;" width="60" height="60"><a  name="" href="#" onclick=muestraResultado('+arrayResultados.length+')>Consulta Resultados</a></div>');
+																			arrayResultados[arrayResultados.length ]=jsonObj[i];
+																			
+																		}
+																	else
 																		s+=  ' '+atributo+':';
-																		
-																	
-																		if(document.getElementById('resultado_'+jsonObj[i][atributo]) ==null )
-																		$('#imgSE').append('<div id="resultado_'+ jsonObj[i][atributo]+'" style="position:absolute; background:#E3F6CE; top:'+pos_y+'px; left:'+pos_x+'px;" width="60" height="60"><a  name="" href="#" onclick=muestraResultado('+arrayResultados.length+')>Consulta Resultados</a></div>');
-																		arrayResultados[arrayResultados.length ]=jsonObj[i];
-																		
-																	}
+																}
 																else
-																	s+=  ' '+atributo+':';
+																{
 																
+																$('#capa_resultados').html(''+jsonObj[i][atributo]+' La carga total contaminante:'+'mg/año');
+																
+																}
 															}  
 															
 											}

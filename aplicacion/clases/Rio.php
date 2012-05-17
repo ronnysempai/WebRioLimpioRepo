@@ -14,7 +14,7 @@ class Rio extends Fact
 		{
 		
 				$this->caudal=0;
-				$this->cargaContaminante;
+				$this->cargaContaminante=0;
 				$this->concentracionContaminante=0;
 				
 		}
@@ -40,15 +40,24 @@ class Rio extends Fact
 		{
 			
 			
-			$this->carga=$carga;
+			$this->cargaContaminante==$carga;
 			
 		}
 		
 		function sumaCarga($cargaAnadida)
 		{
-			$this->carga=$this->carga+$cargaAnadida;
+			$this->cargaContaminante=$this->cargaContaminante+$cargaAnadida;
 		}
 		
+		function calculaConcentracion()
+		{
+		//echo '>'.$this->cargaContaminante * (1 / 31556 926);
+					//	(  mg/año )		*						( año / segundos)	
+			//$carga_mgXsegundos=  $this->cargaContaminante * (1 / 31556 926);
+			
+			
+			
+		}
 		
 		
 		
@@ -62,6 +71,14 @@ class Rio extends Fact
 				
 				
 		}
+		
+		function getCarga()
+		{  
+				return $this->cargaContaminante;
+				
+				
+		}
+		
 		
 		function getCaudal()
 		{  

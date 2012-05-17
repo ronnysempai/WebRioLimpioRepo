@@ -20,6 +20,7 @@
 	
 	$datos=$_POST['datos'];
 	$arrFuentesContaminacion=Array();
+	$rio=new Rio();
 	
 	if(!empty($datos))
 	{
@@ -99,7 +100,7 @@
 						if(strrpos($obj_php[$i]->idCapa, "rio"))
 						{
 							
-							$rio=new Rio();
+							
 							$rio->setCaudal($obj_php[$i]->caudal);
 							
 						}
@@ -214,17 +215,32 @@
 														$datos_resultado.= ',';
 												}
 											//echo $datos_resultado;
+											
+											
+											
+											
 									}
 									
+									$rio->sumaCarga(  $obj->getMasaNitrogenoPromedio() );
+									
+											
+								//echo $datos_resultado;
 								
-								//$rio->sumaCarga(  $obj->getMasaNitrogenoPromedio() );
 								
 								//print_r($obj);
 								
 								
 							}
 							
-							
+							 $rio->calculaConcentracion();
+											$datos_resultado.=',{';
+											$datos_resultado.= ' "idCapa": ';
+											$datos_resultado.= ' "rio" , ';
+											$datos_resultado.= ' "carga": ';
+											$datos_resultado.= ' "'.$rio->getCarga().'"  ';
+											$datos_resultado.='}';
+											
+								//echo $datos_resultado;
 							
 								$datos_resultado='['.$datos_resultado.']';
 								

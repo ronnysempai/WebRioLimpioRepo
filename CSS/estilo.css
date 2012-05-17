@@ -46,6 +46,14 @@ background-attachment: fixed;
 
 }
 
+#contenido_formulario_modal table td
+{
+	border:1px  #444 solid; 
+	
+	
+}
+
+
 
 #enrique
 {
@@ -140,6 +148,30 @@ background-attachment: fixed;
 /*    Estilos para los divs   */
 /******************************/
 
+
+/*Estilo para */
+
+.capaConfiguracion
+{
+	background-color:#E6DF95;
+	/*background-color:#C5E695;*/
+	
+	border-radius: 8px;
+	
+	
+	margin:10px;
+	margin-top:180px;
+	margin-left:50px;
+	
+	
+	padding-left:15px;
+	padding-right:15px;
+	
+	width:200px;
+}
+
+/**/
+
 /* Estilo para capa de mostrar resultados*/
 
 .capaResultado
@@ -160,7 +192,7 @@ background-attachment: fixed;
 	padding-left:15px;
 	padding-right:15px;
 	
-	width:100px;
+	width:200px;
 	
 	text-align:center;
 	
@@ -168,6 +200,7 @@ background-attachment: fixed;
 
 
 /***/
+
 
 
 .divWrapper{
