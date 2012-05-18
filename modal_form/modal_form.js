@@ -310,6 +310,7 @@
 				
 		}
 		
+		/* inicializacion capa flotante */
 		$(function() {
 		
 							$( "#dialog" ).dialog({
@@ -336,7 +337,7 @@
 		
 		}
 
-
+	/***********************/
 
 		
 /*prueba animacion*/

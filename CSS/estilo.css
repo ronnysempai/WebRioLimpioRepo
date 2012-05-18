@@ -149,57 +149,6 @@ background-attachment: fixed;
 /******************************/
 
 
-/*Estilo para */
-
-.capaConfiguracion
-{
-	background-color:#E6DF95;
-	/*background-color:#C5E695;*/
-	
-	border-radius: 8px;
-	
-	
-	margin:10px;
-	margin-top:180px;
-	margin-left:50px;
-	
-	
-	padding-left:15px;
-	padding-right:15px;
-	
-	width:200px;
-}
-
-/**/
-
-/* Estilo para capa de mostrar resultados*/
-
-.capaResultado
-{
-	
-	background-color:#E6DF95;
-	/*background-color:#C5E695;*/
-	
-	border-radius: 8px;
-	display:none;
-	
-	
-	margin:10px;
-	margin-top:180px;
-	margin-left:150px;
-	
-	
-	padding-left:15px;
-	padding-right:15px;
-	
-	width:200px;
-	
-	text-align:center;
-	
-}
-
-
-/***/
 
 
 

@@ -32,6 +32,13 @@
 	
 	<script src="modal_form/modal_form.js"> </script>
 	
+	
+	
+	
+	<script src="capas_desplegables/efectosCapasDesplegables.js"> </script>
+	
+	
+	
 	<script src="Tooltip/scriptToolTip.js"></script>
 	
 	<script src="MenuContextual/jquery.contextmenu.r2.js"></script>
@@ -74,6 +81,8 @@
 
 
 <link rel="stylesheet" type="text/css" href="Tooltip/styleTooltip.css" />
+<link rel="stylesheet" type="text/css" href="capas_desplegables/estiloCapas.css" />
+
 
 
 
@@ -177,7 +186,7 @@
 	
 	<div id='imgSE'>
 		<div id="main_container">
-		 																						<button id='bto' onclick='cargarFormularioRio()'>Configuracion Parametros Rio</button>
+		 																						
  			
 			<div id='drag'>
 			<div id="layout_table"  >
@@ -274,10 +283,46 @@
 																					</div>
 																					<div id="celda4" class="grid_celda">	
 																							
-																							<div id='capa_form_configuracion' class="capaConfiguracion">
+																							<div id='icono_configuracion' onclick="muestraCapaConfiguracion()" class="capaIconoConfiguracion">
 																										
-																													este sera la lista de resultados 
+																													icono configuracion
 																												
+																							</div>
+																							
+																							<div id='icono_clima' class="capaIconoClima">
+																										
+																													icono clima
+																												
+																							</div>
+																							
+																							
+																							<div id='capa_form_configuracion' class="capaConfiguracion">
+																										<form>
+																												
+																												<fieldset>
+																												<ol>
+																													<li>
+																															<label  id="etiqueta_caudal" for="name"  >Caudal de Rio:</label>
+																																	<input type="text"  name="caudal" id="caudal" class="text ui-widget-content ui-corner-all" />
+																													</li>
+																													
+																													<li>	
+																													<label  id="etiqueta_distancia_uso_suelo" for="name"  >Distancia :</label>
+																													<input type="text"  name="distancia_uso_suelo" id="distancia_uso_suelo" class="text ui-widget-content ui-corner-all" />		
+																													</li>
+																													
+																													<li>	
+																													<label  id="etiqueta_distancia_pendiente" for="name"  >Pendiente :</label>
+																													   <input type="text" name="pendiente" id="pendiente" class="slider" value="2">
+																													</li>
+																													    
+																												</ol>			
+																												</fieldset>
+																												
+																												<fieldset>
+																														<button type="button"  id='btnGuardar' onclick=''>Guardar</button> 
+																												</fieldset>
+																										</form>		
 																							</div>
 																							
 																					</div>
