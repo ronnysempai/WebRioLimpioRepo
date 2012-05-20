@@ -3,6 +3,8 @@ var arrayActividadAgricola=new Array();
 var arrayActividadGanadera=new Array();
 var arrayPoblacion=new Array();
 var RIO=new Rio();
+var CLIMA='seco';
+var PENDIENTE=0;
 var arrayResultados=new Array();
 
 
@@ -14,7 +16,7 @@ var arrayResultados=new Array();
 			
 			actividadAgricola.setCultivo(cultivo);
 			actividadAgricola.setNumeroHectareas(numeroHectareas);
-			actividadAgricola.setEstadoClima(estadoClima);
+			//actividadAgricola.setEstadoClima(estadoClima);
 			actividadAgricola.setPendiente(pendiente);
 			
 			
@@ -42,7 +44,7 @@ var arrayResultados=new Array();
 							{	
 							    arrayActividadAgricola[i].setCultivo($( "#cultivo" ).val())	;
 								arrayActividadAgricola[i].setNumeroHectareas(	$( "#numero_hectareas" ).val() );
-								arrayActividadAgricola[i].setEstadoClima(	$( "#clima" ).val() );
+								//arrayActividadAgricola[i].setEstadoClima(	$( "#clima" ).val() );
 								arrayActividadAgricola[i].setPendiente(	$( "#pendiente" ).val()  );
 								return;
 							}
@@ -204,6 +206,28 @@ var arrayResultados=new Array();
 				return false;
 	}
 	
+	function asignarPrametrosGenerales()
+	{
+			var caudal=$('#caudal').val();
+			var distancia_uso_suelo=$('#distancia_uso_suelo').val();
+			var pendiente=$('#one').val();
+			
+			if( ! ( !isNaN(parseFloat(caudal)) && isFinite(caudal) ))
+			{	alert('por favor ingrese un dato valido en el caudal del rio')
+				return;
+			}
+			if(  !( !isNaN(parseFloat(pendiente)) && isFinite(pendiente)  ) )
+			{	alert('por favor ingrese un dato valido en la pendiente del terreno ')
+				return;
+			}
+			
+			RIO.setIdCapa('rio');
+			RIO.setCaudal(caudal);
+			
+			PENDIENTE=pendiente;
+			muestraCapaConfiguracion()
+	}
+	
 	function mostrarArray()
 	{
 		
@@ -267,10 +291,12 @@ var arrayResultados=new Array();
 												cadActividadAgricola += ' "'+arrayActividadAgricola[i].getNumeroHectareas()+'" , ';
 												
 												cadActividadAgricola += ' "estadoClima": ';
-												cadActividadAgricola += ' "'+arrayActividadAgricola[i].getEstadoClima()+'" , ';
+												//cadActividadAgricola += ' "'+arrayActividadAgricola[i].getEstadoClima()+'" , ';
+												cadActividadAgricola += ' "'+CLIMA+'" , ';
 												
 												cadActividadAgricola += ' "pendiente": ';
-												cadActividadAgricola += ' "'+arrayActividadAgricola[i].getPendiente()+'" ';
+												//cadActividadAgricola += ' "'+arrayActividadAgricola[i].getPendiente()+'" ';
+												cadActividadAgricola += ' "'+PENDIENTE+'" ';
 												
 												cadActividadAgricola+='}';
 											
@@ -380,7 +406,7 @@ var arrayResultados=new Array();
 				cad='['+cad+']';
 				
 		
-			//alert(cad);
+			alert(cad);
 			return cad;
 		var jsonObj = $.parseJSON('[' + cad + ']');
 
@@ -520,7 +546,7 @@ var arrayResultados=new Array();
 																else
 																{
 																
-																$('#capa_resultados').html(''+jsonObj[i][atributo]+' La carga total contaminante:'+'mg/año');
+																$('#capa_resultados').html(''+jsonObj[i][atributo]+' La carga total contaminante:'+jsonObj[i]['carga']+'mg/año');
 																
 																}
 															}  

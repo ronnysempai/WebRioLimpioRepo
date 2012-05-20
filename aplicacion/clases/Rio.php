@@ -53,12 +53,20 @@ class Rio extends Fact
 		{
 		//echo '>'.$this->cargaContaminante * (1 / 31556 926);
 					//	(  mg/año )		*						( año / segundos)	
-			//$carga_mgXsegundos=  $this->cargaContaminante * (1 / 31556 926);
+				
+			$carga_mgXsegundos=  ( $this->cargaContaminante * ( 1/31556926)  );
+			$caudal_litrosXsegundos=($this->caudal * 1000);
 			
+			$concentracion=$carga_mgXsegundos/$caudal_litrosXsegundos;
 			
-			
+			 $this->concentracionContaminante=$concentracion;
+			 
 		}
 		
+		function getConcentracionContaminante()
+		{
+				return $this->concentracionContaminante;
+		}
 		
 		
 		

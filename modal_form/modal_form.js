@@ -113,45 +113,32 @@
 			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="tomate">Tomate</option>');
 			
 			
-			/*
 			
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="arroz">Arroz</option>');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="banana">Banana</option> ');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cacao">Cacao</option> ');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="azucar">Azúcar</option> ');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cafe">Cafe</option> ');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="cebolla">Cebolla</option> ');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="maiz">Maiz</option>');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="papa">Papa</option>');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="soja">Soja</option>');
-			$( "#contenido_formulario_modal #capa_form_cultivo #cultivo" ).append('<option value="tomate">Tomate</option>');
-			*/
-
 			
 			
 			
 			$( "#contenido_formulario_modal table" ).append('<tr id="f2"></tr>');
 			
-			$( "#contenido_formulario_modal #f2" ).append('<td style="width:177px">  <label  id="etiqueta_hectareas" >Extencion de Terreno</label>  </td>');
+			$( "#contenido_formulario_modal #f2" ).append('<td style="width:177px">  <label  id="etiqueta_hectareas" >Extension de Terreno</label>  </td>');
 			$( "#contenido_formulario_modal  #f2" ).append(' <td> <input id="numero_hectareas" type="text" value="" class="text ui-widget-content ui-corner-all" /> </td>');
 			$( "#contenido_formulario_modal  #f2 input" ).css('width','80px');
 			$( "#contenido_formulario_modal #f2").append('<span id="etiqueta_ha" type="text" value=""  >Ha</span>');
 			
-			
+			/*
 			$( "#contenido_formulario_modal table" ).append('<tr id="f3"></tr>');
 			
 			$( "#contenido_formulario_modal #f3" ).append('<td> <label id="etiqueta_clima">Clima </label> </td> ');
 			$( "#contenido_formulario_modal #f3" ).append('<td> <select id="clima" class="text ui-widget-content ui-corner-all"  >		</select>  </td>');
 			$( "#contenido_formulario_modal #f3 #clima" ).append('<option value="seco">Seco</option>');
 			$( "#contenido_formulario_modal #f3 #clima" ).append('<option value="lluvioso">Lluvioso</option>');
-			
-			$( "#contenido_formulario_modal table" ).append('<tr id="f4"></tr>');
+			*/
+			/*$( "#contenido_formulario_modal table" ).append('<tr id="f4"></tr>');
 			$( "#contenido_formulario_modal #f4" ).append('<td> <label id="etiqueta_pendiente">Pendiente </> </td> ');
 			$( "#contenido_formulario_modal #f4").append('<td> <input id="pendiente" type="text" value=""   class="text ui-widget-content ui-corner-all"  /> </td>');
 			$( "#contenido_formulario_modal  #f4 input" ).css('width','80px');
 			
 			$( "#contenido_formulario_modal #f4").append('<span id="etiqueta_porcentaje" type="text" value=""  >%</span> ');
-			
+			*/
 			
 			
 		}

@@ -97,15 +97,15 @@
 							$arrFuentesContaminacion[]=$poblacion;
 						}
 						else
-						if(strrpos($obj_php[$i]->idCapa, "rio"))
+						if($obj_php[$i]->idCapa=='rio')//if(strrpos($obj_php[$i]->idCapa, "rio"))
 						{
 							
-							
 							$rio->setCaudal($obj_php[$i]->caudal);
+							//echo 'caudal '.$rio->getCaudal();
 							
 						}
 						
-						
+						//echo 'caudal '.$obj_php[$i]->idCapa;
 						
 				}
 				
@@ -223,7 +223,8 @@
 									
 									$rio->sumaCarga(  $obj->getMasaNitrogenoPromedio() );
 									
-											
+									//echo  ' carga:'.$obj->getMasaNitrogenoPromedio();
+									//echo  ' carga suma:'.$rio->getCarga();
 								//echo $datos_resultado;
 								
 								
@@ -233,11 +234,18 @@
 							}
 							
 							 $rio->calculaConcentracion();
-											$datos_resultado.=',{';
+											if($datos_resultado!='')
+											$datos_resultado.=',';
+											
+											$datos_resultado.='{';
 											$datos_resultado.= ' "idCapa": ';
 											$datos_resultado.= ' "rio" , ';
 											$datos_resultado.= ' "carga": ';
-											$datos_resultado.= ' "'.$rio->getCarga().'"  ';
+											$datos_resultado.= ' "'.$rio->getCarga().'" , ';
+											$datos_resultado.= ' "caudal": ';
+											$datos_resultado.= ' "'.$rio->getCaudal().'" , ';
+											$datos_resultado.= ' "concentracion": ';
+											$datos_resultado.= ' "'.$rio->getConcentracionContaminante().'"  ';
 											$datos_resultado.='}';
 											
 								//echo $datos_resultado;

@@ -1,7 +1,9 @@
 
 
 
-
+input[type=range]:first-of-type {
+  width: 80px;
+}
 
 
 /*Estilo para */
@@ -13,7 +15,7 @@
 	
 	border-radius: 8px;
 	display:none;
-	font-size:15px;
+	font-size:17px;
 	
 	
 	margin-top:0px;
@@ -58,13 +60,35 @@ list-style: none;
 	
 }
 
+.capaConfiguracion	#uno
+{
+		
+	float: right;
+	margin-right: 5px;
+
+	
+	
+	
+}
+
+.capaConfiguracion	span
+{
+		
+	float: right;
+		
+}
 /**/
 
 
 .capaIconoConfiguracion
 {
-		background-color:white;
-		/* background-image:url('../imagenes/Engranaje-transparente.png');  */
+		/*background-color:white;*/
+		 background-image:url('../imagenes/Configuracion.jpg');
+		background-position: top center;
+		background-size: cover;
+		
+		border:1px blue solid;
+		border-radius: 8px;
 		
 		display:inline-block; 
 		
@@ -73,7 +97,7 @@ list-style: none;
 		margin-top:0;
 		margin-left:0px;
 		
-		opacity: 0.6;
+		opacity: 0.9;
 		
 		padding-left:15px;
 		padding-right:15px;
@@ -95,7 +119,12 @@ list-style: none;
 
 .capaIconoClima 
 {
-		background-color:white;
+		 background-image:url('../imagenes/Seco.jpg');
+		background-position: top center;
+		background-size: cover;
+		
+		border:1px blue solid;
+		border-radius: 8px;
 		
 		display:inline-block; 
 		
@@ -104,7 +133,7 @@ list-style: none;
 		margin-top:0;
 		margin-left:0px;
 		
-		opacity: 0.6;
+		
 		
 		padding-left:15px;
 		padding-right:15px;

@@ -37,6 +37,10 @@
 	
 	<script src="capas_desplegables/efectosCapasDesplegables.js"> </script>
 	
+	<script src="polyfill_html5slider/html5slider.js"> </script>
+	<script src="polyfill_html5slider/html5slider.js"> </script>
+	
+	
 	
 	
 	<script src="Tooltip/scriptToolTip.js"></script>
@@ -285,13 +289,12 @@
 																							
 																							<div id='icono_configuracion' onclick="muestraCapaConfiguracion()" class="capaIconoConfiguracion">
 																										
-																													icono configuracion
+																													
 																												
 																							</div>
 																							
-																							<div id='icono_clima' class="capaIconoClima">
+																							<div id='icono_clima' onclick="cambiaCapaIconoClima()" class="capaIconoClima">
 																										
-																													icono clima
 																												
 																							</div>
 																							
@@ -313,14 +316,18 @@
 																													
 																													<li>	
 																													<label  id="etiqueta_distancia_pendiente" for="name"  >Pendiente :</label>
-																													   <input type="text" name="pendiente" id="pendiente" class="slider" value="2">
+																													   <div id="uno">&nbsp;</div>
+																													   <span id="etiqueta_porcentaje">%</span>
+																													   <input type="range" id="one" />
+																															
+																															
 																													</li>
 																													    
 																												</ol>			
 																												</fieldset>
 																												
 																												<fieldset>
-																														<button type="button"  id='btnGuardar' onclick=''>Guardar</button> 
+																														<button type="button"  id='btnGuardar' onclick='asignarPrametrosGenerales()'>Guardar</button> 
 																												</fieldset>
 																										</form>		
 																							</div>
@@ -369,14 +376,8 @@
 		<!---///-->	
 </body>
 
- <script>
- //$(".menuContextual").css("border","13px solid red")
- //$('#etiqueta') .addClass('menuContextual');
- 
- //init();//
- 
- </script>
- 
+
+ <script src="polyfill_html5slider/scriptSlider.js">  </script>
 //
 
 

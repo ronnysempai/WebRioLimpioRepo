@@ -40,4 +40,31 @@ function muestraCapaConfiguracion()
 
 	}
 	
+	function  cambiaCapaIconoClima()
+	{
+		var url = document.URL;
+		var pos_nombre_archivo =0;
+		
+		var propiedad_imagen_fondo=$('#icono_clima').css('background-image');
+		
+		pos_nombre_archivo =propiedad_imagen_fondo.indexOf('Seco', 0);
+		
+		if(pos_nombre_archivo!=-1)
+		{
+		CLIMA='lluvioso';
+		propiedad_imagen_fondo=propiedad_imagen_fondo.replace("Seco","Lluvioso"); }
+		else
+		{
+		CLIMA='seco';
+		propiedad_imagen_fondo=propiedad_imagen_fondo.replace("Lluvioso","Seco"); }
+		
+			
+				
+				$('#icono_clima').css('background-image', propiedad_imagen_fondo);
+				
+				
+	}
+	
+	
+	
 	
