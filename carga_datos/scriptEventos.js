@@ -406,7 +406,7 @@ var arrayResultados=new Array();
 				cad='['+cad+']';
 				
 		
-			alert(cad);
+			//alert(cad);
 			return cad;
 		var jsonObj = $.parseJSON('[' + cad + ']');
 
