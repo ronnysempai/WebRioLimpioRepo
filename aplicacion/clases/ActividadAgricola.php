@@ -6,6 +6,7 @@ class ActividadAgricola extends Fact
 {
 	var $idCapa;
 	var $masaNitrogenoPromedio;
+	var $cargaNitrogenoAportada;
 	var $cultivo;
 	var $numeroHectareas;
 	var $estadoClima;
@@ -17,6 +18,7 @@ class ActividadAgricola extends Fact
 		function __construct()
 		{
 				$this->masaNitrogenoPromedio=0;
+				 $this->cargaNitrogenoAportada=0;
 				
 				$this->numeroHectareas=0;
 				$this->estadoClima=0;
@@ -38,6 +40,14 @@ class ActividadAgricola extends Fact
 		function getMasaNitrogenoPromedio()
 		{  
 				 return $this->masaNitrogenoPromedio;
+				
+				
+		}
+		
+		/**/
+		function getCargaNitrogenoAportada()
+		{   
+				 return  $this->cargaNitrogenoAportada;
 				
 				
 		}
@@ -87,12 +97,18 @@ class ActividadAgricola extends Fact
 				
 		}
 		
+		
+		
 		function setIdCapa($idCapa)
 		{
 			$this->idCapa=$idCapa;
 		
 		}
 		
+		function setCargaNitrogenoAportada($cargaNitrogenoAportada)
+		{
+			$this->cargaNitrogenoAportada=$cargaNitrogenoAportada;
+		}
 		
 		function setEstadoClima($estadoClima)
 		{

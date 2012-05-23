@@ -426,22 +426,43 @@ var arrayResultados=new Array();
 											for (atributo in arrayResultados[indice])
 											{
 												if(arrayResultados[indice][atributo].indexOf('agricola', 0)!=-1)
-												texto+='<h3 style="color:#31B404 ">Fuentes de Contaminacion Actividad Agricola</h3>';
+												{
 												
+													texto+='<h3 style="color:#31B404; margin-bottom:10px;">Resumen de Fuente de Contaminacion Actividad Agricola </h3>';
+												
+													texto+='<div style="border-bottom: 1px solid #31B404; " >';
 													texto+='<div>';
-													if(atributo=='practicaAgricola')
-														texto+='Practica Recomendada:';
-													else													
-													texto+=  ' '+atributo+':';
-													
-													texto+=  ' '+arrayResultados[indice][atributo]+'';
+													texto+=   ' Cultivo:'+' '+arrayResultados[indice]['cultivo']+'';
+													texto+='<img  style="margin-left:40px;"  title="" src="imagenes/cultivos/'+arrayResultados[indice]['cultivo']+'.png" alt=""  />'
 													texto+='</div>';
+													texto+='<div>';
+													texto+=   'Masa de Nitrogeno en Fertilizantes:'+' '+arrayResultados[indice]['Carga Nitrogeno Promedio']+'';
+													texto+='</div>';
+													texto+='<div>';
+													texto+=   'Perdida de Nitrogeno en Fertilizantes por Escorrentia:'+' '+arrayResultados[indice]['escorrrentia']+' %';
+													texto+='</div>';
+													texto+='<div>';
+													texto+=   'Carga Nitrogeno Aportada al Rio:'+' '+arrayResultados[indice]['Carga Nitrogeno Aportada al Rio']+' mg/año';
+													texto+='</div>';
+													
+													texto+='</div>';
+													
+													texto+='<div>';
+													texto+=   'Practica Recomendada:'+' '+arrayResultados[indice]['practicaAgricola']+'';
+													
+													texto+=  "<button id='btoAplicarPractica' style='margin-left:40px;'  onclick=''>Aplicar</button>";
+													
+														texto+='</div>';
+													
+													
+													}
+													
 											}
 											
 											
-											$( "#dialog" ).html("<div id='id_capa_resultados' > Los Resultados son: " +texto +'</div>');
+											$( "#dialog" ).html("<div id='id_capa_resultados' class='modalDiv' > " +texto +'</div>');
 											
-											$( "#dialog" ).dialog("option", "position", [719, 150]);
+											//$( "#dialog" ).dialog("option", "position", [719, 150]);
 											$( "#dialog" ).dialog('open');
 			 
 	}
@@ -503,7 +524,15 @@ var arrayResultados=new Array();
 	{
 			var datosCodificadosJSON='';		
 					
+					if(RIO.getCaudal()==0 ||  RIO.getCaudal()==null )
+					{
+						alert('ud debe ingresar un valor para el caudal del rio');
+						return;
+					}
+					
 					datosCodificadosJSON=codificacionJSONDeArreglos();
+					
+					muestraCapaModalGif();
 					
 							$.ajax({
 										type: "POST",
@@ -511,6 +540,7 @@ var arrayResultados=new Array();
 										data: "datos="+datosCodificadosJSON,
 										success: function(datos)
 										{
+											ocultaCapaModalGif();
 											
 											var jsonObj = $.parseJSON(datos);
 											var s='';
@@ -536,7 +566,7 @@ var arrayResultados=new Array();
 																			
 																		
 																			if(document.getElementById('resultado_'+jsonObj[i][atributo]) ==null )
-																			$('#imgSE').append('<div id="resultado_'+ jsonObj[i][atributo]+'" style="position:absolute; background:#E3F6CE; top:'+pos_y+'px; left:'+pos_x+'px;" width="60" height="60"><a  name="" href="#" onclick=muestraResultado('+arrayResultados.length+')>Consulta Resultados</a></div>');
+																			$('#imgSE').append('<div id="resultado_'+ jsonObj[i][atributo]+'" style="position:absolute; background:#E3F6CE; top:'+pos_y+'px; left:'+pos_x+'px;" width="60" height="60"><button  name=""  onclick=muestraResultado('+arrayResultados.length+')>Consulta Resultados</button></div>');
 																			arrayResultados[arrayResultados.length ]=jsonObj[i];
 																			
 																		}
@@ -546,12 +576,14 @@ var arrayResultados=new Array();
 																else
 																{
 																
-																$('#capa_resultados').html(''+jsonObj[i][atributo]+' La carga total contaminante:'+jsonObj[i]['carga']+'mg/año');
+																$('#capa_resultados').html(' La concentracion del contaminante es: <div>'+jsonObj[i]['concentracion']+' mg/l </div>');
 																
 																}
 															}  
 															
 											}
+											
+											
 											muestraCapaIndicador();
 											
 											

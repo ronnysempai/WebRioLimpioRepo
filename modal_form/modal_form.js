@@ -303,9 +303,11 @@
 							$( "#dialog" ).dialog({
 														autoOpen: false,
 														title: 'Resultados',
-														height: 300,
-														width: 580,
-														modal: false
+														height: 350,
+														width: 900,
+														show: "drop",
+														hide: "clip",
+														modal: true
 														}); 
 												
 							
@@ -323,6 +325,8 @@
 			$( "#dialog" ).dialog();
 		
 		}
+		
+		
 
 	/***********************/
 

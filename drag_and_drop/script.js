@@ -124,6 +124,7 @@ function eliminarElemento(id)
 	if(elimina)
 	{
 		//$( "#canvas_"+id ).detach();
+		$('#resultado_'+id).detach();
 		$( "#"+id ).detach();
 		eliminarElementoDeArray(id);
 	}

@@ -1,0 +1,71 @@
+
+
+/*Ininicio  estilo capa modal para  imagen progress*/
+/* Customize your modal window here, you can add background image too */
+#boxes #dialog_modal {
+	background-color:white;
+  
+  height:100px;
+  
+  text-align:center;
+  
+  width:100px;
+  
+  
+}
+
+#boxes #dialog_modal img 
+{
+	height:100px;
+	  width:100px;
+}
+
+#boxes .window {
+	
+	display:none;
+	height:100px;
+	padding:20px;
+	position:fixed;
+	width:100px;
+	z-index:9999;
+	
+}
+ 
+
+/* Z-index of #mask must lower than #boxes .window */
+#mask {
+	background-color:#000;
+	display:none;
+	opacity: 0.5;
+	left:0;
+	position:absolute;
+	top:0;
+	z-index:9000;
+
+ }
+   
+/*fin estilo capa modal para  imagen progress*/
+
+
+.modalDiv div
+{
+	/*border:1px solid blue;*/
+	margin-bottom:7px;
+	
+
+}
+
+.modalDiv img
+{
+	border:1px solid blue;
+	border-radius: 8px;
+	
+	
+	/*box-shadow: 5px -9px  8px #2E2E2E; */
+	
+	height:80px;
+	
+	width:80px;
+	
+
+}

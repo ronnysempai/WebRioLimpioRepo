@@ -87,7 +87,7 @@
 <link rel="stylesheet" type="text/css" href="Tooltip/styleTooltip.css" />
 <link rel="stylesheet" type="text/css" href="capas_desplegables/estiloCapas.css" />
 
-
+<link rel="stylesheet" type="text/css" href="modal_form/estiloModal.css" />
 
 
 
@@ -150,7 +150,7 @@
 						</ul>
 						
 					</li>
-					<!--  -->
+
 					<li><a href="se.html" class='menu_principal' >SE</a>
 						
 					</li>
@@ -278,11 +278,7 @@
 																					</div>
 																					<div id="celda3" class="grid_celda">	
 																							
-																							<div id='capa_resultados' class="capaResultado">
-																										
-																													este sera la lista de resultados 
-																												
-																							</div>
+																							
 																							
 																					</div>
 																					<div id="celda4" class="grid_celda">	
@@ -309,15 +305,16 @@
 																																	<input type="text"  name="caudal" id="caudal" class="text ui-widget-content ui-corner-all" />
 																													</li>
 																													
-																													<li>	
+																													<!--<li>	
 																													<label  id="etiqueta_distancia_uso_suelo" for="name"  >Distancia :</label>
 																													<input type="text"  name="distancia_uso_suelo" id="distancia_uso_suelo" class="text ui-widget-content ui-corner-all" />		
 																													</li>
-																													
+																													-->
 																													<li>	
 																													<label  id="etiqueta_distancia_pendiente" for="name"  >Pendiente :</label>
-																													   <div id="uno">&nbsp;</div>
 																													   <span id="etiqueta_porcentaje">%</span>
+																													   <div id="uno">&nbsp;</div>
+																													   
 																													   <input type="range" id="one" />
 																															
 																															
@@ -330,6 +327,12 @@
 																														<button type="button"  id='btnGuardar' onclick='asignarPrametrosGenerales()'>Guardar</button> 
 																												</fieldset>
 																										</form>		
+																							</div>
+																							
+																							<div id='capa_resultados' class="capaResultado">
+																										
+																													este sera la lista de resultados 
+																												
 																							</div>
 																							
 																					</div>
@@ -372,8 +375,22 @@
 </div>
 		
        
-       <div id="backgroundPopup"></div>
-		<!---///-->	
+			  <div id="boxes">
+		 
+			 
+			<!-- #customize your modal window here -->
+			<div id="dialog_modal" class="window">
+				<img  class=''  title="" src="imagenes/progress.gif" alt=""  />
+				 
+		 
+			</div>
+		 
+			 
+			<!-- Do not remove div#mask, because you'll need it to fill the whole screen --> 
+			<div id="mask"></div>
+			</div>
+			<!---///-->	
+		
 </body>
 
 

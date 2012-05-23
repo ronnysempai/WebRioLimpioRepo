@@ -147,6 +147,9 @@
 												$datos_resultado.= ' "Carga Nitrogeno Promedio": ';
 												$datos_resultado.= ' "'.$obj->getMasaNitrogenoPromedio().'" , ';
 												
+												$datos_resultado.= ' "Carga Nitrogeno Aportada al Rio": ';
+												$datos_resultado.= ' "'.$obj->getCargaNitrogenoAportada().'" , ';
+												
 												$datos_resultado.= ' "numeroHectareas": ';
 												$datos_resultado.=  ' "'.$obj->getNumeroHectareas().'" , ';
 												
@@ -221,13 +224,12 @@
 											
 									}
 									
-									$rio->sumaCarga(  $obj->getMasaNitrogenoPromedio() );
+									if(strrpos($obj->idCapa, "agricola"))
+										$rio->sumaCarga(  $obj->getCargaNitrogenoAportada()); 
+									else
+										$rio->sumaCarga(  $obj->getMasaNitrogenoPromedio());
 									
-									//echo  ' carga:'.$obj->getMasaNitrogenoPromedio();
-									//echo  ' carga suma:'.$rio->getCarga();
-								//echo $datos_resultado;
-								
-								
+									
 								//print_r($obj);
 								
 								
@@ -248,11 +250,13 @@
 											$datos_resultado.= ' "'.$rio->getConcentracionContaminante().'"  ';
 											$datos_resultado.='}';
 											
+											
+											
 								//echo $datos_resultado;
 							
 								$datos_resultado='['.$datos_resultado.']';
 								
-								echo $datos_resultado;
+								echo ''.$datos_resultado;
 				
 				exit;
 	}
