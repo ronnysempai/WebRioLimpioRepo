@@ -206,7 +206,7 @@
 											$datos_resultado.= ' "'.$obj->getIdCapa().'" , ';
 											$datos_resultado.= ' "numeroHabitantes": ';
 											$datos_resultado.= ' "'.$obj->getNumeroHabitantes().'" , ';
-											$datos_resultado.= ' "Garga Nitrogeno Promedio": ';
+											$datos_resultado.= ' "Carga Nitrogeno Promedio": ';
 											$datos_resultado.= ' "'.$obj->getMasaNitrogenoPromedio().'", ';
 											$datos_resultado.= ' "Sistama de Tratamiento": ';
 											$datos_resultado.= ' "'.$obj-> getSistemaTratamientoResidual()-> getNombre().'" ';

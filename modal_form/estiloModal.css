@@ -47,11 +47,27 @@
 /*fin estilo capa modal para  imagen progress*/
 
 
+
+
 .modalDiv div
 {
 	/*border:1px solid blue;*/
 	margin-bottom:7px;
 	
+
+}
+
+
+.modalDiv #id_capa_practica_recomendada
+{
+	display:none;
+	height:50px;
+}
+
+.modalDiv span
+{
+	color:blue;
+	cursor:pointer;
 
 }
 

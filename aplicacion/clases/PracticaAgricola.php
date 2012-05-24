@@ -6,10 +6,14 @@ class PracticaAgricola extends Fact
 {
 	var $nombre;
 	var $distanciaCurvaNivel;
+	var $descripcion;
+	
 	
 		function __construct()
 		{
 				$this->nombre="";
+				
+				$this->distanciaCurvaNivel='';
 				
 				$this->distanciaCurvaNivel=0;
 	

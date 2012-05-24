@@ -91,6 +91,8 @@ Class Escorrentia extends Fact
 		
 		function defuzificarEscorrentia()
 		{
+			$numero_decimales=3;
+			
 			$concuntosDifusosDifuzificacion= Array();
 			
 							foreach($this->conjuntosDifusos as $conjuntoDifuso)
@@ -131,7 +133,11 @@ Class Escorrentia extends Fact
 								$valorCrispi=$num/$dem;
 							}
 							
+							$valorCrispi=number_format($valorCrispi,$numero_decimales);
+							
 							$this->porcentaje=$valorCrispi;
+							
+							
 							//echo '\n ValorCrispi '.$valorCrispi;
 							return $valorCrispi;
 		}

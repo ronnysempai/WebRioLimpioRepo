@@ -414,23 +414,33 @@ var arrayResultados=new Array();
 	
 	}
 	
+	function aplicarMetodo(metodo)
+	{
+		$( "#dialog" ).dialog('close');
+			enviarDatosSistemaExperto()
+	}
+	
+	
 	function muestraResultado(indice)
 	{
 			var l=arrayResultados.length;
 			var a=null;
 			var texto='';
 			
+			var tags_metodo_recomendado='';
+			
 			$( "#dialog" ).html('');
 			$( "#ui-dialog-title-dialog" ).css('color','"red');
 							
-											for (atributo in arrayResultados[indice])
-											{
-												if(arrayResultados[indice][atributo].indexOf('agricola', 0)!=-1)
+											
+												if(arrayResultados[indice]['idCapa'].indexOf('agricola', 0)!=-1)
 												{
 												
-													texto+='<h3 style="color:#31B404; margin-bottom:10px;">Resumen de Fuente de Contaminacion Actividad Agricola </h3>';
+													
 												
-													texto+='<div style="border-bottom: 1px solid #31B404; " >';
+													texto+='<div id="id_capa_resumen" style="border-bottom: 1px solid #31B404;" >';
+													
+													texto+='<h3 style="color:#31B404; margin-bottom:10px;">Resumen de Fuente de Contaminacion Actividad Agricola </h3>';
 													texto+='<div>';
 													texto+=   ' Cultivo:'+' '+arrayResultados[indice]['cultivo']+'';
 													texto+='<img  style="margin-left:40px;"  title="" src="imagenes/cultivos/'+arrayResultados[indice]['cultivo']+'.png" alt=""  />'
@@ -445,28 +455,71 @@ var arrayResultados=new Array();
 													texto+=   'Carga Nitrogeno Aportada al Rio:'+' '+arrayResultados[indice]['Carga Nitrogeno Aportada al Rio']+' mg/año';
 													texto+='</div>';
 													
+													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" onClick="muestraOcultaCapasEnModal()" >  '+arrayResultados[indice]['practicaAgricola']+'</span>';
+													texto+=  '<button id="btoAplicarPractica" style="margin-left:40px;"  onclick="aplicarMetodo('+"'"+arrayResultados[indice]['practicaAgricola']+"'"+')">Aplicar</button>';
+													
 													texto+='</div>';
 													
+													texto+='<div id="capa_intermedia_contaminante_practica">';
+													
+													texto+='</div>';
+													
+													texto+='<div id="id_capa_practica_recomendada" >';
 													texto+='<div>';
-													texto+=   'Practica Recomendada:'+' '+arrayResultados[indice]['practicaAgricola']+'';
+													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" onClick="muestraOcultaCapasEnModal()" >  '+arrayResultados[indice]['practicaAgricola']+'</span>';
+													texto+=  '<button id="btoAplicarPractica" style="margin-left:40px;"  onclick="aplicarMetodo('+"'"+arrayResultados[indice]['practicaAgricola']+"'"+')">Aplicar</button>';
+													texto+='<div>';
 													
-													texto+=  "<button id='btoAplicarPractica' style='margin-left:40px;'  onclick=''>Aplicar</button>";
-													
-														texto+='</div>';
+													texto+=   ' Descripcion:'+' '+arrayResultados[indice]['cultivo']+'';
+													texto+='<img  style="margin-left:40px;"  title="" src="imagenes/cultivos/'+arrayResultados[indice]['cultivo']+'.png" alt=""  />'
+													texto+='</div>';
 													
 													
 													}
+													else
+													if(arrayResultados[indice]['idCapa'].indexOf('poblacion', 0)!=-1)
+													{
+														texto+='<div id="id_capa_resumen" style="border-bottom: 1px solid #31B404;" >';
 													
-											}
+														texto+='<h3 style="color:#31B404; margin-bottom:10px;">Resumen de Fuente de Contaminacion Poblacion </h3>';
+														
+														texto+='<div>';
+														texto+=   'Masa de Nitrogeno aportado de Agua Residual:'+' '+arrayResultados[indice]['Carga Nitrogeno Promedio']+' mg/año';
+														texto+='</div>';
+														
+														texto+='</div>';
+														
+													}
 											
 											
-											$( "#dialog" ).html("<div id='id_capa_resultados' class='modalDiv' > " +texto +'</div>');
+											
+											$( "#dialog" ).html("<div  class='modalDiv'  > " +texto +'</div>');
 											
 											//$( "#dialog" ).dialog("option", "position", [719, 150]);
 											$( "#dialog" ).dialog('open');
 			 
 	}
 	
+	function muestraOcultaCapasEnModal()
+	{
+		
+		
+		
+		
+		
+				if ($("#id_capa_practica_recomendada").is(":hidden")) 
+					{
+					
+						$('#id_capa_practica_recomendada').show('clip');
+						$('#id_capa_resumen').hide('clip');
+					} 
+					else 
+					{
+					$('#id_capa_practica_recomendada').hide('clip');
+					
+						$('#id_capa_resumen').show('clip');
+					}
+	}
 	
 
 	/****/

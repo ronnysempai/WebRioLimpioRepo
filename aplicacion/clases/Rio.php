@@ -51,6 +51,8 @@ class Rio extends Fact
 		
 		function calculaConcentracion()
 		{
+		
+			$numero_decimales=6;
 		//echo '>'.$this->cargaContaminante * (1 / 31556 926);
 					//	(  mg/año )		*						( año / segundos)	
 				
@@ -58,6 +60,9 @@ class Rio extends Fact
 			$caudal_litrosXsegundos=($this->caudal * 1000);
 			
 			$concentracion=$carga_mgXsegundos/$caudal_litrosXsegundos;
+			
+			
+			$concentracion=number_format($concentracion,$numero_decimales);
 			
 			 $this->concentracionContaminante=$concentracion;
 			 
