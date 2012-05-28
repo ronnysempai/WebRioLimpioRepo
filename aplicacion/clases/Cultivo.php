@@ -6,13 +6,14 @@ class Cultivo extends Fact
 {
 		var $nombre;
 		var $ciclo;
-	
+		var $gananciaPorHectarea;
 
 		function __construct()
 		{
 				$this->nombre="";
 				
 				$this->ciclo="";
+				$this->gananciaPorHectarea=0;
 	
 		}
 	

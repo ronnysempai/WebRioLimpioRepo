@@ -1,67 +1,12 @@
 
 
-rule "Regla_1" priority=0
-	context ActividadAgricola $actividadAgricola
-	if $actividadAgricola->pendiente->esNivel("suave") && $actividadAgricola->estadoClima=="lluvioso"
-	then 
-		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("moderada", $actividadAgricola->pendiente->getGradoPertenenciaNivel("suave") );
-	end
-
-rule "Regla_2" priority=0
-	context ActividadAgricola $actividadAgricola
-	if $actividadAgricola->pendiente->esNivel("media") && $actividadAgricola->estadoClima=="lluvioso"
-	then 
-		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("media") );
-	end
-
-rule "Regla_3" priority=0
-	context ActividadAgricola $actividadAgricola
-	if $actividadAgricola->pendiente->esNivel("alta") && $actividadAgricola->estadoClima=="lluvioso"
-	then 
-		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("alta") );
-	end
-
-rule "Regla_4" priority=0
-	context ActividadAgricola $actividadAgricola
-	if $actividadAgricola->pendiente->esNivel("pronunciada") && $actividadAgricola->estadoClima=="lluvioso"
-	then 
-		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("muySevera", $actividadAgricola->pendiente->getGradoPertenenciaNivel("pronunciada") );
-	end
-
-rule "Regla_5" priority=0
-	context ActividadAgricola $actividadAgricola
-	if $actividadAgricola->pendiente->esNivel("suave") && $actividadAgricola->estadoClima=="seco"
-	then 
-		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("ligera", $actividadAgricola->pendiente->getGradoPertenenciaNivel("suave") );
-	end
-
-rule "Regla_6" priority=0
-	context ActividadAgricola $actividadAgricola
-	if $actividadAgricola->pendiente->esNivel("media") && $actividadAgricola->estadoClima=="seco"
-	then 
-		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("moderada", $actividadAgricola->pendiente->getGradoPertenenciaNivel("media") );
-	end
-
-rule "Regla_7" priority=0
-	context ActividadAgricola $actividadAgricola
-	if $actividadAgricola->pendiente->esNivel("alta") && $actividadAgricola->estadoClima=="seco"
-	then 
-		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("alta") );
-	end
-
-rule "Regla_8" priority=0
-	context ActividadAgricola $actividadAgricola
-	if $actividadAgricola->pendiente->esNivel("pronunciada") && $actividadAgricola->estadoClima=="seco"
-	then 
-		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("pronunciada") );
-	end
 
 rule "Regla_9" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="arroz"
 	then 
 		$actividadAgricola->masaNitrogenoPromedio=68*1000000*$actividadAgricola->numeroHectareas;
-		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->defuzificarEscorrentia()/100);
+		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
 
 rule "Regla_10" priority=0
@@ -69,7 +14,7 @@ rule "Regla_10" priority=0
 	if $actividadAgricola->cultivo->nombre=="azucar"
 	then 
 		$actividadAgricola->masaNitrogenoPromedio=150*1000000*$actividadAgricola->numeroHectareas;
-		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->defuzificarEscorrentia()/100);
+		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
 
 rule "Regla_11" priority=0
@@ -77,7 +22,7 @@ rule "Regla_11" priority=0
 	if $actividadAgricola->cultivo->nombre=="banana"
 	then 
 		$actividadAgricola->masaNitrogenoPromedio=250*1000000*$actividadAgricola->numeroHectareas;
-		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->defuzificarEscorrentia()/100);
+		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
 
 	
@@ -86,7 +31,7 @@ rule "Regla_12" priority=0
 	if $actividadAgricola->cultivo->nombre=="cacao"
 	then 
 		$actividadAgricola->masaNitrogenoPromedio=90*1000000*$actividadAgricola->numeroHectareas;
-		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->defuzificarEscorrentia()/100);
+		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end
 
 rule "Regla_13" priority=0
@@ -94,7 +39,7 @@ rule "Regla_13" priority=0
 	if $actividadAgricola->cultivo->nombre=="cafe"
 	then 
 		$actividadAgricola->masaNitrogenoPromedio=90*1000000*$actividadAgricola->numeroHectareas;
-		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->defuzificarEscorrentia()/100);
+		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
 
 
@@ -104,7 +49,7 @@ rule "Regla_14" priority=0
 	if $actividadAgricola->cultivo->nombre=="cebolla"
 	then 
 		$actividadAgricola->masaNitrogenoPromedio=58*1000000*$actividadAgricola->numeroHectareas;
-		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->defuzificarEscorrentia()/100);
+		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
 
 rule "Regla_15" priority=0
@@ -112,7 +57,7 @@ rule "Regla_15" priority=0
 	if $actividadAgricola->cultivo->nombre=="maiz"
 	then 
 		$actividadAgricola->masaNitrogenoPromedio=46*1000000*$actividadAgricola->numeroHectareas;
-		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->defuzificarEscorrentia()/100);
+		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
 
 rule "Regla_16" priority=0
@@ -120,7 +65,7 @@ rule "Regla_16" priority=0
 	if $actividadAgricola->cultivo->nombre=="papa"
 	then 
 		$actividadAgricola->masaNitrogenoPromedio=58*1000000*$actividadAgricola->numeroHectareas;
-		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->defuzificarEscorrentia()/100);
+		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
 
 rule "Regla_17" priority=0
@@ -128,17 +73,18 @@ rule "Regla_17" priority=0
 	if $actividadAgricola->cultivo->nombre=="soja"
 	then 
 		$actividadAgricola->masaNitrogenoPromedio=50*1000000*$actividadAgricola->numeroHectareas;
-		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->defuzificarEscorrentia()/100);
+		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
 
 rule "Regla_18" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="tomate"
-	then 
+	then
 		$actividadAgricola->masaNitrogenoPromedio=58*1000000*$actividadAgricola->numeroHectareas;
-		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->defuzificarEscorrentia()/100);
+		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
 
+	
 rule "Regla_19" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="arroz"
@@ -216,7 +162,7 @@ rule "Regla_29" priority=0
 	if $actividadAgricola->pendiente->porcentaje >= 5 && $actividadAgricola->estadoClima == "lluvioso" && $actividadAgricola->cultivo->ciclo=="largo"
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Barreras_Vivas";
-	
+		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas * 40;
 		
 	end
 
@@ -225,16 +171,15 @@ rule "Regla_30" priority=0
 	if $actividadAgricola->pendiente->porcentaje >= 15 
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Zanjas_de_Ladera";
-	
-		
+		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas* $actividadAgricola->cultivo->gananciaPorHectarea*0.1;
 	end
 
 rule "Regla_31" priority=0
 	context ActividadAgricola $actividadAgricola 
-	if $actividadAgricola->pendiente->porcentaje >= 5 &&  $actividadAgricola->pendiente->porcentaje<=12
+	if $actividadAgricola->pendiente->porcentaje >= 5 &&  $actividadAgricola->pendiente->porcentaje<=14  && $actividadAgricola->estadoClima == "seco"
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Siembra_en_contorno";
-		
+		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas * 40;
 		
 	end
 
@@ -243,12 +188,88 @@ rule "Regla_32" priority=0
 	if $actividadAgricola->pendiente->porcentaje < 5 &&  $actividadAgricola->estadoClima=="lluvioso"
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Cultivos_Cobertura_Abonos_verdes";
-		
+		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas*38.7;
 		
 	end
 
-
 rule "Regla_33" priority=0
+	context ActividadAgricola $actividadAgricola 
+	if $actividadAgricola->practicaAgricola->nombre=="Barreras_Vivas" &&  ( $actividadAgricola->pendiente->porcentaje > 5 && $actividadAgricola->pendiente->porcentaje <= 8)  &&  $actividadAgricola->practicaAgricola->aplicar
+	then 
+		
+			$actividadAgricola->practicaAgricola->eficiencia=55;
+		
+	end
+
+rule "Regla_34" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->practicaAgricola->nombre=="Barreras_Vivas" &&  ( $actividadAgricola->pendiente->porcentaje > 8 && $actividadAgricola->pendiente->porcentaje <= 11)  &&  $actividadAgricola->practicaAgricola->aplicar
+	then 
+		
+			$actividadAgricola->practicaAgricola->eficiencia=50;
+		
+	end	
+	
+rule "Regla_35" priority=0
+	context ActividadAgricola $actividadAgricola 
+	if $actividadAgricola->practicaAgricola->nombre=="Barreras_Vivas" &&  ( $actividadAgricola->pendiente->porcentaje > 11 && $actividadAgricola->pendiente->porcentaje <= 14)  &&  $actividadAgricola->practicaAgricola->aplicar
+	then 
+		
+			$actividadAgricola->practicaAgricola->eficiencia=45;
+		
+	end	
+
+
+
+	
+rule "Regla_36" priority=0
+	context ActividadAgricola $actividadAgricola 
+	if $actividadAgricola->practicaAgricola->nombre=="Cultivos_Cobertura_Abonos_verdes"  &&  $actividadAgricola->practicaAgricola->aplicar
+	then 
+		$actividadAgricola->practicaAgricola->eficiencia=15;
+		
+	end
+
+rule "Regla_37" priority=0
+	context ActividadAgricola $actividadAgricola 
+	if $actividadAgricola->practicaAgricola->nombre=="Siembra_en_contorno" &&  $actividadAgricola->pendiente->porcentaje >5 &&  $actividadAgricola->pendiente->porcentaje <=8  
+	then 
+		
+			$actividadAgricola->practicaAgricola->eficiencia=55;
+		
+	end
+
+rule "Regla_38" priority=0
+	context ActividadAgricola $actividadAgricola 
+	if $actividadAgricola->practicaAgricola->nombre=="Siembra_en_contorno" &&  $actividadAgricola->pendiente->porcentaje >8 &&  $actividadAgricola->pendiente->porcentaje <=11  
+	then 
+		
+			$actividadAgricola->practicaAgricola->eficiencia=50;
+		
+	end
+
+rule "Regla_39" priority=0
+	context ActividadAgricola $actividadAgricola 
+	if $actividadAgricola->practicaAgricola->nombre=="Siembra_en_contorno" &&  $actividadAgricola->pendiente->porcentaje >11 &&  $actividadAgricola->pendiente->porcentaje <=14  
+	then 
+		
+			$actividadAgricola->practicaAgricola->eficiencia=45;
+		
+	end
+
+	
+rule "Regla_40" priority=0
+	context ActividadAgricola $actividadAgricola 
+	if  $actividadAgricola->practicaAgricola->aplicar && $actividadAgricola->masaNitrogenoPromedio>0
+	then
+		 $actividadAgricola->escorrentia->porcentaje= $actividadAgricola->escorrentia->defuzificarEscorrentia()*(1- $actividadAgricola->practicaAgricola->eficiencia/100);
+		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
+		
+	end
+	
+	
+	
+rule "Regla_41" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=2 &&  $actividadAgricola->pendiente->porcentaje <5
 	then 
@@ -257,16 +278,15 @@ rule "Regla_33" priority=0
 		
 	end
 
-rule "Regla_34" priority=0
+rule "Regla_42" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=5 &&  $actividadAgricola->pendiente->porcentaje <10
 	then 
 		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=28;
 		
-		
 	end	
 
-rule "Regla_35" priority=0
+rule "Regla_43" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=10 &&  $actividadAgricola->pendiente->porcentaje <20
 	then 
@@ -275,7 +295,7 @@ rule "Regla_35" priority=0
 		
 	end	
 
-rule "Regla_36" priority=0
+rule "Regla_44" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=20 &&  $actividadAgricola->pendiente->porcentaje <30
 	then 
@@ -284,7 +304,7 @@ rule "Regla_36" priority=0
 		
 	end	
 
-rule "Regla_37" priority=0
+rule "Regla_45" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=30 &&  $actividadAgricola->pendiente->porcentaje <40
 	then 
@@ -293,7 +313,7 @@ rule "Regla_37" priority=0
 		
 	end	
 
-rule "Regla_38" priority=0
+rule "Regla_46" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=40 
 	then 
@@ -302,7 +322,7 @@ rule "Regla_38" priority=0
 		
 	end	
 
-rule "Regla_39" priority=0
+rule "Regla_47" priority=0
 	context Poblacion $poblacion 
 	if $poblacion->numeroHabitantes > 50000
 	then 
@@ -311,7 +331,7 @@ rule "Regla_39" priority=0
 		
 	end	
 
-rule "Regla_40" priority=0
+rule "Regla_48" priority=0
 	context Poblacion $poblacion 
 	if $poblacion->numeroHabitantes <= 50000
 	then 

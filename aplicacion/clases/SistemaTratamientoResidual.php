@@ -6,7 +6,7 @@
 Class SistemaTratamientoResidual extends Fact
 {
 	 var $nombre;
-	 var $costoAproximado;
+	 var $costo;
 	 var $porcentajeEficiencia;
  
  

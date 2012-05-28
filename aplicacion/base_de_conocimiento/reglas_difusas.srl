@@ -1,0 +1,58 @@
+
+
+rule "Regla_1" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("suave") && $actividadAgricola->estadoClima=="lluvioso"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("moderada", $actividadAgricola->pendiente->getGradoPertenenciaNivel("suave") );
+	end
+
+rule "Regla_2" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("media") && $actividadAgricola->estadoClima=="lluvioso"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("media") );
+	end
+
+rule "Regla_3" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("alta") && $actividadAgricola->estadoClima=="lluvioso"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("alta") );
+	end
+
+rule "Regla_4" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("pronunciada") && $actividadAgricola->estadoClima=="lluvioso"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("muySevera", $actividadAgricola->pendiente->getGradoPertenenciaNivel("pronunciada") );
+	end
+
+rule "Regla_5" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("suave") && $actividadAgricola->estadoClima=="seco"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("ligera", $actividadAgricola->pendiente->getGradoPertenenciaNivel("suave") );
+	end
+
+rule "Regla_6" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("media") && $actividadAgricola->estadoClima=="seco"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("moderada", $actividadAgricola->pendiente->getGradoPertenenciaNivel("media") );
+	end
+
+rule "Regla_7" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("alta") && $actividadAgricola->estadoClima=="seco"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("alta") );
+	end
+
+rule "Regla_8" priority=0
+	context ActividadAgricola $actividadAgricola
+	if $actividadAgricola->pendiente->esNivel("pronunciada") && $actividadAgricola->estadoClima=="seco"
+	then 
+		$actividadAgricola->escorrentia->setGradoPertenenciaNivel("severa", $actividadAgricola->pendiente->getGradoPertenenciaNivel("pronunciada") );
+	end
+	

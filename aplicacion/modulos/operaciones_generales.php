@@ -10,7 +10,7 @@
 	require_once('../clases/Poblacion.php');
 	require_once('../clases/PracticaAgricola.php');
 	require_once('../clases/Rio.php');
-	
+	require_once('modulo_difuso.php');
 	
 	
 	
@@ -67,6 +67,7 @@
 									
 									
 									$practica1=new PracticaAgricola();
+									$practica1->aplicar=true;
 									$actividadAgricola->practicaAgricola=$practica1;
 									
 									$actividadAgricola->escorrentia=$escorrentia;
@@ -111,6 +112,9 @@
 				
 							foreach($arrFuentesContaminacion as $obj)
 							{
+										
+										ejecutaModuloDifuso($obj);
+										
 										$wm = new WorkingMemory();
 										/*Agergacion de objeto a memoria de trabajo*/
 										$wm->insert($obj);
@@ -166,7 +170,10 @@
 												$datos_resultado.= ' "'.$obj->getPracticaAgricola()->getNombre().'", ';
 												
 												$datos_resultado.=  ' "distanciaCurvaNivel": ';
-												$datos_resultado.= ' "'.$obj->getPracticaAgricola()->getDistanciaCurvaNivel().'" ';
+												$datos_resultado.= ' "'.$obj->getPracticaAgricola()->getDistanciaCurvaNivel().'", ';
+												
+												$datos_resultado.=  ' "eficienciaPractica": ';
+												$datos_resultado.= ' "'.$obj->getPracticaAgricola()->eficiencia.'" ';
 												$datos_resultado.= '}';
 												
 
@@ -201,6 +208,7 @@
 									else
 									if(strrpos($obj->idCapa, "poblacion"))
 									{
+									
 											$datos_resultado.='{';
 											$datos_resultado.= ' "idCapa": ';
 											$datos_resultado.= ' "'.$obj->getIdCapa().'" , ';
