@@ -137,7 +137,7 @@ list-style: none;
 
 .capaIconoClima 
 {
-		 background-image:url('../imagenes/Seco.jpg');
+		background-image:url('../imagenes/Seco.jpg');
 		background-position: top center;
 		background-size: cover;
 		
@@ -188,7 +188,7 @@ list-style: none;
 	padding-right:15px;
 	
 	width:190px;
-	height:120px;
+	height:200px;
 	
 	text-align:center;
 	

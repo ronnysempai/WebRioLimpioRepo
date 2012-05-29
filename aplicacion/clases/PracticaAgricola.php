@@ -23,7 +23,12 @@ class PracticaAgricola extends Fact
 				$this->distanciaCurvaNivel=0;
 				$this->eficiencia=0;
 		}
-
+		
+		function aplicar()
+		{
+			return $this->aplicar;
+		
+		}
 		
 		function setNombre($nombre)
 		{  

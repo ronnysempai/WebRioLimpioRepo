@@ -304,7 +304,7 @@
 														autoOpen: false,
 														title: 'Resultados',
 														height: 350,
-														width: 900,
+														width: 1000,
 														show: "drop",
 														hide: "clip",
 														modal: true

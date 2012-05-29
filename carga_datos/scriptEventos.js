@@ -33,9 +33,7 @@ var arrayResultados=new Array();
 	{
 			
 			
-			idCapa=$( "#idCapaElemento" ).val();
-			
-			
+			idCapa=$("#idCapaElemento").val();
 			
 			for (i=0;i<arrayActividadAgricola.length;i++)
 					{
@@ -51,8 +49,6 @@ var arrayResultados=new Array();
 					}		 
 			
 			
-			
-
 	}
 	
 	function almacenarElementoActividadGanadera(numeroAnimales)
@@ -143,9 +139,6 @@ var arrayResultados=new Array();
 	function eliminarElementoDeArray(idCapa)
 	{
 		
-		
-		
-			
 		
 		for (i=0;i<arrayActividadAgricola.length;i++)
 		{
@@ -296,8 +289,11 @@ var arrayResultados=new Array();
 												
 												cadActividadAgricola += ' "pendiente": ';
 												//cadActividadAgricola += ' "'+arrayActividadAgricola[i].getPendiente()+'" ';
-												cadActividadAgricola += ' "'+PENDIENTE+'" ';
+												cadActividadAgricola += ' "'+PENDIENTE+'", ';
 												
+												cadActividadAgricola += ' "aplicarPractica": ';
+												//cadActividadAgricola += ' "'+arrayActividadAgricola[i].getPendiente()+'" ';
+												cadActividadAgricola += ' "'+arrayActividadAgricola[i].getAplicarPractica()+'" ';
 												cadActividadAgricola+='}';
 											
 													if (i < arrayActividadAgricola.length - 1) 
@@ -351,8 +347,10 @@ var arrayResultados=new Array();
 												
 												
 												cadPoblacion += ' "numeroHabitantes": ';
-												cadPoblacion += '"'+arrayPoblacion[i].getNumeroHabitantes()+'" ';
+												cadPoblacion += '"'+arrayPoblacion[i].getNumeroHabitantes()+'", ';
 												
+												cadPoblacion += ' "aplicarMetodo": ';
+												cadPoblacion += '"'+arrayPoblacion[i].getAplicarMetodo()+'" ';
 												
 												cadPoblacion+='}';
 											
@@ -414,12 +412,70 @@ var arrayResultados=new Array();
 	
 	}
 	
-	function aplicarMetodo(metodo)
+	function aplicarMetodo(idCapa)
 	{
+	
 		$( "#dialog" ).dialog('close');
-			enviarDatosSistemaExperto()
+		
+		for (i=0;i<arrayActividadAgricola.length;i++)
+					{
+							if(arrayActividadAgricola[i]!=null)
+							if (arrayActividadAgricola[i].getIdCapa()== idCapa)
+							{	
+							    if(arrayActividadAgricola[i].getAplicarPractica()==1)
+								arrayActividadAgricola[i].setAplicarPractica(0);
+								else
+								arrayActividadAgricola[i].setAplicarPractica(1);
+								
+							}
+					}		 
+		
+		for (i=0;i<arrayPoblacion.length;i++)
+					{
+							if(arrayPoblacion[i]!=null)
+							if (arrayPoblacion[i].getIdCapa()== idCapa)
+							{	
+							   
+							   if(arrayPoblacion[i].getAplicarMetodo()==1)
+							   arrayPoblacion[i].setAplicarMetodo(0);
+							   else
+								arrayPoblacion[i].setAplicarMetodo(1);
+								
+							}
+					}	
+					
+			//enviarDatosSistemaExperto()
 	}
 	
+	function estaActivadoAplicarMetodo(idCapa)
+	{
+		
+		for (i=0;i<arrayActividadAgricola.length;i++)
+					{
+							if(arrayActividadAgricola[i]!=null)
+							if (arrayActividadAgricola[i].getIdCapa()== idCapa)
+							{	
+							   if(arrayActividadAgricola[i].getAplicarPractica()==1)
+								return true;
+								
+							}
+					}		 
+		
+		for (i=0;i<arrayPoblacion.length;i++)
+					{
+							if(arrayPoblacion[i]!=null)
+							if (arrayPoblacion[i].getIdCapa()== idCapa)
+							{	
+							   
+								
+								 if(arrayPoblacion[i].getAplicarMetodo()==1)
+								return true;
+								
+							}
+					}
+
+					return false;		
+	}
 	
 	function muestraResultado(indice)
 	{
@@ -446,7 +502,7 @@ var arrayResultados=new Array();
 													texto+='<img  style="margin-left:40px;"  title="" src="imagenes/cultivos/'+arrayResultados[indice]['cultivo']+'.png" alt=""  />'
 													texto+='</div>';
 													texto+='<div>';
-													texto+=   'Masa de Nitrogeno en Fertilizantes:'+' '+arrayResultados[indice]['Carga Nitrogeno Promedio']+'';
+													texto+=   'Masa de Nitrogeno en Fertilizantes:'+' '+arrayResultados[indice]['Carga Nitrogeno Promedio']+' mg';
 													texto+='</div>';
 													texto+='<div>';
 													texto+=   'Perdida de Nitrogeno en Fertilizantes por Escorrentia:'+' '+arrayResultados[indice]['escorrrentia']+' %';
@@ -454,9 +510,14 @@ var arrayResultados=new Array();
 													texto+='<div>';
 													texto+=   'Carga Nitrogeno Aportada al Rio:'+' '+arrayResultados[indice]['Carga Nitrogeno Aportada al Rio']+' mg/año';
 													texto+='</div>';
-													
-													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" onClick="muestraOcultaCapasEnModal()" >  '+arrayResultados[indice]['practicaAgricola']+'</span>';
-													texto+=  '<button id="btoAplicarPractica" style="margin-left:40px;"  onclick="aplicarMetodo('+"'"+arrayResultados[indice]['practicaAgricola']+"'"+')">Aplicar</button>';
+													cad_tmp=(arrayResultados[indice]['practicaAgricola']!='')?arrayResultados[indice]['practicaAgricola']:'No hay practica';
+													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" onClick="muestraOcultaCapasEnModal()" >  '+cad_tmp+'</span>';
+													//texto+=  '<button id="btoAplicarPractica" style="margin-left:40px;"  onclick="aplicarMetodo('+"'"+arrayResultados[indice]['practicaAgricola']+"'"+')">Aplicar</button>';
+													txt_tmp= estaActivadoAplicarMetodo(arrayResultados[indice]['idCapa']) ? 'checked=checked' :'' 
+													if(arrayResultados[indice]['practicaAgricola']!='')
+													texto+=  '<input type="checkbox" name="option1" '+txt_tmp+' onclick="aplicarMetodo('+"'"+arrayResultados[indice]['idCapa']+"'"+')" value="Milk"> Aplicar'
+													if(txt_tmp!='' && arrayResultados[indice]['costoPractica']!='0')
+													texto+='<p>Costo de Aplicar Practica: $ '+arrayResultados[indice]['costoPractica']+'</p>';
 													
 													texto+='</div>';
 													
@@ -465,9 +526,9 @@ var arrayResultados=new Array();
 													texto+='</div>';
 													
 													texto+='<div id="id_capa_practica_recomendada" >';
-													texto+='<div>';
+													texto+='<div>'; 
 													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" onClick="muestraOcultaCapasEnModal()" >  '+arrayResultados[indice]['practicaAgricola']+'</span>';
-													texto+=  '<button id="btoAplicarPractica" style="margin-left:40px;"  onclick="aplicarMetodo('+"'"+arrayResultados[indice]['practicaAgricola']+"'"+')">Aplicar</button>';
+													texto+=  '<input type="checkbox" name="option1" '+txt_tmp+' onclick="aplicarMetodo('+"'"+arrayResultados[indice]['idCapa']+"'"+')" value="Milk"> Aplicar'
 													texto+='<div>';
 													
 													texto+=   ' Descripcion:'+' '+arrayResultados[indice]['cultivo']+'';
@@ -485,6 +546,13 @@ var arrayResultados=new Array();
 														
 														texto+='<div>';
 														texto+=   'Masa de Nitrogeno aportado de Agua Residual:'+' '+arrayResultados[indice]['Carga Nitrogeno Promedio']+' mg/año';
+														texto+='</div>';
+														texto+='<div>';
+														texto+=   'Metodo de Tratamiento Residual Recomendado:'+' '+arrayResultados[indice]['Sistema de Tratamiento'];
+														txt_tmp= estaActivadoAplicarMetodo(arrayResultados[indice]['idCapa']) ? 'checked=checked' :'' 
+														texto+=  '<input type="checkbox" name="option1" '+txt_tmp+' onclick="aplicarMetodo('+"'"+arrayResultados[indice]['idCapa']+"'"+')" value="Milk"> Aplicar'
+														if(txt_tmp!='' && arrayResultados[indice]['Costo Sistema de Tratamiento']!='0')
+														texto+='<p>Costo de Aplicar Practica: $ '+arrayResultados[indice]['Costo Sistema de Tratamiento']+'</p>';
 														texto+='</div>';
 														
 														texto+='</div>';
@@ -597,6 +665,7 @@ var arrayResultados=new Array();
 											
 											var jsonObj = $.parseJSON(datos);
 											var s='';
+											var c='';
 											
 											var pos_x=0;
 											var pos_y=0;
@@ -615,7 +684,7 @@ var arrayResultados=new Array();
 																			posicion=$('#'+jsonObj[i][atributo]).position() ;
 																			pos_x=  posicion.left +65;
 																			pos_y=posicion.top+15;
-																			s+=  ' '+atributo+':';
+																			//s+=  ' '+atributo+':';
 																			
 																		
 																			if(document.getElementById('resultado_'+jsonObj[i][atributo]) ==null )
@@ -623,13 +692,18 @@ var arrayResultados=new Array();
 																			arrayResultados[arrayResultados.length ]=jsonObj[i];
 																			
 																		}
-																	else
-																		s+=  ' '+atributo+':';
+																	
 																}
 																else
 																{
+																if(jsonObj[i]['excedeLimite']=='1')
+																s+='<article>Exceso de Contaminante , pruebe metodos planteados</article> ';
+																else
+																s+='<article>Felicitaciones Contaminante no en exceso</article> ';
+																if(jsonObj[i]['costoAplicarMetodos']!='0')
+																c+='<article> Los costos de implementacion de la solucion son: $'+jsonObj[i]['costoAplicarMetodos']+'</article>';
 																
-																$('#capa_resultados').html(' La concentracion del contaminante es: <div>'+jsonObj[i]['concentracion']+' mg/l </div>');
+																$('#capa_resultados').html(s+' La concentracion del contaminante es: <div>'+jsonObj[i]['concentracion']+' mg/l '+c+'</div>');
 																
 																}
 															}  

@@ -5,16 +5,17 @@
 	
 Class SistemaTratamientoResidual extends Fact
 {
-	 var $nombre;
+	var $aplicar;
+	var $nombre;
 	 var $costo;
-	 var $porcentajeEficiencia;
+	 var $eficiencia;
  
  
 		function __construct()
 		{
 			
-				
-				$this->costoAproximado=0;
+				$this->aplicar=false;
+				$this->costo=0;
 				$this->nombre='';
 				$this->porcentajeEficiencia=0;
 				
@@ -22,15 +23,21 @@ Class SistemaTratamientoResidual extends Fact
  
 		}
 		
+		function aplicar()
+		{
+			return $this->aplicar;
 		
-		function setCostoAproximado($costoAproximado)
+		}
+		
+		
+		function setCosto($costo)
 		 {
-				$this->costoAproximadoe=$costoAproximado;
+				$this->costo=$costo;
 		 }
 		 
-		 function setPorcentajeEficiencia($porcentajeEficiencia)
+		 function setEficiencia($eficiencia)
 		 {
-				$this->porcentajeEficiencia=$porcentajeEficiencia;
+				$this->porcentaje=$eficiencia;
 		 }
 		
 		 function setNombre($nombre)
@@ -41,9 +48,9 @@ Class SistemaTratamientoResidual extends Fact
 		
 	
 	
-		function getCostoAproximado()
+		function getCosto()
 		{
-			return $this->costoAproximado;	
+			return $this->costo;	
 		
 		}
 		
@@ -53,9 +60,9 @@ Class SistemaTratamientoResidual extends Fact
 		
 		}
 		
-		function getPorcentajeEficiencia()
+		function getEficiencia()
 		{
-			return $this->porcentajeEficiencia;	
+			return $this->eficiencia;	
 		
 		}
 		

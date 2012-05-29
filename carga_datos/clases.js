@@ -8,8 +8,9 @@ function ActividadAgricola(cultivo,numeroHectareas,estadoClima,pendiente)
 		var numeroHectareas;
 		var  estadoClima;
 		var  pendiente;
-		 
-		 
+		var aplicarPractica;
+		
+		
 		 this.getIdCapa = function() {
 		return this.idCapa;
 		};
@@ -28,6 +29,10 @@ function ActividadAgricola(cultivo,numeroHectareas,estadoClima,pendiente)
 		 
 		 this.getPendiente= function() {
 		return this.pendiente;
+		};
+		 
+		 this.getAplicarPractica= function() {
+		return this.aplicarPractica;
 		};
 		 
 		 
@@ -52,6 +57,9 @@ function ActividadAgricola(cultivo,numeroHectareas,estadoClima,pendiente)
 		this.pendiente = pendiente;
 		}
 		
+		this.setAplicarPractica = function(aplicar) {
+			this.aplicarPractica = aplicar;
+		}
 		
 }
 
@@ -91,9 +99,10 @@ function ActividadGanadera(numeroAnimales)
 function Poblacion(numeroHabitantes)
  {
 		var idCapa;
-		 var  numeroHabitantes;
-		 
-		  this.getIdCapa = function() {
+		var  numeroHabitantes;
+		var aplicarMetodo;
+		  
+		 this.getIdCapa = function() {
 		return this.idCapa;
 		};
 		 
@@ -105,7 +114,10 @@ function Poblacion(numeroHabitantes)
 		this.getNumeroHabitantes = function() {
 		return this.numeroHabitantes;
 		};
-
+		
+		this.getAplicarMetodo = function() {
+		return this.aplicarMetodo;
+		};
 		
 		 
 		this.setNumeroHabitantes = function(numeroHabitantes) 
@@ -113,6 +125,10 @@ function Poblacion(numeroHabitantes)
 			this.numeroHabitantes = numeroHabitantes;
 		};
 		 
+		 this.setAplicarMetodo = function(aplicar) 
+		{
+			this.aplicarMetodo = aplicar;
+		};
 		
 }
 

@@ -5,10 +5,11 @@
 class Rio extends Fact
 {
 	
-	
+	var $excedeLimite;
 	var $caudal;
 	var $cargaContaminante;
 	var $concentracionContaminante;
+	var $costoAplicarMetodos;
 
 		function __construct()
 		{
@@ -16,7 +17,7 @@ class Rio extends Fact
 				$this->caudal=0;
 				$this->cargaContaminante=0;
 				$this->concentracionContaminante=0;
-				
+				$this->costoAplicarMetodos=0;
 		}
 	
 	
@@ -49,11 +50,16 @@ class Rio extends Fact
 			$this->cargaContaminante=$this->cargaContaminante+$cargaAnadida;
 		}
 		
+		function sumaCostos($costoAnadido)
+		{
+			$this->costoAplicarMetodos=$this->costoAplicarMetodos+$costoAnadido;
+		}
+		
 		function calculaConcentracion()
 		{
 		
 			$numero_decimales=6;
-		//echo '>'.$this->cargaContaminante * (1 / 31556 926);
+		//echo '>'.$this->cargaContaminante * (1 / 31556926);
 					//	(  mg/año )		*						( año / segundos)	
 				
 			$carga_mgXsegundos=  ( $this->cargaContaminante * ( 1/31556926)  );
@@ -71,6 +77,11 @@ class Rio extends Fact
 		function getConcentracionContaminante()
 		{
 				return $this->concentracionContaminante;
+		}
+		
+		function getCostoAplicarMetodos()
+		{
+				return $this->costoAplicarMetodos;
 		}
 		
 		

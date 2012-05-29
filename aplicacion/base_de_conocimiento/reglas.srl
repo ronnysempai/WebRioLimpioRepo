@@ -327,8 +327,9 @@ rule "Regla_47" priority=0
 	if $poblacion->numeroHabitantes > 50000
 	then 
 	
-	 $poblacion->sistemaTratamientoResidual->setNombre('planta_de_tratamiento') ;
-		
+	 $poblacion->sistemaTratamientoResidual->setNombre('planta_de_tratamiento');
+	 $poblacion->sistemaTratamientoResidual->setEficiencia(25);
+	 $poblacion->sistemaTratamientoResidual->setCosto(300000);
 	end	
 
 rule "Regla_48" priority=0
@@ -336,6 +337,15 @@ rule "Regla_48" priority=0
 	if $poblacion->numeroHabitantes <= 50000
 	then 
 	
-	 $poblacion->sistemaTratamientoResidual->setNombre('humedal_artificial') ;
+		$poblacion->sistemaTratamientoResidual->setNombre('humedal_artificial');
+		$poblacion->sistemaTratamientoResidual->setEficiencia(45);
+		$poblacion->sistemaTratamientoResidual->setCosto(220000);
 		
-	end	
+	end
+
+rule "Regla_49" priority=0
+	context Poblacion $poblacion 
+	if $poblacion->sistemaTratamientoResidual->aplicar 
+	then 
+		$poblacion->setMasaNitrogenoPromedio( (4000000 + 550000 ) *(1 - $poblacion->sistemaTratamientoResidual->getEficiencia()/100) );
+	end		

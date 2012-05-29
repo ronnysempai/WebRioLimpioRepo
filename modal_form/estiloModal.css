@@ -47,11 +47,16 @@
 /*fin estilo capa modal para  imagen progress*/
 
 
-
+.modalDiv
+{
+	/* border:1px solid blue; */
+	width:900px;
+}
 
 .modalDiv div
 {
-	/*border:1px solid blue;*/
+/* 	border:1px solid blue;
+ */	
 	margin-bottom:7px;
 	
 
@@ -68,7 +73,12 @@
 {
 	color:blue;
 	cursor:pointer;
+	
+}
 
+.modalDiv input[type=checkbox]:first-of-type 
+{
+	margin-left:10px;
 }
 
 .modalDiv img

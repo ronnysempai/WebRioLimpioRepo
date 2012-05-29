@@ -67,7 +67,10 @@
 									
 									
 									$practica1=new PracticaAgricola();
-									$practica1->aplicar=true;
+									if($obj_php[$i]->aplicarPractica=='1')
+									$practica1->aplicar=true; //echo ' sdfsf';
+									
+									
 									$actividadAgricola->practicaAgricola=$practica1;
 									
 									$actividadAgricola->escorrentia=$escorrentia;
@@ -92,7 +95,10 @@
 							/**/
 							$poblacion->setMasaNitrogenoPromedio($poblacion->getNumeroHabitantes()  *  (4000000 + 550000 )  );
 							//masaNitrogenoPromedio=numeroHabitantes*(  mg promedio de nitrogeno por persona/año en orina +  mg promedio de nitrogeno por persona/año en heces  ) 
-							$poblacion->setSistemaTratamientoResidual(new SistemaTratamientoResidual() ); 
+							$str=new SistemaTratamientoResidual();
+							if($obj_php[$i]->aplicarMetodo=='1')
+							$str->aplicar=true;
+							$poblacion->setSistemaTratamientoResidual($str); 
 							
 							
 							$arrFuentesContaminacion[]=$poblacion;
@@ -173,7 +179,9 @@
 												$datos_resultado.= ' "'.$obj->getPracticaAgricola()->getDistanciaCurvaNivel().'", ';
 												
 												$datos_resultado.=  ' "eficienciaPractica": ';
-												$datos_resultado.= ' "'.$obj->getPracticaAgricola()->eficiencia.'" ';
+												$datos_resultado.= ' "'.$obj->getPracticaAgricola()->eficiencia.'", ';
+												$datos_resultado.=  ' "costoPractica": ';
+												$datos_resultado.= ' "'.$obj->getPracticaAgricola()->getCosto().'" ';
 												$datos_resultado.= '}';
 												
 
@@ -216,9 +224,10 @@
 											$datos_resultado.= ' "'.$obj->getNumeroHabitantes().'" , ';
 											$datos_resultado.= ' "Carga Nitrogeno Promedio": ';
 											$datos_resultado.= ' "'.$obj->getMasaNitrogenoPromedio().'", ';
-											$datos_resultado.= ' "Sistama de Tratamiento": ';
-											$datos_resultado.= ' "'.$obj-> getSistemaTratamientoResidual()-> getNombre().'" ';
-											
+											$datos_resultado.= ' "Sistema de Tratamiento": ';
+											$datos_resultado.= ' "'.$obj-> getSistemaTratamientoResidual()->getNombre().'", ';
+											$datos_resultado.= ' "Costo Sistema de Tratamiento": ';
+											$datos_resultado.= ' "'.$obj-> getSistemaTratamientoResidual()->getCosto().'" ';
 											$datos_resultado.='}';
 											
 											if ($i < count($arrFuentesContaminacion) - 1) 
@@ -233,10 +242,17 @@
 									}
 									
 									if(strrpos($obj->idCapa, "agricola"))
+									{	
 										$rio->sumaCarga(  $obj->getCargaNitrogenoAportada()); 
+										if($obj->practicaAgricola->aplicar())
+										$rio->sumaCostos( $obj->practicaAgricola->getCosto());
+									}
 									else
+									{
 										$rio->sumaCarga(  $obj->getMasaNitrogenoPromedio());
-									
+										if($obj->sistemaTratamientoResidual->aplicar())
+										$rio->sumaCostos( $obj->sistemaTratamientoResidual->getCosto());
+									}
 									
 								//print_r($obj);
 								
@@ -244,6 +260,7 @@
 							}
 							
 							 $rio->calculaConcentracion();
+							 
 											if($datos_resultado!='')
 											$datos_resultado.=',';
 											
@@ -255,7 +272,15 @@
 											$datos_resultado.= ' "caudal": ';
 											$datos_resultado.= ' "'.$rio->getCaudal().'" , ';
 											$datos_resultado.= ' "concentracion": ';
-											$datos_resultado.= ' "'.$rio->getConcentracionContaminante().'"  ';
+											$datos_resultado.= ' "'.$rio->getConcentracionContaminante().'",  ';
+											$datos_resultado.= ' "excedeLimite": ';
+											if($rio->getConcentracionContaminante()>3)
+											$datos_resultado.= ' "1", ';
+											else
+											$datos_resultado.= ' "0", ';
+											$datos_resultado.= ' "costoAplicarMetodos": ';
+											$datos_resultado.= ' "'.$rio->getCostoAplicarMetodos().'"  ';
+											
 											$datos_resultado.='}';
 											
 											
