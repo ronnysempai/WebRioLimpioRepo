@@ -6,6 +6,7 @@ var RIO=new Rio();
 var CLIMA='seco';
 var PENDIENTE=0;
 var arrayResultados=new Array();
+var arrayInfoPracticasAgricolas=new Array();
 
 
 	function almacenarElementoActividadAgricola(cultivo,numeroHectareas,estadoClima,pendiente)
@@ -482,7 +483,7 @@ var arrayResultados=new Array();
 			var l=arrayResultados.length;
 			var a=null;
 			var texto='';
-			
+			var informacion_practica='';
 			var tags_metodo_recomendado='';
 			
 			$( "#dialog" ).html('');
@@ -493,6 +494,7 @@ var arrayResultados=new Array();
 												{
 												
 													
+							
 												
 													texto+='<div id="id_capa_resumen" style="border-bottom: 1px solid #31B404;" >';
 													
@@ -527,12 +529,13 @@ var arrayResultados=new Array();
 													
 													texto+='<div id="id_capa_practica_recomendada" >';
 													texto+='<div>'; 
-													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" onClick="muestraOcultaCapasEnModal()" >  '+arrayResultados[indice]['practicaAgricola']+'</span>';
-													texto+=  '<input type="checkbox" name="option1" '+txt_tmp+' onclick="aplicarMetodo('+"'"+arrayResultados[indice]['idCapa']+"'"+')" value="Milk"> Aplicar'
+													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" >  '+cad_tmp+'</span>';
+													texto+=  '<input type="checkbox" name="option2" '+txt_tmp+' onclick="aplicarMetodo('+"'"+arrayResultados[indice]['idCapa']+"'"+')" value="Milk"> Aplicar'
 													texto+='<div>';
 													
-													texto+=   ' Descripcion:'+' '+arrayResultados[indice]['cultivo']+'';
-													texto+='<img  style="margin-left:40px;"  title="" src="imagenes/cultivos/'+arrayResultados[indice]['cultivo']+'.png" alt=""  />'
+													texto+=   ' Descripcion: <article>'+' '+arrayInfoPracticasAgricolas[arrayResultados[indice]['practicaAgricola']]+'</article> ';
+													texto+='<img  style="margin-left:40px;"  title="" src="imagenes/practicasAgricolas/'+cad_tmp+'.jpg" alt=""  />'
+													texto+=  ' <span id="atras" onClick="muestraOcultaCapasEnModal()" > Atras</span>';
 													texto+='</div>';
 													
 													
@@ -641,6 +644,33 @@ var arrayResultados=new Array();
 		
 	}
 	
+	function cargarInformacionPracticasAgricolas()
+	{	var descripcion='';	
+			
+			$.ajax({
+			type: "POST",
+								url: "practicasAgricolas/practicas.txt",
+								data: "datos='' ",		
+										success: function(datos)
+										{//alert(datos)
+											var jsonObj = $.parseJSON(datos);
+											arrayInfoPracticasAgricolas=new Array();				
+											for (i=0;i< jsonObj.length;i++)
+											{
+													
+														arrayInfoPracticasAgricolas[''+jsonObj[i]['practica']]=jsonObj[i]['descripcion'];	
+											}				
+											
+												
+											
+											
+									  }
+							});
+							
+							
+		
+	}
+	
 	function enviarDatosSistemaExperto()
 	{
 			var datosCodificadosJSON='';		
@@ -712,7 +742,7 @@ var arrayResultados=new Array();
 											
 											
 											muestraCapaIndicador();
-											
+											cargarInformacionPracticasAgricolas();
 											
 									  }
 							});

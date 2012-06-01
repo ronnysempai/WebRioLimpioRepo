@@ -81,6 +81,24 @@
 	margin-left:10px;
 }
 
+.modalDiv  #id_capa_practica_recomendada article
+{
+	/* border:1px solid blue; */
+	text-align:justify;
+	
+
+
+}
+
+
+.modalDiv  #id_capa_practica_recomendada img
+{
+	height:120px;
+	
+	width:120px;
+
+}
+
 .modalDiv img
 {
 	border:1px solid blue;

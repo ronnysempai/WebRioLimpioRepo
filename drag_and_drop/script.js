@@ -40,12 +40,15 @@ redips_init = function ()
 			obj_old = rd.obj_old,	// previous element (this is clone element)
 			tac = rd.target_cell;	// target cell
 		// disable dropped DIV element
-		
+		$('#'+tac.id).css('backgroundImage','url()');
 		var substring_id;
 		var tags_a;
 		
 		rd.enable_drag(false, obj.id);
-		
+		/*
+		$(document).mousemove(function(e){
+			alert(e.pageX +', '+ e.pageY);
+		});*/ 
 		//alert(obj.id);
 		
 				/**/
@@ -53,13 +56,15 @@ redips_init = function ()
 				 var posicion=$('#'+obj.id).position();
 					y=posicion.top;			
 					/*si es mayor a este limite se elimina por que sale de el area de uso */
-					if(y>=684)
+					if(y>=480)
 					{	$( "#"+obj.id ).detach();
 						return;
 					}
 				/**/	
 		
 		obj.setAttribute('style','border:1px blue solid; ');
+		
+		
 		
 		
 		if(obj.id!=null)

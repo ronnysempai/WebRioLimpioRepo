@@ -123,14 +123,18 @@ background-attachment: fixed;
 
 #imgSE
 {
-	background-image:url(../imagenes/SEV2.jpg);
-
-	background-repeat:no-repeat;
+	background-image:url(../imagenes/background1.jpg);
+	/* background-position: top center; */
+	
+	/*background-size: cover;*/
+		
+	
+	 background-repeat:no-repeat;  
 	text-align:center;
-
-	background-position:center;
-	height:720px;
-
+	
+	height:505px;
+	/* background-position:center; */
+	
 
 }
 
@@ -243,10 +247,14 @@ background-color:  #99CC00;
 
 z-index:4;
 
-overflow-y:auto;
+overflow-y:hidden;
 
 
-background-image:url(../imagenes/fondo_blanco.png);
+/*background-image:url(../imagenes/fondo_blanco.png);*/
+
+	
+		
+
 /*
 background-color:white;
 */
@@ -255,8 +263,8 @@ background-position:center;
 border: solid #39f;
 
 
-height:700px;
-width:700px;
+	height:505px;
+	width:800px;
 
 margin-right:auto;
 margin-left:auto;
@@ -289,9 +297,9 @@ display:none;
 
 	margin-bottom:40px;
 	margin-left:40px;
-
+	
 	/*padding-top:20px;*/
-
+	
 }
 
 

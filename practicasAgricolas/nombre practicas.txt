@@ -1,0 +1,5 @@
+agricola
+- Barreras_Vivas	
+- Zanjas_de_Ladera	
+- Cultivos_Cobertura_Abonos_verdes
+- Siembra_en_contorno
