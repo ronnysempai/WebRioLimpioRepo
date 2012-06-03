@@ -171,24 +171,27 @@ list-style: none;
 
 .capaResultado
 {
+	background-color:#3F4C6B;
+	background-image:url('../imagenes/No excede.png');
 	
-	background-color:#E6DF95;
-	/*background-color:#C5E695;*/
+	
+	border: 3px #d7d3d2 solid;
 	
 	border-radius: 8px;
 	display:none;
 	
 	
-	margin:5px;
+	margin:0px;
 	margin-top:150px;
-	margin-left:20px;
+	margin-left:-25px;
 	
+	opacity: 0.8;
 	
 	padding-left:5px;
 	padding-right:15px;
 	
-	width:190px;
-	height:200px;
+	width:250px;
+	height:180px;
 	
 	text-align:center;
 	

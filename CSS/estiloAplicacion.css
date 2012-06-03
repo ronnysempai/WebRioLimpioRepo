@@ -1,0 +1,461 @@
+/* CSS Document */
+
+/***********************************************************************************************/
+/*  Referencia para los tabs                                                                   */
+/*  http://www.highdots.com/css-tab-designer 												   */
+/*                                           												   */
+/*  Referencia para opacidad                        										   */
+/*  http://gemablog-.blogspot.com/2007/07/efecto-translcido-en-la-narvbar-barra.html		   */
+/*																							   */
+/*  Referencia para las esquinas redondeadas (Se logra obtener solo en FireFox)			   	   */
+/*	http://www.the-art-of-web.com/css/border-radius/										   */
+/*																							   */
+/***********************************************************************************************/
+
+
+/******************************/
+/*    Estilo para el body     */
+/******************************/
+body{
+background-image:url(../imagenes/fondo.png);
+/*background-repeat:repeat-x;*/
+background-repeat:repeat;
+background-attachment: fixed;
+}
+/******************************/
+/*  FIN Estilo para el body   */
+/******************************/
+
+
+
+
+
+/******************************/
+/*    Estilos para los ids   */
+/******************************/
+
+ #allan
+{
+	background-image:url(../imagenes/allan.jpg);
+
+	background-repeat:no-repeat;
+
+	background-position-y: center;
+	background-position-x: 50px;
+
+
+}
+
+#contenido_formulario_modal table td
+{
+	border:1px  #444 solid; 
+	
+	
+}
+
+
+
+#enrique
+{
+	background-image:url(../imagenes/enrique.jpg);
+
+	background-repeat:no-repeat;
+	background-position-y: center;
+	background-position-x: 50px;
+
+
+}
+
+
+#ronny
+{
+
+	background-image:url(../imagenes/ronny.jpg);
+
+	background-repeat:no-repeat;
+	background-position-y: center;
+	background-position-x: 50px;
+
+
+
+}
+
+
+
+
+#nubes1
+{
+	opacity:0.4;
+	height:400px;
+	width:900px;
+	background-image:url(../imagenes/nubes1.png);
+	
+	z-index:-1;
+	
+	position: absolute;
+	top:20px;
+	left:0px;
+}
+
+
+
+#imgAguas1
+{
+	background-image:url(../imagenes/contaminación2.png);
+
+	/* border:1px solid blue; */
+ 	box-shadow: 9px -9px 10px #000;
+ 	-webkit-box-shadow: 9px -9px 10px #000;
+ 	-moz-box-shadow: 9px -9px 10px #000;
+ 	
+	background-repeat:no-repeat;
+	text-align:center;
+	margin-left:50px;
+	margin-right:425px;
+	
+	
+	
+	height:149px;
+	width:205px;
+	
+}
+
+
+#imgSE
+{
+	background-image:url(../imagenes/background1.jpg);
+	/* background-position: top center; */
+	
+	/*background-size: cover;*/
+		
+	
+	 background-repeat:no-repeat;  
+	text-align:center;
+	
+	height:505px;
+	/* background-position:center; */
+	
+
+}
+
+
+
+
+#ultimo_parrafo_contaminacion_aguas
+{
+	margin-bottom:100px;
+}
+
+
+
+/******************************/
+/*    Estilos para los divs   */
+/******************************/
+
+
+
+
+
+.divWrapper{
+
+overflow:hidden;
+z-index:0;
+
+width:900px;
+height:849px;
+
+position:relative;
+margin-left:-485px;
+left:50%;
+border-style: groove;
+border-width: 3px;
+
+
+margin-top:20px;
+margin-bottom:20px;
+
+border-color:blue;
+-moz-border-radius: 9px;
+font-family:Arial, Helvetica, sans-serif;
+border-radius: 10px;
+
+background-color:white;
+
+background-image:url(../imagenes/fondo-imagen.png);
+background-position: top left;
+/*
+padding-left:80px;
+padding-right:80px;
+*/
+
+}
+
+
+
+.divPrimerEncabezado
+{
+
+height:55px;
+
+background-image:url(../imagenes/titulo.png);
+
+background-repeat:no-repeat;
+
+margin-top:15px;
+margin-right:10px;
+margin-left:10px;
+
+
+/*
+background-color:green;
+border: 1px solid red;
+*/
+
+}
+
+
+.divSegundoEncabezado
+{
+
+height:25px;
+
+
+background-color:#35398E;
+border: 1px solid blue;
+
+margin-right:20px;
+margin-left:20px;
+
+
+}
+
+
+.divMenu
+{
+
+text-align:center;
+
+/*
+background-color:  #99CC00;
+*/
+
+}
+
+.divPrincipal
+{
+
+
+z-index:4;
+
+overflow-y:hidden;
+
+
+/*background-image:url(../imagenes/fondo_blanco.png);*/
+
+	
+		
+
+/*
+background-color:white;
+*/
+background-attachment:fixed;
+background-position:center;
+border: solid #39f;
+
+
+	height:505px;
+	width:800px;
+
+margin-right:auto;
+margin-left:auto;
+margin-top:15px;
+margin-bottom:20px;
+
+
+
+display:none;
+
+}
+
+
+.divContenedorFotos
+{
+
+	width:500px;
+
+	height:120px;
+
+
+	border: 2px solid #000000;
+
+
+
+	border-radius: 10px;
+	-moz-border-radius: 9px;
+
+	margin-top:40px;
+
+	margin-bottom:40px;
+	margin-left:40px;
+	
+	/*padding-top:20px;*/
+	
+}
+
+
+.divContenedorFotos   .divNombre 
+{
+
+	margin-top:11px;
+	margin-left:180px;
+	/* border:1px solid red; */
+
+
+}
+
+.divContenedorFotos a
+{
+
+	margin-left:180px;
+	
+	border:1px solid red;
+
+}
+
+
+.divContenedorFotos .divLinksContactos
+{
+	
+	display:table;
+
+	margin-left:180px;
+	margin-top:25px;
+	
+	/* border:1px solid blue; */
+}
+
+.divContenedorFotos  .imgFace
+{
+
+	/* float:left; */
+		background-image:url(../imagenes/facebook.png);
+		background-repeat:no-repeat;
+
+	/* border:1px solid red; */
+
+		display:table-cell;
+	
+	
+	
+	height:50px;
+	width:35px;
+	
+	
+}
+
+
+.divPrincipal h2
+{
+	margin:50px;
+	color:#cca537;
+}
+
+
+
+.divContenedorFotos  .imgTwitter
+{
+	/* float:left; */
+	
+	background-image:url(../imagenes/twitter.png);
+	background-repeat:no-repeat;
+
+	
+	/* border:1px solid red; */
+	display:table-cell;
+
+	
+
+	margin-left:0px;
+
+	height:50px;
+	width:35px;
+
+}
+
+
+
+.divPrincipal p
+{
+	text-align:justify;
+	margin:50px;
+	
+	margin-bottom:100px;
+
+}
+
+
+
+.divPrincipal ul
+{
+
+	/*border:1px solid red;*/
+	margin:50px;
+	text-align:justify;
+	list-style-type: square;
+
+}
+
+
+.divPrincipal li
+{
+	margin:10px;
+	text-align:justify;
+
+}
+.divPiePagina
+{ /*position: relative;
+	*/
+
+	background-image:url(../imagenes/cesped.png);
+	background-repeat:no-repeat;
+	background-position: 0px -7px ;
+
+	margin-bottom:0px;
+	/*
+	margin-left:50px;
+	margin-right:50px;
+	*/
+	position: absolute;
+	top:86.6%;
+	left:0px;
+	width:900px;
+	height:120px;
+
+/*
+	border:1px solid #990033;
+	*/
+
+	color:#990033;
+	z-index:1;
+	border-radius: 9px;
+	-moz-border-radius: 9px;
+	/*display:none;*/
+}
+
+
+.divContenido
+{
+
+/*text-align:justify; */
+margin-right:20px;
+
+
+
+}
+
+
+
+
+
+
+

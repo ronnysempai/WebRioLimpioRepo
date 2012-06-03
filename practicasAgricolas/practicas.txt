@@ -2,21 +2,21 @@
 {
 "practica":"Barreras_Vivas",
 "descripcion":
-"La barreras viva es una práctica de conservación de suelos que utilizan muchosagricultores para protegerlo de la erosión. Esta práctica consiste en sembrar hilerasde plantas perennes, de crecimiento denso o de buen macollamiento, a manera defajas angostas, en contra de la pendiente del terreno siguiendo las curvas a nivel odesnivel. Estas fajas suelen ser plantas gramíneas de tallo duro y porte erecto."
+"La barreras viva es una pr&aacutectica de conservaci&oacuten de suelos que utilizan muchos agricultores para protegerlo de la erosi&oacuten. Esta práctica consiste en sembrar hilerasde plantas perennes, de crecimiento denso o de buen macollamiento, a manera defajas angostas, en contra de la pendiente del terreno siguiendo las curvas a nivel odesnivel. Estas fajas suelen ser plantas gram&iacuteneas de tallo duro y porte erecto."
 },
 {
 "practica":"Zanjas_de_Ladera",
 "descripcion":
-"Las zanjas de ladera son canales que se construyen al contorno del terreno,siguiendo curvas de nivel o desnivel trazadas con la ayuda del nivel A. También sedenominan en muchos sitios como acequia de ladera."
+"Las zanjas de ladera son canales que se construyen al contorno del terreno,siguiendo curvas de nivel o desnivel trazadas con la ayuda del nivel A. Tambi&eacuten sedenominan en muchos sitios como acequia de ladera."
 },
 {
 "practica":"Cultivos_Cobertura_Abonos_verdes",
 "descripcion":
-"Los cultivos de cobertura y los abonos verdes son cubiertas vegetales que se utilizancomo prácticas de conservación de suelo, para conservar, fertilizar y mejorar elterreno. En especial los abonos verdes se siembran en un determinado momento enel terreno, con la finalidad específica de incorporarlo al suelo durante la épocapropicia de su desarrollo vegetativo, generalmente, se trata de especiesleguminosas, fijadoras de nitrógeno como el frijol."
+"Los cultivos de cobertura y los abonos verdes son cubiertas vegetales que se utilizancomo pr&aacutecticas de conservaci&oacuten de suelo, para conservar, fertilizar y mejorar elterreno. En especial los abonos verdes se siembran en un determinado momento enel terreno, con la finalidad específica de incorporarlo al suelo durante la &eacutepocapropicia de su desarrollo vegetativo, generalmente, se trata de especiesleguminosas, fijadoras de nitr&oacutegeno como el frijol."
 },
 {
 "practica":"Siembra_en_contorno",
 "descripcion":
-"Las siembras en contorno o en curvas de nivel son una práctica de conservación desuelos que consiste en preparar las hileras del cultivo en contra de la pendientesiguiendo las curvas a nivel.Así, cada surco o hilera de plantas forma un obstáculo alagua de escorrentía, que al correr libremente, evita que adquiera la velocidad yfuerza necesaria para generar erosión."
+"Las siembras en contorno o en curvas de nivel son una pr&aacutectica de conservaci&oacuten desuelos que consiste en preparar las hileras del cultivo en contra de la pendientesiguiendo las curvas a nivel.As&iacute, cada surco o hilera de plantas forma un obstáculo alagua de escorrentía, que al correr libremente, evita que adquiera la velocidad yfuerza necesaria para generar erosi&oacuten."
 }
 ]

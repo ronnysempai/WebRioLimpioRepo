@@ -41,6 +41,7 @@ redips_init = function ()
 			tac = rd.target_cell;	// target cell
 		// disable dropped DIV element
 		$('#'+tac.id).css('backgroundImage','url()');
+		
 		var substring_id;
 		var tags_a;
 		
@@ -62,7 +63,7 @@ redips_init = function ()
 					}
 				/**/	
 		
-		obj.setAttribute('style','border:1px blue solid; ');
+		//obj.setAttribute('style','border:1px blue solid; ');
 		
 		
 		
@@ -96,18 +97,7 @@ redips_init = function ()
 					
 				 
 				
-				/*Codigo para agregar canvas dinamicamente con posicion absoluta*/
-				/*
-					var x=0;
-					var y=0;
-					
-					var posicion=$('#'+obj.id).position();
-					x=  posicion.left +65;
-					y=posicion.top+15;
-					$('#imgSE').append('<canvas id="canvas_'+obj.id+'" style="position:absolute; top:'+y+'px; left:'+x+'px;" width="60" height="60">---</canvas>');
-					init('canvas_'+obj.id);
-					*/
-				/*----*/
+				
 			}
 		}
 		
@@ -127,11 +117,15 @@ function eliminarElemento(id)
 	 elimina=confirm("Esta seguro de eliminar el elemento?");
 	
 	if(elimina)
-	{
-		//$( "#canvas_"+id ).detach();
+	{	
+		var celda=$('#'+id).parents();
+		
+		 $('#'+celda[0].id).css('backgroundImage','url(imagenes/area_contruccion.png)');
+		
 		$('#resultado_'+id).detach();
 		$( "#"+id ).detach();
 		eliminarElementoDeArray(id);
+		
 	}
 }
 

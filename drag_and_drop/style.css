@@ -75,7 +75,7 @@ div#drag td,th
 	
 	#celda2
 	{
-		  /*border:3px gray solid;   */
+		  /* border:3px gray solid;    */
 		margin-left:160px;
 		padding-top:10px;
 		
@@ -83,7 +83,7 @@ div#drag td,th
 		
 	#celda3
 	{
-		  /*border:3px gray solid;   */
+		  /* border:3px gray solid;    */
 		margin-left:1px;
 		
 		width:140px;
@@ -158,6 +158,10 @@ div#drag td,th
 	background-image:url(../imagenes/area_contruccion.png);
 	background-position: top center;
 	background-size: cover;
+	
+	 border:1px  #d7d3d2 solid;
+	border-radius: 4px; 
+	
 	color: #848484;
 	
 	height:100px;

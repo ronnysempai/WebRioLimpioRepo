@@ -498,7 +498,7 @@ var arrayInfoPracticasAgricolas=new Array();
 												
 													texto+='<div id="id_capa_resumen" style="border-bottom: 1px solid #31B404;" >';
 													
-													texto+='<h3 style="color:#31B404; margin-bottom:10px;">Resumen de Fuente de Contaminacion Actividad Agricola </h3>';
+													texto+='<h3 style="color:#05991D; margin-bottom:10px;">Resumen de Fuente de Contaminacion Actividad Agricola </h3>';
 													texto+='<div>';
 													texto+=   ' Cultivo:'+' '+arrayResultados[indice]['cultivo']+'';
 													texto+='<img  style="margin-left:40px;"  title="" src="imagenes/cultivos/'+arrayResultados[indice]['cultivo']+'.png" alt=""  />'
@@ -531,11 +531,13 @@ var arrayInfoPracticasAgricolas=new Array();
 													texto+='<div>'; 
 													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" >  '+cad_tmp+'</span>';
 													texto+=  '<input type="checkbox" name="option2" '+txt_tmp+' onclick="aplicarMetodo('+"'"+arrayResultados[indice]['idCapa']+"'"+')" value="Milk"> Aplicar'
-													texto+='<div>';
-													
+													texto+='</div>';
+													texto+='<div id="descripcion_imagen">';
 													texto+=   ' Descripcion: <article>'+' '+arrayInfoPracticasAgricolas[arrayResultados[indice]['practicaAgricola']]+'</article> ';
 													texto+='<img  style="margin-left:40px;"  title="" src="imagenes/practicasAgricolas/'+cad_tmp+'.jpg" alt=""  />'
 													texto+=  ' <span id="atras" onClick="muestraOcultaCapasEnModal()" > Atras</span>';
+													texto+='</div>';
+													
 													texto+='</div>';
 													
 													
@@ -545,7 +547,7 @@ var arrayInfoPracticasAgricolas=new Array();
 													{
 														texto+='<div id="id_capa_resumen" style="border-bottom: 1px solid #31B404;" >';
 													
-														texto+='<h3 style="color:#31B404; margin-bottom:10px;">Resumen de Fuente de Contaminacion Poblacion </h3>';
+														texto+='<h3 style="color:#05991D; margin-bottom:10px;">Resumen de Fuente de Contaminacion Poblacion </h3>';
 														
 														texto+='<div>';
 														texto+=   'Masa de Nitrogeno aportado de Agua Residual:'+' '+arrayResultados[indice]['Carga Nitrogeno Promedio']+' mg/año';
@@ -733,7 +735,7 @@ var arrayInfoPracticasAgricolas=new Array();
 																if(jsonObj[i]['costoAplicarMetodos']!='0')
 																c+='<article> Los costos de implementacion de la solucion son: $'+jsonObj[i]['costoAplicarMetodos']+'</article>';
 																
-																$('#capa_resultados').html(s+' La concentracion del contaminante es: <div>'+jsonObj[i]['concentracion']+' mg/l '+c+'</div>');
+																//$('#capa_resultados').html(s+' La concentracion del contaminante es: <div>'+jsonObj[i]['concentracion']+' mg/l '+c+'</div>');
 																
 																}
 															}  

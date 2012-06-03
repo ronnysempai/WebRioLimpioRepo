@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html >
+<!DOCTYPE html >
+<html  lang="es">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
@@ -8,8 +8,8 @@
 	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.core.js"></script> 
 	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.widget.js"></script> 
 	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.mouse.js"></script> 
-	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.draggable.js"></script> 
-	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.droppable.js"></script> 
+	<!-- <script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.draggable.js"></script> 
+	<script src="jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.droppable.js"></script>  -->
 	
 	
 	
@@ -57,7 +57,7 @@
   <script>
 			
 				/*menu 2*/
-				
+				/*
 				function mainmenu(){	
 				// Oculto los submenus
 				$(" #nav ul ").css({display: "none"});
@@ -74,13 +74,13 @@
 				//fin menu 2
 				
 			///
-			
+			*/
 			
 	</script> 
 	
 	
 
-<link rel="stylesheet" type="text/css" href="CSS/estilo.css" />
+<link rel="stylesheet" type="text/css" href="CSS/estiloAplicacion.css" />
 <link rel="stylesheet" type="text/css" href="CSS/estilo_menu.css" />
 
 
@@ -138,7 +138,7 @@
   </div><!--Encabezado-->
 
   <div class="divSegundoEncabezado">
-		
+		<!--
 		   <div class="divMenu"> 
     
 			<div id="menu">
@@ -174,11 +174,21 @@
 				</div>
 	
 					
-   </div><!--Menu-->
+   </div> <!--Menu-->
 
-		
+   <div class="divMenu" id="menuRetroceder" >
+			
+			<div id="menu">	
+				<ul id="nav">
+						<li> <a href="index.html" class='menu_principal'>Inicio</a> </li>
+						<li>
+						<a href="javascript:window.history.back();" class='menu_principal'>Atras</a>	
+						</li>
+					</ul>	
+			</div>	
    </div> 
-
+   
+</div><!--Cierra divSegundoEncabezado  -->
   
   
 <div id='principal' class="divPrincipal">
@@ -300,7 +310,7 @@
 																												<ol>
 																													<li>
 																															<label  id="etiqueta_caudal" for="name"  >Caudal de Rio:</label>
-																																	<input type="text"  name="caudal" id="caudal" class="text ui-widget-content ui-corner-all" />
+																																	<input type="text"  name="caudal" id="caudal" value='18' class="text ui-widget-content ui-corner-all" />
 																													</li>
 																													
 																													<!--<li>	
@@ -313,7 +323,7 @@
 																													   <span id="etiqueta_porcentaje">%</span>
 																													   <div id="uno">&nbsp;</div>
 																													   
-																													   <input type="range" min="0" max="80" step="5" id="one" />
+																													   <input type="range" min="0" max="80"  id="one" />
 																															
 																															
 																													</li>
@@ -329,7 +339,7 @@
 																							
 																							<div id='capa_resultados' class="capaResultado">
 																										
-																													este sera la lista de resultados 
+																													
 																												
 																							</div>
 																							
@@ -393,7 +403,7 @@
 
 
  <script src="polyfill_html5slider/scriptSlider.js">  </script>
-//
+
 
 
 

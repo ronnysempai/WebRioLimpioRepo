@@ -1,20 +1,20 @@
 /* CSS Document */
 
 /***********************************************************************************************/
-/*  Referencia para los tabs                                                                   */
-/*  http://www.highdots.com/css-tab-designer 												   */
-/*                                           												   */
-/*  Referencia para opacidad                        										   */
-/*  http://gemablog-.blogspot.com/2007/07/efecto-translcido-en-la-narvbar-barra.html		   */
-/*																							   */
-/*  Referencia para las esquinas redondeadas (Se logra obtener solo en FireFox)			   	   */
-/*	http://www.the-art-of-web.com/css/border-radius/										   */
-/*																							   */
+/* Referencia para los tabs */
+/* http://www.highdots.com/css-tab-designer */
+/* */
+/* Referencia para opacidad */
+/* http://gemablog-.blogspot.com/2007/07/efecto-translcido-en-la-narvbar-barra.html */
+/* */
+/* Referencia para las esquinas redondeadas (Se logra obtener solo en FireFox) */
+/* http://www.the-art-of-web.com/css/border-radius/ */
+/* */
 /***********************************************************************************************/
 
 
 /******************************/
-/*    Estilo para el body     */
+/* Estilo para el body */
 /******************************/
 body{
 background-image:url(../imagenes/fondo.png);
@@ -23,7 +23,7 @@ background-repeat:repeat;
 background-attachment: fixed;
 }
 /******************************/
-/*  FIN Estilo para el body   */
+/* FIN Estilo para el body */
 /******************************/
 
 
@@ -31,37 +31,37 @@ background-attachment: fixed;
 
 
 /******************************/
-/*    Estilos para los ids   */
+/* Estilos para los ids */
 /******************************/
 
  #allan
 {
-	background-image:url(../imagenes/allan.jpg);
+background-image:url(../imagenes/allan.jpg);
 
-	background-repeat:no-repeat;
+background-repeat:no-repeat;
 
-	background-position-y: center;
-	background-position-x: 50px;
+background-position-y: center;
+background-position-x: 50px;
 
 
 }
 
 #contenido_formulario_modal table td
 {
-	border:1px  #444 solid; 
-	
-	
+border:1px #444 solid;
+
+
 }
 
 
 
 #enrique
 {
-	background-image:url(../imagenes/enrique.jpg);
+background-image:url(../imagenes/enrique.jpg);
 
-	background-repeat:no-repeat;
-	background-position-y: center;
-	background-position-x: 50px;
+background-repeat:no-repeat;
+background-position-y: center;
+background-position-x: 50px;
 
 
 }
@@ -70,11 +70,11 @@ background-attachment: fixed;
 #ronny
 {
 
-	background-image:url(../imagenes/ronny.jpg);
+background-image:url(../imagenes/ronny.jpg);
 
-	background-repeat:no-repeat;
-	background-position-y: center;
-	background-position-x: 50px;
+background-repeat:no-repeat;
+background-position-y: center;
+background-position-x: 50px;
 
 
 
@@ -85,56 +85,52 @@ background-attachment: fixed;
 
 #nubes1
 {
-	opacity:0.4;
-	height:400px;
-	width:900px;
-	background-image:url(../imagenes/nubes1.png);
-	
-	z-index:-1;
-	
-	position: absolute;
-	top:20px;
-	left:0px;
+opacity:0.4;
+height:400px;
+width:900px;
+background-image:url(../imagenes/nubes1.png);
+
+z-index:-1;
+
+position: absolute;
+top:20px;
+left:0px;
 }
 
 
 
 #imgAguas1
 {
-	background-image:url(../imagenes/contaminación2.png);
+background-image:url(../imagenes/contaminación2.png);
 
-	/* border:1px solid blue; */
- 	box-shadow: 9px -9px 10px #000;
- 	-webkit-box-shadow: 9px -9px 10px #000;
- 	-moz-box-shadow: 9px -9px 10px #000;
- 	
-	background-repeat:no-repeat;
-	text-align:center;
-	margin-left:50px;
-	margin-right:425px;
-	
-	
-	
-	height:149px;
-	width:205px;
-	
+/* border:1px solid blue; */
+  box-shadow: 9px -9px 10px #000;
+  -webkit-box-shadow: 9px -9px 10px #000;
+  -moz-box-shadow: 9px -9px 10px #000;
+ 
+background-repeat:no-repeat;
+text-align:center;
+margin-left:50px;
+margin-right:425px;
+
+
+
+height:149px;
+width:205px;
+
 }
 
 
 #imgSE
 {
-	background-image:url(../imagenes/background1.jpg);
-	/* background-position: top center; */
-	
-	/*background-size: cover;*/
-		
-	
-	 background-repeat:no-repeat;  
-	text-align:center;
-	
-	height:505px;
-	/* background-position:center; */
-	
+background-image:url(../imagenes/SEV2.jpg);
+
+background-repeat:no-repeat;
+text-align:center;
+
+background-position:center;
+height:720px;
+
 
 }
 
@@ -143,13 +139,13 @@ background-attachment: fixed;
 
 #ultimo_parrafo_contaminacion_aguas
 {
-	margin-bottom:100px;
+margin-bottom:100px;
 }
 
 
 
 /******************************/
-/*    Estilos para los divs   */
+/* Estilos para los divs */
 /******************************/
 
 
@@ -236,7 +232,7 @@ margin-left:20px;
 text-align:center;
 
 /*
-background-color:  #99CC00;
+background-color: #99CC00;
 */
 
 }
@@ -247,14 +243,10 @@ background-color:  #99CC00;
 
 z-index:4;
 
-overflow-y:hidden;
+overflow-y:auto;
 
 
-/*background-image:url(../imagenes/fondo_blanco.png);*/
-
-	
-		
-
+background-image:url(../imagenes/fondo_blanco.png);
 /*
 background-color:white;
 */
@@ -263,8 +255,8 @@ background-position:center;
 border: solid #39f;
 
 
-	height:505px;
-	width:800px;
+height:700px;
+width:700px;
 
 margin-right:auto;
 margin-left:auto;
@@ -281,34 +273,34 @@ display:none;
 .divContenedorFotos
 {
 
-	width:500px;
+width:500px;
 
-	height:120px;
-
-
-	border: 2px solid #000000;
+height:120px;
 
 
+border: 2px solid #000000;
 
-	border-radius: 10px;
-	-moz-border-radius: 9px;
 
-	margin-top:40px;
 
-	margin-bottom:40px;
-	margin-left:40px;
-	
-	/*padding-top:20px;*/
-	
+border-radius: 10px;
+-moz-border-radius: 9px;
+
+margin-top:40px;
+
+margin-bottom:40px;
+margin-left:40px;
+
+/*padding-top:20px;*/
+
 }
 
 
-.divContenedorFotos   .divNombre 
+.divContenedorFotos .divNombre
 {
 
-	margin-top:11px;
-	margin-left:180px;
-	/* border:1px solid red; */
+margin-top:11px;
+margin-left:180px;
+/* border:1px solid red; */
 
 
 }
@@ -316,69 +308,69 @@ display:none;
 .divContenedorFotos a
 {
 
-	margin-left:180px;
-	
-	//border:1px solid red;
+margin-left:180px;
+
+//border:1px solid red;
 
 }
 
 
 .divContenedorFotos .divLinksContactos
 {
-	
-	display:table;
 
-	margin-left:180px;
-	margin-top:25px;
-	
-	/* border:1px solid blue; */
+display:table;
+
+margin-left:180px;
+margin-top:25px;
+
+/* border:1px solid blue; */
 }
 
-.divContenedorFotos  .imgFace
+.divContenedorFotos .imgFace
 {
 
-	/* float:left; */
-		background-image:url(../imagenes/facebook.png);
-		background-repeat:no-repeat;
+/* float:left; */
+background-image:url(../imagenes/facebook.png);
+background-repeat:no-repeat;
 
-	/* border:1px solid red; */
+/* border:1px solid red; */
 
-		display:table-cell;
-	
-	
-	
-	height:50px;
-	width:35px;
-	
-	
+display:table-cell;
+
+
+
+height:50px;
+width:35px;
+
+
 }
 
 
 .divPrincipal h2
 {
-	margin:50px;
-	color:#cca537;
+margin:50px;
+color:#cca537;
 }
 
 
 
-.divContenedorFotos  .imgTwitter
+.divContenedorFotos .imgTwitter
 {
-	/* float:left; */
-	
-	background-image:url(../imagenes/twitter.png);
-	background-repeat:no-repeat;
+/* float:left; */
 
-	
-	/* border:1px solid red; */
-	display:table-cell;
+background-image:url(../imagenes/twitter.png);
+background-repeat:no-repeat;
 
-	
 
-	margin-left:0px;
+/* border:1px solid red; */
+display:table-cell;
 
-	height:50px;
-	width:35px;
+
+
+margin-left:0px;
+
+height:50px;
+width:35px;
 
 }
 
@@ -386,10 +378,10 @@ display:none;
 
 .divPrincipal p
 {
-	text-align:justify;
-	margin:50px;
-	
-	margin-bottom:100px;
+text-align:justify;
+margin:50px;
+
+margin-bottom:100px;
 
 }
 
@@ -398,48 +390,48 @@ display:none;
 .divPrincipal ul
 {
 
-	/*border:1px solid red;*/
-	margin:50px;
-	text-align:justify;
-	list-style-type: square;
+/*border:1px solid red;*/
+margin:50px;
+text-align:justify;
+list-style-type: square;
 
 }
 
 
 .divPrincipal li
 {
-	margin:10px;
-	text-align:justify;
+margin:10px;
+text-align:justify;
 
 }
 .divPiePagina
 { /*position: relative;
-	*/
+*/
 
-	background-image:url(../imagenes/cesped.png);
-	background-repeat:no-repeat;
-	background-position: 0px -7px ;
+background-image:url(../imagenes/cesped.png);
+background-repeat:no-repeat;
+background-position: 0px -7px ;
 
-	margin-bottom:0px;
-	/*
-	margin-left:50px;
-	margin-right:50px;
-	*/
-	position: absolute;
-	top:86.6%;
-	left:0px;
-	width:900px;
-	height:120px;
+margin-bottom:0px;
+/*
+margin-left:50px;
+margin-right:50px;
+*/
+position: absolute;
+top:86.6%;
+left:0px;
+width:900px;
+height:120px;
 
 /*
-	border:1px solid #990033;
-	*/
+border:1px solid #990033;
+*/
 
-	color:#990033;
-	z-index:1;
-	border-radius: 9px;
-	-moz-border-radius: 9px;
-	/*display:none;*/
+color:#990033;
+z-index:1;
+border-radius: 9px;
+-moz-border-radius: 9px;
+/*display:none;*/
 }
 
 
@@ -452,10 +444,3 @@ margin-right:20px;
 
 
 }
-
-
-
-
-
-
-
