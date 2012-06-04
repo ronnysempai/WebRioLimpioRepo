@@ -179,6 +179,7 @@ list-style: none;
 	
 	color:#53FF6F;
 	display:none;
+	font-weight:bold;
 	
 	height:240px;
 	
@@ -200,7 +201,7 @@ list-style: none;
 
 .capaResultado div
 {
-	margin-top:100px;
+	margin-top:140px;
 	
 }
 

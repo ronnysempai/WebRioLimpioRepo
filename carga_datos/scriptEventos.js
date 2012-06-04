@@ -735,7 +735,7 @@ var arrayInfoPracticasAgricolas=new Array();
 																if(jsonObj[i]['costoAplicarMetodos']!='0')
 																c+='<article> Los costos de implementacion de la solucion son: $'+jsonObj[i]['costoAplicarMetodos']+'</article>';
 																
-																//$('#capa_resultados').html(s+' <div>La concentracion del contaminante es: '+jsonObj[i]['concentracion']+' mg/l '+c+'</div>');
+																//$('#capa_resultados').html('<div>La concentracion del contaminante es: '+jsonObj[i]['concentracion']+' mg/l '+c+'</div>');
 																
 																}
 															}  
