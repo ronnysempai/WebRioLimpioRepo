@@ -90,6 +90,7 @@ rule "Regla_19" priority=0
 	if $actividadAgricola->cultivo->nombre=="arroz"
 	then 
 		$actividadAgricola->cultivo->ciclo="corto";
+		$actividadAgricola->cultivo->gananciaPorHectarea=350;
 	end	
 	
 rule "Regla_20" priority=0
@@ -97,6 +98,7 @@ rule "Regla_20" priority=0
 	if $actividadAgricola->cultivo->nombre=="azucar"
 	then 
 		$actividadAgricola->cultivo->ciclo="corto";
+		$actividadAgricola->cultivo->gananciaPorHectarea=600;
 	end	
 
 rule "Regla_21" priority=0
@@ -104,6 +106,7 @@ rule "Regla_21" priority=0
 	if $actividadAgricola->cultivo->nombre=="banana"
 	then 
 		$actividadAgricola->cultivo->ciclo="largo";
+		$actividadAgricola->cultivo->gananciaPorHectarea=200;
 	end		
 
 rule "Regla_22" priority=0
@@ -111,6 +114,7 @@ rule "Regla_22" priority=0
 	if $actividadAgricola->cultivo->nombre=="cacao"
 	then 
 		$actividadAgricola->cultivo->ciclo="largo";
+		$actividadAgricola->cultivo->gananciaPorHectarea=800;
 	end		
 
 rule "Regla_23" priority=0
@@ -118,6 +122,7 @@ rule "Regla_23" priority=0
 	if $actividadAgricola->cultivo->nombre=="cafe"
 	then 
 		$actividadAgricola->cultivo->ciclo="largo";
+		$actividadAgricola->cultivo->gananciaPorHectarea=550;
 	end		
 
 rule "Regla_24" priority=0
@@ -125,6 +130,7 @@ rule "Regla_24" priority=0
 	if $actividadAgricola->cultivo->nombre=="cebolla"
 	then 
 		$actividadAgricola->cultivo->ciclo="corto";
+		$actividadAgricola->cultivo->gananciaPorHectarea=0;
 	end		
 
 rule "Regla_25" priority=0
@@ -132,6 +138,7 @@ rule "Regla_25" priority=0
 	if $actividadAgricola->cultivo->nombre=="maiz"
 	then 
 		$actividadAgricola->cultivo->ciclo="corto";
+		$actividadAgricola->cultivo->gananciaPorHectarea=0;
 	end		
 
 rule "Regla_26" priority=0
@@ -139,6 +146,7 @@ rule "Regla_26" priority=0
 	if $actividadAgricola->cultivo->nombre=="papa"
 	then 
 		$actividadAgricola->cultivo->ciclo="corto";
+		$actividadAgricola->cultivo->gananciaPorHectarea=0;
 	end		
 
 rule "Regla_27" priority=0
@@ -146,6 +154,7 @@ rule "Regla_27" priority=0
 	if $actividadAgricola->cultivo->nombre=="soja"
 	then 
 		$actividadAgricola->cultivo->ciclo="corto";
+		$actividadAgricola->cultivo->gananciaPorHectarea=350;
 	end		
 
 rule "Regla_28" priority=0
@@ -153,6 +162,7 @@ rule "Regla_28" priority=0
 	if $actividadAgricola->cultivo->nombre=="tomate"
 	then 
 		$actividadAgricola->cultivo->ciclo="corto";
+		$actividadAgricola->cultivo->gananciaPorHectarea=0;
 	end		
 
 
@@ -257,8 +267,16 @@ rule "Regla_39" priority=0
 		
 	end
 
-	
 rule "Regla_40" priority=0
+	context ActividadAgricola $actividadAgricola 
+	if  $actividadAgricola->practicaAgricola->aplicar && $actividadAgricola->practicaAgricola->nombre=="Zanjas_de_Ladera"
+	then
+		 $actividadAgricola->masaNitrogenoPromedio= $actividadAgricola->getMasaNitrogenoPromedio()*(1 - 0.1);
+
+	end	
+	
+	
+rule "Regla_41" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if  $actividadAgricola->practicaAgricola->aplicar && $actividadAgricola->masaNitrogenoPromedio>0
 	then
@@ -269,7 +287,7 @@ rule "Regla_40" priority=0
 	
 	
 	
-rule "Regla_41" priority=0
+rule "Regla_42" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=2 &&  $actividadAgricola->pendiente->porcentaje <5
 	then 
@@ -278,7 +296,7 @@ rule "Regla_41" priority=0
 		
 	end
 
-rule "Regla_42" priority=0
+rule "Regla_43" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=5 &&  $actividadAgricola->pendiente->porcentaje <10
 	then 
@@ -286,7 +304,7 @@ rule "Regla_42" priority=0
 		
 	end	
 
-rule "Regla_43" priority=0
+rule "Regla_44" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=10 &&  $actividadAgricola->pendiente->porcentaje <20
 	then 
@@ -295,7 +313,7 @@ rule "Regla_43" priority=0
 		
 	end	
 
-rule "Regla_44" priority=0
+rule "Regla_45" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=20 &&  $actividadAgricola->pendiente->porcentaje <30
 	then 
@@ -304,7 +322,7 @@ rule "Regla_44" priority=0
 		
 	end	
 
-rule "Regla_45" priority=0
+rule "Regla_46" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=30 &&  $actividadAgricola->pendiente->porcentaje <40
 	then 
@@ -313,7 +331,7 @@ rule "Regla_45" priority=0
 		
 	end	
 
-rule "Regla_46" priority=0
+rule "Regla_47" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >=40 
 	then 
@@ -322,7 +340,7 @@ rule "Regla_46" priority=0
 		
 	end	
 
-rule "Regla_47" priority=0
+rule "Regla_48" priority=0
 	context Poblacion $poblacion 
 	if $poblacion->numeroHabitantes > 50000
 	then 
@@ -332,7 +350,7 @@ rule "Regla_47" priority=0
 	 $poblacion->sistemaTratamientoResidual->setCosto(300000);
 	end	
 
-rule "Regla_48" priority=0
+rule "Regla_49" priority=0
 	context Poblacion $poblacion 
 	if $poblacion->numeroHabitantes <= 50000
 	then 
@@ -343,7 +361,7 @@ rule "Regla_48" priority=0
 		
 	end
 
-rule "Regla_49" priority=0
+rule "Regla_50" priority=0
 	context Poblacion $poblacion 
 	if $poblacion->sistemaTratamientoResidual->aplicar 
 	then 
