@@ -677,6 +677,45 @@ var arrayInfoPracticasAgricolas=new Array();
 		
 	}
 	
+	function ordenarElementosPorContaminacion()
+	{
+			var l=arrayResultados.length;
+			var a=null;
+			var texto='';
+			var informacion_practica='';
+			var tags_metodo_recomendado='';
+			var arrOrdenContaminante=new Array();
+			
+			$( "#dialog" ).html('');
+			$( "#ui-dialog-title-dialog" ).css('color','"red');
+						
+						
+											for(indice=0;indice<arrayResultados.length;indice++)
+												if(arrayResultados[indice]['idCapa'].indexOf('agricola', 0)!=-1)
+												{
+														arrOrdenContaminante[arrayResultados[indice]['idCapa']]= arrayResultados[indice]['Carga Nitrogeno Promedio']
+														
+													
+												}
+												else
+													if(arrayResultados[indice]['idCapa'].indexOf('poblacion', 0)!=-1)
+													{
+														arrOrdenContaminante[arrayResultados[indice]['idCapa']]=arrayResultados[indice]['Carga Nitrogeno Promedio']
+														
+													}
+												
+													arrOrdenContaminante.sort();
+												
+												i=0	
+												for (key in arrOrdenContaminante)
+												{
+													posicion=$('#'+key).position() ;
+																			pos_x=  posicion.left ;
+																			pos_y=posicion.top;
+												$('#imgSE').append('<div id="orden_'+ key+'" style="position:absolute; background:#E3F6CE; top:'+pos_y+'px; left:'+pos_x+'px;" width="60" height="60"><button  name=""  >'+(i+1)+'</button></div>');
+												i++;
+	}											}
+	
 	function formatoNotacionCientifica(numero)
 	{
 		var aux = numero;
@@ -766,7 +805,7 @@ var arrayInfoPracticasAgricolas=new Array();
 															
 											}
 											
-											
+											ordenarElementosPorContaminacion()
 											muestraCapaIndicador();
 											cargarInformacionPracticasAgricolas();
 											

@@ -2,7 +2,7 @@
 {
 "practica":"Barreras_Vivas",
 "descripcion":
-"La barreras viva es una pr&aacutectica de conservaci&oacuten de suelos que utilizan muchos agricultores para protegerlo de la erosi&oacuten. Esta práctica consiste en sembrar hilerasde plantas perennes, de crecimiento denso o de buen macollamiento, a manera defajas angostas, en contra de la pendiente del terreno siguiendo las curvas a nivel odesnivel. Estas fajas suelen ser plantas gram&iacuteneas de tallo duro y porte erecto."
+"La barreras viva es una pr&aacutectica de conservaci&oacuten de suelos que utilizan muchos agricultores para protegerlo de la erosi&oacuten. Esta pr&aacutectica consiste en sembrar hilerasde plantas perennes, de crecimiento denso o de buen macollamiento, a manera defajas angostas, en contra de la pendiente del terreno siguiendo las curvas a nivel odesnivel. Estas fajas suelen ser plantas gram&iacuteneas de tallo duro y porte erecto."
 },
 {
 "practica":"Zanjas_de_Ladera",
@@ -17,6 +17,6 @@
 {
 "practica":"Siembra_en_contorno",
 "descripcion":
-"Las siembras en contorno o en curvas de nivel son una pr&aacutectica de conservaci&oacuten desuelos que consiste en preparar las hileras del cultivo en contra de la pendientesiguiendo las curvas a nivel.As&iacute, cada surco o hilera de plantas forma un obstáculo alagua de escorrentía, que al correr libremente, evita que adquiera la velocidad yfuerza necesaria para generar erosi&oacuten."
+"Las siembras en contorno o en curvas de nivel son una pr&aacutectica de conservaci&oacuten desuelos que consiste en preparar las hileras del cultivo en contra de la pendiente siguiendo las curvas a nivel.As&iacute, cada surco o hilera de plantas forma un obst&aacuteculo alagua de escorrentía, que al correr libremente, evita que adquiera la velocidad yfuerza necesaria para generar erosi&oacuten."
 }
 ]

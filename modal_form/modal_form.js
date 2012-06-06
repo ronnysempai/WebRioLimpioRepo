@@ -124,11 +124,11 @@
 			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="cacao">Cacao</option> ');
 			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="azucar">Azúcar</option> ');
 			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="cafe">Cafe</option> ');
-			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="cebolla">Cebolla</option> ');
-			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="maiz">Maiz</option>');
+			//$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="cebolla">Cebolla</option> ');
+			//$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="maiz">Maiz</option>');
 			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="papa">Papa</option>');
 			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="soja">Soja</option>');
-			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="tomate">Tomate</option>');
+			//$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="tomate">Tomate</option>');
 			
 			
 			
