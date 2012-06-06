@@ -40,7 +40,7 @@ redips_init = function ()
 			obj_old = rd.obj_old,	// previous element (this is clone element)
 			tac = rd.target_cell;	// target cell
 		// disable dropped DIV element
-		$('#'+tac.id).css('backgroundImage','url()');
+		//$('#'+tac.id).css('backgroundImage','url()');
 		
 		var substring_id;
 		var tags_a;

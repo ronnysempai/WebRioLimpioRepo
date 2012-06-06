@@ -7,10 +7,7 @@
 						// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
 						$( "#dialog:ui-dialog" ).dialog( "destroy" );
 						
-						var name = $( "#name" ),
-							email = $( "#email" ),
-							password = $( "#password" ),
-							allFields = $( [] ).add( name ).add( email ).add( password ),
+						var numero_hectareas = $( "#numero_hectareas" ),
 							tips = $( ".validateTips" );
 
 						/* function updateTips( t ) {
@@ -22,16 +19,7 @@
 							}, 500 );
 						} */
 
-						function checkLength( o, n, min, max ) {
-							if ( o.val().length > max || o.val().length < min ) {
-								o.addClass( "ui-state-error" );
-								updateTips( "Length of " + n + " must be between " +
-									min + " and " + max + "." );
-								return false;
-							} else {
-								return true;
-							}
-						}
+						
 
 						function checkRegexp( o, regexp, n ) {
 							if ( !( regexp.test( o.val() ) ) ) {
@@ -62,7 +50,7 @@
 								}
 							},
 							close: function() {
-								allFields.val( "" ).removeClass( "ui-state-error" );
+								//allFields.val( "" ).removeClass( "ui-state-error" );
 							}
 						});
 				
@@ -82,6 +70,36 @@
 							
 						
 					});
+					
+		function validarNumero(id)
+		{
+			
+			var obj=$('#'+id);
+			var mensaje=$('#mensaje_de_error')
+			
+			//alert(obj.val())
+			
+			if (obj.val()=='' )
+			return ;
+			
+			if( ! ( !isNaN(parseFloat(obj.val())) && isFinite(obj.val()) ))
+			{	
+			
+				mensaje.css('color','red')
+				mensaje.css('font-size','20px')
+				mensaje.html('por favor ingrese un dato valido')
+				
+				obj.addClass( "ui-state-error" );
+				
+			}
+			else
+			{	
+				$('#mensaje_de_error').html('')
+				obj.removeClass( "ui-state-error" );
+			}
+			
+			
+		}
 					
 		function agregarElementosFormularioActividadAgricola()
 		{
@@ -120,25 +138,11 @@
 			$( "#contenido_formulario_modal table" ).append('<tr id="f2"></tr>');
 			
 			$( "#contenido_formulario_modal #f2" ).append('<td style="width:177px">  <label  id="etiqueta_hectareas" >Extension de Terreno</label>  </td>');
-			$( "#contenido_formulario_modal  #f2" ).append(' <td> <input id="numero_hectareas" type="text" value="" class="text ui-widget-content ui-corner-all" /> </td>');
+			$( "#contenido_formulario_modal  #f2" ).append(' <td> <input id="numero_hectareas" type="text" value="" onKeyUp="validarNumero(this.id)" class="text ui-widget-content ui-corner-all" /> </td>');
 			$( "#contenido_formulario_modal  #f2 input" ).css('width','80px');
 			$( "#contenido_formulario_modal #f2").append('<span id="etiqueta_ha" type="text" value=""  >Ha</span>');
 			
-			/*
-			$( "#contenido_formulario_modal table" ).append('<tr id="f3"></tr>');
 			
-			$( "#contenido_formulario_modal #f3" ).append('<td> <label id="etiqueta_clima">Clima </label> </td> ');
-			$( "#contenido_formulario_modal #f3" ).append('<td> <select id="clima" class="text ui-widget-content ui-corner-all"  >		</select>  </td>');
-			$( "#contenido_formulario_modal #f3 #clima" ).append('<option value="seco">Seco</option>');
-			$( "#contenido_formulario_modal #f3 #clima" ).append('<option value="lluvioso">Lluvioso</option>');
-			*/
-			/*$( "#contenido_formulario_modal table" ).append('<tr id="f4"></tr>');
-			$( "#contenido_formulario_modal #f4" ).append('<td> <label id="etiqueta_pendiente">Pendiente </> </td> ');
-			$( "#contenido_formulario_modal #f4").append('<td> <input id="pendiente" type="text" value=""   class="text ui-widget-content ui-corner-all"  /> </td>');
-			$( "#contenido_formulario_modal  #f4 input" ).css('width','80px');
-			
-			$( "#contenido_formulario_modal #f4").append('<span id="etiqueta_porcentaje" type="text" value=""  >%</span> ');
-			*/
 			
 			
 		}
@@ -162,7 +166,8 @@
 			$( "#contenido_formulario_modal" ).html('');
 			
 			$( "#contenido_formulario_modal" ).append('<div id="capa_form_numero_habitantes"> <label  id="etiqueta_numero_habitantes" >Numero de Habitantes</label> </div>');
-			$( "#contenido_formulario_modal #capa_form_numero_habitantes" ).append('<input id="numero_habitantes" type="text" value="" class="text ui-widget-content ui-corner-all"  >		</select> ');
+			$( "#contenido_formulario_modal #capa_form_numero_habitantes" ).append('<input id="numero_habitantes" onKeyUp="validarNumero(this.id)" type="text" value="" class="text ui-widget-content ui-corner-all"  >		</select> ');
+			
 		}
 		
 		function cargarFormularioRio()
@@ -181,7 +186,7 @@
 		
 		function cargarFormulario(id_fuente_contaminacion)
 		{
-					
+					$('#mensaje_de_error').html('')
 					cargaFormularioPorTipoFuenteContaminacion(id_fuente_contaminacion)
 					$( "#idCapaElemento" ).val(id_fuente_contaminacion);
 						$( "#dialog-form" ).dialog( "open" );
@@ -254,6 +259,25 @@
 		{
 				
 				idCapa=$( "#idCapaElemento" ).val();
+				
+				if($('#numero_hectareas').val()=='')
+				{	
+					$('#mensaje_de_error').css('color','red')
+					$('#mensaje_de_error').css('font-size','20px')
+					$('#mensaje_de_error').html('por favor ingrese un dato valido')
+					$('#numero_hectareas').addClass( "ui-state-error" );
+					return;
+				
+				}
+				
+				if ($('#numero_habitantes').val()=='')
+				{	
+					$('#mensaje_de_error').css('color','red')
+					$('#mensaje_de_error').css('font-size','20px')
+					$('#mensaje_de_error').html('por favor ingrese un dato valido')
+					$('#numero_habitantes').addClass( "ui-state-error" );
+					return;
+				}
 				
 				if(idCapa=='rio')
 				{

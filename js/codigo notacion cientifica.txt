@@ -1,0 +1,23 @@
+aux = numero;
+nDigitos = 1;
+
+while (aux >= 10)
+{
+   aux = aux/10;
+   nDigitos = nDigitos + 1;
+}
+
+
+aux+'x10'<sup>nDigitos</sup>
+
+
+x<sup>2</sup>
+
+
+paso 1: [Para cada pos. del arreglo]	     For i <- 1 to N do
+paso 2: [Inicializa la pos. del menor]		        menor <- i
+paso 3: [Recorre todo el arreglo]	              	For j <- i+1 to N do
+paso 4: [Si a[j] es menor]			                            	If a[j] < a[menor] then
+paso 5: [Reasigna el apuntador al menor]		              min = j
+paso 6: [Intercambia los datos de la pos.
+	   min y posición i]	

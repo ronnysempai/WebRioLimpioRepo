@@ -10,6 +10,9 @@ $(document).ready(function() {
 				$('#mask, .window').hide();
 			});    
 			 
+			 
+			 $('#flecha_roja').hide();
+						$('#resumen_general').hide();
 			
 			 
 });
@@ -41,15 +44,21 @@ function muestraCapaConfiguracion()
 					
 					if ($("#capa_resultados").is(":hidden")) 
 					{
-					//$("#capa_resultados").slideDown(500);
+						//$("#capa_resultados").slideDown(500);
 						$("#capa_resultados").slideToggle("slow");
-
+						$('#flecha_roja').slideToggle("slow");
+						$('#resumen_general').slideToggle("slow");
+						
 					} 
 					else 
 					{
 						$("#capa_resultados").hide();
+						$('#flecha_roja').hide();
+						$('#resumen_general').hide();
 						//$("#capa_resultados").slideDown(500);
 						$("#capa_resultados").slideToggle("slow");
+						$('#flecha_roja').slideToggle("slow");
+						$('#resumen_general').slideToggle("slow");
 					}
 					
 

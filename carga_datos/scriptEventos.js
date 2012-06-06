@@ -11,7 +11,9 @@ var arrayInfoPracticasAgricolas=new Array();
 
 	function almacenarElementoActividadAgricola(cultivo,numeroHectareas,estadoClima,pendiente)
 	{
+	
 			var actividadAgricola = new ActividadAgricola();
+			
 			
 			actividadAgricola.setIdCapa( $( "#idCapaElemento" ).val());
 			
@@ -504,16 +506,18 @@ var arrayInfoPracticasAgricolas=new Array();
 													texto+='<img  style="margin-left:40px;"  title="" src="imagenes/cultivos/'+arrayResultados[indice]['cultivo']+'.png" alt=""  />'
 													texto+='</div>';
 													texto+='<div>';
-													texto+=   'Masa de Nitrogeno en Fertilizantes:'+' '+arrayResultados[indice]['Carga Nitrogeno Promedio']+' mg';
+													texto+=   'Masa de Nitrogeno en Fertilizantes:'+' '+formatoNotacionCientifica(arrayResultados[indice]['Carga Nitrogeno Promedio'])+' mg ';
 													texto+='</div>';
 													texto+='<div>';
 													texto+=   'Perdida de Nitrogeno en Fertilizantes por Escorrentia:'+' '+arrayResultados[indice]['escorrrentia']+' %';
 													texto+='</div>';
 													texto+='<div>';
-													texto+=   'Carga Nitrogeno Aportada al Rio:'+' '+arrayResultados[indice]['Carga Nitrogeno Aportada al Rio']+' mg/año';
+													texto+=   'Carga Nitrogeno Aportada al Rio:'+' '+formatoNotacionCientifica(arrayResultados[indice]['Carga Nitrogeno Aportada al Rio'])+' mg/año ' ;
 													texto+='</div>';
 													cad_tmp=(arrayResultados[indice]['practicaAgricola']!='')?arrayResultados[indice]['practicaAgricola']:'No hay practica';
-													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" onClick="muestraOcultaCapasEnModal()" >  '+cad_tmp+'</span>';
+													
+													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" onClick="muestraOcultaCapasEnModal()" >  '+cad_tmp.replace(/_/gi," ")+'</span>';
+													
 													//texto+=  '<button id="btoAplicarPractica" style="margin-left:40px;"  onclick="aplicarMetodo('+"'"+arrayResultados[indice]['practicaAgricola']+"'"+')">Aplicar</button>';
 													txt_tmp= estaActivadoAplicarMetodo(arrayResultados[indice]['idCapa']) ? 'checked=checked' :'' 
 													if(arrayResultados[indice]['practicaAgricola']!='')
@@ -550,10 +554,10 @@ var arrayInfoPracticasAgricolas=new Array();
 														texto+='<h3 style="color:#05991D; margin-bottom:10px;">Resumen de Fuente de Contaminacion Poblacion </h3>';
 														
 														texto+='<div>';
-														texto+=   'Masa de Nitrogeno aportado de Agua Residual:'+' '+arrayResultados[indice]['Carga Nitrogeno Promedio']+' mg/año';
+														texto+=   'Masa de Nitrogeno aportado de Agua Residual:'+' '+formatoNotacionCientifica(arrayResultados[indice]['Carga Nitrogeno Promedio'])+' mg/año';
 														texto+='</div>';
 														texto+='<div>';
-														texto+=   'Metodo de Tratamiento Residual Recomendado:'+' '+arrayResultados[indice]['Sistema de Tratamiento'];
+														texto+=   'Metodo de Tratamiento Residual Recomendado:'+' '+arrayResultados[indice]['Sistema de Tratamiento'].replace(/_/gi," ");
 														txt_tmp= estaActivadoAplicarMetodo(arrayResultados[indice]['idCapa']) ? 'checked=checked' :'' 
 														texto+=  '<input type="checkbox" name="option1" '+txt_tmp+' onclick="aplicarMetodo('+"'"+arrayResultados[indice]['idCapa']+"'"+')" value="Milk"> Aplicar'
 														if(txt_tmp!='' && arrayResultados[indice]['Costo Sistema de Tratamiento']!='0')
@@ -673,6 +677,23 @@ var arrayInfoPracticasAgricolas=new Array();
 		
 	}
 	
+	function formatoNotacionCientifica(numero)
+	{
+		var aux = numero;
+		var nDigitos = 0;
+
+		while (aux >= 10)
+		{			
+					aux = aux/10;
+					
+					nDigitos = nDigitos + 1;
+				aux =aux.toFixed(4)
+		}	
+		
+		
+		return aux+'x10'+'<sup>'+nDigitos+'</sup>'
+	}
+	
 	function enviarDatosSistemaExperto()
 	{
 			var datosCodificadosJSON='';		
@@ -729,13 +750,16 @@ var arrayInfoPracticasAgricolas=new Array();
 																else
 																{
 																if(jsonObj[i]['excedeLimite']=='1')
-																s+='<article>Exceso de Contaminante , pruebe metodos planteados</article> ';
+																$('#capa_resultados').css('backgroundImage',"url(imagenes/Excede.png)")	//s+='<article>Exceso de Contaminante , pruebe metodos planteados</article> ';
 																else
-																s+='<article>Felicitaciones Contaminante no en exceso</article> ';
+																	$('#capa_resultados').css('backgroundImage',"url('imagenes/No excede.png')")//s+='<article>Felicitaciones Contaminante no en exceso</article> ';
+																
+																
+																
 																if(jsonObj[i]['costoAplicarMetodos']!='0')
 																c+='<article> Los costos de implementacion de la solucion son: $'+jsonObj[i]['costoAplicarMetodos']+'</article>';
 																
-																//$('#capa_resultados').html('<div>La concentracion del contaminante es: '+jsonObj[i]['concentracion']+' mg/l '+c+'</div>');
+																$('#resumen_general').html('<div>La concentracion del contaminante es: '+jsonObj[i]['concentracion']+' mg/l '+c+'</div>');
 																
 																}
 															}  

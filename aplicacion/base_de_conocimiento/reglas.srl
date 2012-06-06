@@ -3,24 +3,27 @@
 
 rule "Regla_9" priority=0
 	context ActividadAgricola $actividadAgricola
-	if $actividadAgricola->cultivo->nombre=="arroz"
+	if $actividadAgricola->cultivo->nombre=="arroz" 
 	then 
-		$actividadAgricola->masaNitrogenoPromedio=68*1000000*$actividadAgricola->numeroHectareas;
+		$actividadAgricola->dosisFertilizante=68*1000000;
+		$actividadAgricola->masaNitrogenoPromedio=$actividadAgricola->dosisFertilizante*$actividadAgricola->numeroHectareas;
 		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
 
 rule "Regla_10" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="azucar"
-	then 
-		$actividadAgricola->masaNitrogenoPromedio=150*1000000*$actividadAgricola->numeroHectareas;
+	then
+		$actividadAgricola->dosisFertilizante=150*1000000;
+		$actividadAgricola->masaNitrogenoPromedio=$actividadAgricola->dosisFertilizante*$actividadAgricola->numeroHectareas;
 		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
 
 rule "Regla_11" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="banana"
-	then 
+	then
+		$actividadAgricola->dosisFertilizante=250*1000000;
 		$actividadAgricola->masaNitrogenoPromedio=250*1000000*$actividadAgricola->numeroHectareas;
 		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
@@ -30,14 +33,16 @@ rule "Regla_12" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="cacao"
 	then 
+		$actividadAgricola->dosisFertilizante=90*1000000;
 		$actividadAgricola->masaNitrogenoPromedio=90*1000000*$actividadAgricola->numeroHectareas;
 		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end
 
 rule "Regla_13" priority=0
-	context ActividadAgricola $actividadAgricola
+	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->cultivo->nombre=="cafe"
 	then 
+		$actividadAgricola->dosisFertilizante=90*1000000;
 		$actividadAgricola->masaNitrogenoPromedio=90*1000000*$actividadAgricola->numeroHectareas;
 		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
@@ -48,6 +53,7 @@ rule "Regla_14" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="cebolla"
 	then 
+		$actividadAgricola->dosisFertilizante=58*1000000;
 		$actividadAgricola->masaNitrogenoPromedio=58*1000000*$actividadAgricola->numeroHectareas;
 		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
@@ -56,6 +62,7 @@ rule "Regla_15" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="maiz"
 	then 
+		$actividadAgricola->dosisFertilizante=46*1000000;
 		$actividadAgricola->masaNitrogenoPromedio=46*1000000*$actividadAgricola->numeroHectareas;
 		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
@@ -64,6 +71,7 @@ rule "Regla_16" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="papa"
 	then 
+		$actividadAgricola->dosisFertilizante=58*1000000;
 		$actividadAgricola->masaNitrogenoPromedio=58*1000000*$actividadAgricola->numeroHectareas;
 		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
@@ -72,6 +80,7 @@ rule "Regla_17" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="soja"
 	then 
+		$actividadAgricola->dosisFertilizante=50*1000000;
 		$actividadAgricola->masaNitrogenoPromedio=50*1000000*$actividadAgricola->numeroHectareas;
 		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
@@ -80,6 +89,7 @@ rule "Regla_18" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="tomate"
 	then
+		$actividadAgricola->dosisFertilizante=58*1000000;
 		$actividadAgricola->masaNitrogenoPromedio=58*1000000*$actividadAgricola->numeroHectareas;
 		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 	end	
@@ -172,7 +182,7 @@ rule "Regla_29" priority=0
 	if ($actividadAgricola->pendiente->porcentaje >= 5 && $actividadAgricola->pendiente->porcentaje < 15 ) && $actividadAgricola->estadoClima == "lluvioso" && $actividadAgricola->cultivo->ciclo=="largo"
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Barreras_Vivas";
-		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas * 40;
+		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas * 40 + $actividadAgricola->numeroHectareas* $actividadAgricola->cultivo->gananciaPorHectarea*0.1;
 		
 	end
 
@@ -189,7 +199,7 @@ rule "Regla_31" priority=0
 	if $actividadAgricola->pendiente->porcentaje >= 5 &&  $actividadAgricola->pendiente->porcentaje<=14  && $actividadAgricola->estadoClima == "seco"
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Siembra_en_contorno";
-		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas * 40;
+		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas * 40 + $actividadAgricola->numeroHectareas* $actividadAgricola->cultivo->gananciaPorHectarea*0.1;
 		
 	end
 
@@ -198,7 +208,7 @@ rule "Regla_32" priority=0
 	if $actividadAgricola->pendiente->porcentaje < 5 &&  $actividadAgricola->estadoClima=="lluvioso"
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Cultivos_Cobertura_Abonos_verdes";
-		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas*38.7;
+		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas*38.7 + $actividadAgricola->numeroHectareas* $actividadAgricola->cultivo->gananciaPorHectarea*0.1;
 		
 	end
 
@@ -269,10 +279,15 @@ rule "Regla_39" priority=0
 
 rule "Regla_40" priority=0
 	context ActividadAgricola $actividadAgricola 
-	if  $actividadAgricola->practicaAgricola->aplicar && $actividadAgricola->practicaAgricola->nombre=="Zanjas_de_Ladera"
+	if  $actividadAgricola->practicaAgricola->aplicar   && $actividadAgricola->reduccionArea==0
 	then
-		 $actividadAgricola->masaNitrogenoPromedio= $actividadAgricola->getMasaNitrogenoPromedio()*(1 - 0.1);
-
+		
+		 $actividadAgricola->reduccionArea=0.9;
+		 $actividadAgricola->numeroHectareas=$actividadAgricola->numeroHectareas*$actividadAgricola->reduccionArea;
+		 
+		 
+		 $actividadAgricola->setMasaNitrogenoPromedio($actividadAgricola->numeroHectareas*$actividadAgricola->dosisFertilizante*$actividadAgricola->reduccionArea);
+		
 	end	
 	
 	

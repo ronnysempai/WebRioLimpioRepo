@@ -1,0 +1,2 @@
+interfaz 	1122x772
+flecha 		145x130

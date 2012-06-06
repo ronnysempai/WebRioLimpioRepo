@@ -2,8 +2,46 @@
 
 
 
+#resumen_general
+{		
+		background-color:#3F4C6B;
+		background-image:url();
+		display:inline-block;
+		
+		height:80px;
+		
+		border: 3px #d7d3d2 solid;
+		border-radius: 8px;
+	
+		color:#53FF6F;
+		
+		opacity:0.8;
+		
+		margin-top:30px;
+		margin-left:0px;
+		vertical-align:top;
+		width:230px;
+}
 
 
+#flecha_roja
+{
+	/* border:1px solid red; */
+	display:inline-block;
+	
+	background-image:url('../imagenes/flecha.png') ;
+	
+	background-repeat:repeat-x;
+	
+	margin-left:420px;
+	margin-top:58px;
+	height:23px;
+	
+	vertical-align:top;
+	
+	width:96px;
+	
+}
 
 /*Estilo para */
 
@@ -37,9 +75,12 @@
 
 }
 
-.capaConfiguracion ol li {
+.capaConfiguracion ol li 
+{
+
 line-height: 15px;
 list-style: none;
+
 }
 
 
@@ -172,8 +213,9 @@ list-style: none;
 .capaResultado
 {
 	background-color:#3F4C6B;
-	background-image:url('../imagenes/No excede.png') ;
+	/*background-image:url('../imagenes/Excede.png') ;*/
 	background-repeat:repeat-x;
+	background-repeat:repeat-y;
 	border: 3px #d7d3d2 solid;
 	border-radius: 8px;
 	
@@ -181,7 +223,7 @@ list-style: none;
 	display:none;
 	font-weight:bold;
 	
-	height:240px;
+	height:190px;
 	
 	margin:0px;
 	margin-top:100px;
@@ -199,8 +241,11 @@ list-style: none;
 	
 }
 
+ 
+
 .capaResultado div
 {
+
 	margin-top:140px;
 	
 }

@@ -13,7 +13,8 @@ class ActividadAgricola extends Fact
 	var $pendiente;
 	var $escorrentia;
 	var $practicaAgricola;
-	
+	var $reduccionArea;
+	var $dosisFertilizante;
 	
 		function __construct()
 		{
@@ -26,7 +27,8 @@ class ActividadAgricola extends Fact
 				$this->pendiente=null;
 				$this->escorrentia=null;
 				$this->practicaAgricola=null;
-				
+				$this->reduccionArea=0;
+				$this->dosisFertilizante=0;
 		}
 		
 		
@@ -108,6 +110,11 @@ class ActividadAgricola extends Fact
 		function setCargaNitrogenoAportada($cargaNitrogenoAportada)
 		{
 			$this->cargaNitrogenoAportada=$cargaNitrogenoAportada;
+		}
+		
+		function setMasaNitrogenoPromedio($masaNitrogenoPromedio)
+		{
+			$this->masaNitrogenoPromedio=$masaNitrogenoPromedio;
 		}
 		
 		function setEstadoClima($estadoClima)
