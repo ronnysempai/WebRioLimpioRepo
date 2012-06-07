@@ -664,7 +664,7 @@ var arrayInfoPracticasAgricolas=new Array();
 											for (i=0;i< jsonObj.length;i++)
 											{
 													
-														arrayInfoPracticasAgricolas[''+jsonObj[i]['practica']]=jsonObj[i]['descripcion'];	
+														arrayInfoPracticasAgricolas[''+jsonObj[i]['practica']]='...'//+jsonObj[i]['descripcion'];	
 											}				
 											
 												
