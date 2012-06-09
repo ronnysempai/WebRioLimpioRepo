@@ -808,7 +808,7 @@ var arrayInfoPracticasAgricolas=new Array();
 											ordenarElementosPorContaminacion()
 											muestraCapaIndicador();
 											cargarInformacionPracticasAgricolas();
-											alert('hola')
+											
 									  }
 							});
 	}

@@ -142,7 +142,7 @@ list-style: none;
 .capaIconoConfiguracion
 {
 		/*background-color:white;*/
-		 background-image:url('../imagenes/Configuracion.jpg');
+		 background-image:url('../imagenes/Configuracion.JPG');
 		background-position: top center;
 		background-size: cover;
 		
@@ -178,7 +178,7 @@ list-style: none;
 
 .capaIconoClima 
 {
-		background-image:url('../imagenes/Seco.jpg');
+		background-image:url('../imagenes/Seco.JPG');
 		background-position: top center;
 		background-size: cover;
 		
