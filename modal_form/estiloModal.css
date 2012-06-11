@@ -32,6 +32,26 @@
 	
 }
  
+ #info_escala p
+ {
+	
+	background-image:url('../imagenes/fondo_verde.jpg');	
+	
+	border:1px solid blue;
+	margin-top:30px;	
+	
+	padding:20px;
+	
+	text-align:justify;
+	width:800px;
+	
+ }
+ 
+ #info_escala img
+ {
+	width:500px; 
+	height:120px;
+ }
 
 /* Z-index of #mask must lower than #boxes .window */
 #mask {
@@ -52,6 +72,7 @@
 {
 	/* border:1px solid blue; */
 	width:900px;
+	
 }
 
 .modalDiv div
@@ -59,12 +80,13 @@
 /* 	border:1px solid blue;
  */	
 	margin-bottom:7px;
+	
 }
 
 
 .modalDiv #id_capa_practica_recomendada
 {
-	 
+	
 	display:none;
 	height:50px;
 	
@@ -81,6 +103,7 @@
 .modalDiv input[type=checkbox]:first-of-type 
 {
 	margin-left:10px;
+	
 }
 
 .modalDiv #descripcion_imagen
@@ -90,15 +113,19 @@
 	margin-top:30px;	
 	
 	padding:10px;
+	
 }
+
 .modalDiv  #id_capa_practica_recomendada article
 {
+	
 	 /* border:1px solid blue;   */
 	display:inline-block;
 	/* height:210px; */
 	text-align:justify;
 	vertical-align:top;
 	width:500px;
+	
 }
 .modalDiv  #descripcion_imagen span
 {	

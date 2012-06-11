@@ -7,7 +7,7 @@ var CLIMA='seco';
 var PENDIENTE=0;
 var arrayResultados=new Array();
 var arrayInfoPracticasAgricolas=new Array();
-
+var infromacionConcentracionContaminante='';
 
 	function almacenarElementoActividadAgricola(cultivo,numeroHectareas,estadoClima,pendiente)
 	{
@@ -577,6 +577,63 @@ var arrayInfoPracticasAgricolas=new Array();
 			 
 	}
 	
+	function muestraCostos()
+	{
+			
+											
+											$( "#modal_costos" ).dialog('open');
+	}
+	
+	function muestraResumenGeneral()
+	{
+		var resumen_general=infromacionConcentracionContaminante;
+			
+		var texto='';
+		texto+='<h3 style="color:#05991D; margin-bottom:10px;">Informacion sobre contaminacion </h3>';
+														
+										texto+='<div id="info_escala" >';
+													
+													texto+='<div >';
+													
+													texto+=  resumen_general  ;
+													
+													
+													texto+='</div>';
+													
+										texto+='</div>';
+										
+										$( "#modal_concentracion" ).html("<div > " +texto +'</div>');
+											
+											
+											$( "#modal_concentracion" ).dialog('open');
+		
+	}
+	
+	
+	function muestraInformacionEscala()
+	{
+						var texto='';			
+													
+										texto+='<h3 style="color:#05991D; margin-bottom:10px;">Informacion de Escala de Referencia </h3>';
+														
+										texto+='<div id="info_escala" >';
+													
+													texto+='<div >';
+													texto+='<img  style="margin-left:40px;"  title="" src="imagenes/img_adicionales/escala de limpieza.png" alt=""  />'
+													texto+=   '  <p>Esta escala nos permite representar el nivel de suciedad o contamimacion en esta fuente.Considerando que 1 se encuentra en el nivel menos sucio y 5 en el nivel mas sucio. </p> ';
+													texto+='</div>';
+													
+										texto+='</div>';
+										
+										
+										
+										$( "#dialog" ).html("<div   > " +texto +'</div>');
+											
+											//$( "#dialog" ).dialog("option", "position", [719, 150]);
+											$( "#dialog" ).dialog('open');
+	
+	}	
+	
 	function muestraOcultaCapasEnModal()
 	{
 		
@@ -710,9 +767,10 @@ var arrayInfoPracticasAgricolas=new Array();
 												for (key in arrOrdenContaminante)
 												{
 													posicion=$('#'+key).position() ;
-																			pos_x=  posicion.left ;
+																			pos_x=  posicion.left-35 ;
 																			pos_y=posicion.top;
-												$('#imgSE').append('<div id="orden_'+ key+'" style="position:absolute; background:#E3F6CE; top:'+pos_y+'px; left:'+pos_x+'px;" width="60" height="60"><button  name=""  >'+(i+1)+'</button></div>');
+												$('#imgSE').append('<div id="orden_'+ key+'" style="position:absolute;  top:'+pos_y+'px; left:'+pos_x+'px;" width="60" height="60"> <img  src="imagenes/img_adicionales/'+(i+1)+'.png" alt="" height="30" width="30" onclick="muestraInformacionEscala() " /></div>');
+												//background:#E3F6CE;
 												i++;
 	}											}
 	
@@ -778,10 +836,15 @@ var arrayInfoPracticasAgricolas=new Array();
 																			pos_y=posicion.top+15;
 																			//s+=  ' '+atributo+':';
 																			
-																		
-																			if(document.getElementById('resultado_'+jsonObj[i][atributo]) ==null )
-																			$('#imgSE').append('<div id="resultado_'+ jsonObj[i][atributo]+'" style="position:absolute; background:#E3F6CE; top:'+pos_y+'px; left:'+pos_x+'px;" width="60" height="60"><button  name=""  onclick=muestraResultado('+arrayResultados.length+')>Consulta Resultados</button></div>');
-																			arrayResultados[arrayResultados.length ]=jsonObj[i];
+																			
+																			
+																			if(document.getElementById('resultado_'+jsonObj[i][atributo]) !=null )
+																				$('#resultado_'+jsonObj[i][atributo]).detach();
+																				$('#imgSE').append('<div id="resultado_'+ jsonObj[i][atributo]+'" style="position:absolute; background:#E3F6CE; top:'+pos_y+'px; left:'+pos_x+'px;" width="60" height="60"><button  name=""  onclick=muestraResultado('+arrayResultados.length+')>Consulta Resultados</button></div>');
+																				
+																			
+																			arrayResultados[arrayResultados.length]=jsonObj[i];
+																			
 																			
 																		}
 																	
@@ -789,17 +852,30 @@ var arrayInfoPracticasAgricolas=new Array();
 																else
 																{
 																if(jsonObj[i]['excedeLimite']=='1')
-																$('#capa_resultados').css('backgroundImage',"url(imagenes/Excede.png)")	//s+='<article>Exceso de Contaminante , pruebe metodos planteados</article> ';
+																{
+																s+='<article>Malas Noticias , el contaminate ha excedido el <span style="cursor:pointer" onclick="">limite permitido</span>.</article><article>Aplicar soluciones recomendadas.  </article> <img  style="margin-top:10px; margin-left:30px; width:100px; height:70px; opacity: 1; "  title="" src="imagenes/tanque caido.png" alt=""  /> '; 
+																//$('#capa_resultados').css('backgroundImage',"url(imagenes/tanque caido.png)")
+																}
 																else
-																	$('#capa_resultados').css('backgroundImage',"url('imagenes/No excede.png')")//s+='<article>Felicitaciones Contaminante no en exceso</article> ';
+																{	
+																	s+='<article>Felicitaciones el  Contaminante no ha excedido el <span style="cursor:pointer" onclick="" >limite permitido</span> </article> <img  style="margin-top:10px; margin-left:30px; width:70px; height:100px;"  title="" src="imagenes/tanque normal.png" alt=""  />';
+																	//$('#capa_resultados').css('backgroundImage',"url('imagenes/tanque normal.png')")
 																
+																}
 																
-																
+																$('#capa_resultados').html(''+s);
+																$('#dinero').hide();
 																if(jsonObj[i]['costoAplicarMetodos']!='0')
-																c+='<article> Los costos de implementacion de la solucion son: $'+jsonObj[i]['costoAplicarMetodos']+'</article>';
-																
-																$('#resumen_general').html('<div>La concentracion del contaminante es: '+jsonObj[i]['concentracion']+' mg/l '+c+'</div>');
-																
+																{
+																	c+='<article> Los costos de implementacion de la solucion son: $'+jsonObj[i]['costoAplicarMetodos']+'</article>';
+																	$('#modal_costos').html(c)
+																	
+																	$('#dinero').slideToggle("slow");
+																	
+																	
+																}
+																//$('#resumen_general').html('<div>La concentracion del contaminante es: '+jsonObj[i]['concentracion']+' mg/l '+c+'</div>');
+																infromacionConcentracionContaminante='<div>La concentracion del contaminante es: '+jsonObj[i]['concentracion']+' mg/l </div>';
 																}
 															}  
 															

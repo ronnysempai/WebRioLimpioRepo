@@ -130,7 +130,7 @@ background-attachment: fixed;
 		
 	
 	 background-repeat:no-repeat;  
-	text-align:center;
+	/*text-align:center;*/
 	
 	height:550px;
 	/* background-position:center; */
@@ -251,9 +251,6 @@ overflow-y:hidden;
 
 
 /*background-image:url(../imagenes/fondo_blanco.png);*/
-
-	
-		
 
 /*
 background-color:white;

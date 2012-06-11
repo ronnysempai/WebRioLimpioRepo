@@ -343,6 +343,29 @@
 							
 							//$( "#dialog" ).css("margin-right","50px");
 							
+							$( "#modal_concentracion" ).dialog({
+														autoOpen: false,
+														title: 'Concentracion',
+														height: 250,
+														width: 350,
+														show: "drop",
+														hide: "clip",
+														modal: true
+														}); 
+							$( "#modal_concentracion" ).css("background","#39f");
+							
+							$( "#modal_costos" ).dialog({
+														autoOpen: false,
+														title: 'Costos',
+														height: 250,
+														width: 300,
+														show: "drop",
+														hide: "clip",
+														modal: true
+														}); 
+							
+							$( "#modal_costos" ).css("background","#39f");
+							//modal_costos modal_concentracion
 							
 							
 		});

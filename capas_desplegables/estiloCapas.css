@@ -1,7 +1,28 @@
 
 
 
+#dinero
+{
+	/* visibility:hidden; */
+	display:inline-block;
+	
+	margin-left:20px;
+	margin-top:30px;
+	
+	vertical-align:top;
+	
+}
 
+#dinero img
+{
+	border: 3px #d7d3d2 solid;
+	 border-radius: 50px;
+	 cursor:pointer;
+	height:70px;
+	padding:10px;
+	
+	width:96px;
+}
 #resumen_general
 {		
 		background-color:#3F4C6B;
@@ -18,7 +39,7 @@
 		opacity:0.8;
 		
 		margin-top:30px;
-		margin-left:0px;
+		margin-left:600px;
 		vertical-align:top;
 		width:230px;
 }
@@ -43,6 +64,33 @@
 	
 }
 
+#vaso_precipitacion
+{
+	/*border:1px solid red;*/
+	display:inline-block;
+	
+	cursor:pointer;
+	
+	margin-left:520px;
+	margin-top:20px;
+	
+	
+	vertical-align:top;
+	
+	width:96px;
+	
+}
+
+#vaso_precipitacion img
+{
+	border: 3px #d7d3d2 solid;
+	border-radius: 50px;
+	padding:15px;
+
+	height:70px;
+	width:70px;
+	
+}
 /*Estilo para */
 
 .capaConfiguracion
@@ -105,7 +153,8 @@ list-style: none;
 }
 
 /*Estilo input slider */
- .capaConfiguracion input[type=range]:first-of-type {
+ .capaConfiguracion input[type=range]:first-of-type
+ {
 	
 	margin-right: 5px;
 	width: 65px;
@@ -214,11 +263,18 @@ list-style: none;
 {
 	background-color:#3F4C6B;
 	/*background-image:url('../imagenes/Excede.png') ;*/
-	background-repeat:repeat-x;
-	background-repeat:repeat-y;
+	/*background-repeat:repeat-x;*/
+	background-repeat:no-repeat;
+	
+	background-position:/*35px*/ center 75px;
+	
+	background-size: 30%;
+	
+	
 	border: 3px #d7d3d2 solid;
 	border-radius: 8px;
 	
+	display:none;
 	color:#53FF6F;
 	display:none;
 	font-weight:bold;
@@ -229,26 +285,32 @@ list-style: none;
 	margin-top:100px;
 	margin-left:-25px;
 	
-	opacity: 0.8;
 	
-	padding-left:5px;
-	padding-right:15px;
+	opacity: 0.8;
+	padding-left:15px;
+	padding-right:10px;
+	padding-top:15px;
 	
 	width:250px;
 	
 	
-	text-align:center;
+	text-align:left;
 	
 }
 
  
-
 .capaResultado div
 {
 
 	margin-top:140px;
 	
 }
+
+.capaResultado img
+{
+	opacity: 1;
+}
+
 
 
 /***/

@@ -11,8 +11,8 @@ $(document).ready(function() {
 			});    
 			 
 			 
-			 $('#flecha_roja').hide();
-						$('#resumen_general').hide();
+			 $('#vaso_precipitacion').hide();
+						$('#dinero').hide();
 			
 			 
 });
@@ -46,19 +46,19 @@ function muestraCapaConfiguracion()
 					{
 						//$("#capa_resultados").slideDown(500);
 						$("#capa_resultados").slideToggle("slow");
-						$('#flecha_roja').slideToggle("slow");
-						$('#resumen_general').slideToggle("slow");
+						$('#vaso_precipitacion').slideToggle("slow");
+						
 						
 					} 
 					else 
 					{
 						$("#capa_resultados").hide();
-						$('#flecha_roja').hide();
-						$('#resumen_general').hide();
+						$('#vaso_precipitacion').hide();
+						
 						//$("#capa_resultados").slideDown(500);
 						$("#capa_resultados").slideToggle("slow");
-						$('#flecha_roja').slideToggle("slow");
-						$('#resumen_general').slideToggle("slow");
+						$('#vaso_precipitacion').slideToggle("slow");
+						
 					}
 					
 
