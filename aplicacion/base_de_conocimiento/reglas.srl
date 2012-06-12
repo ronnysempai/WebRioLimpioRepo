@@ -76,7 +76,7 @@ rule "Regla_14_noAplica" priority=0
 		$actividadAgricola->cultivo->gananciaPorHectarea=0;
 	end	
 
-rule "Regla_15_noAplica" priority=0
+rule "Regla_14" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="maiz"
 	then 
@@ -85,7 +85,7 @@ rule "Regla_15_noAplica" priority=0
 		$actividadAgricola->setCargaNitrogenoAportada($actividadAgricola->masaNitrogenoPromedio * $actividadAgricola->escorrentia->porcentaje/100);
 		
 		$actividadAgricola->cultivo->ciclo="corto";
-		$actividadAgricola->cultivo->gananciaPorHectarea=0;
+		$actividadAgricola->cultivo->gananciaPorHectarea=425;
 	end	
 
 rule "Regla_16_noAplica" priority=0
@@ -100,7 +100,7 @@ rule "Regla_16_noAplica" priority=0
 		$actividadAgricola->cultivo->gananciaPorHectarea=0;
 	end	
 
-rule "Regla_14" priority=0
+rule "Regla_15" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->cultivo->nombre=="soja"
 	then 
@@ -127,16 +127,15 @@ rule "Regla_18_noAplica" priority=0
 	
 
 
-rule "Regla_15" priority=0
+rule "Regla_16" priority=0
 	context ActividadAgricola $actividadAgricola
 	if ($actividadAgricola->pendiente->porcentaje >= 5 && $actividadAgricola->pendiente->porcentaje < 15 ) && $actividadAgricola->estadoClima == "lluvioso" && $actividadAgricola->cultivo->ciclo=="largo"
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Barreras_Vivas";
 		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas * 40 + $actividadAgricola->numeroHectareas* $actividadAgricola->cultivo->gananciaPorHectarea*0.1;
-		
 	end
 
-rule "Regla_16" priority=0
+rule "Regla_17" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >= 15 
 	then 
@@ -144,7 +143,7 @@ rule "Regla_16" priority=0
 		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas* $actividadAgricola->cultivo->gananciaPorHectarea*0.1;
 	end
 
-rule "Regla_17" priority=0
+rule "Regla_18" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje >= 5 &&  $actividadAgricola->pendiente->porcentaje<=14  && $actividadAgricola->estadoClima == "seco"
 	then 
@@ -153,7 +152,7 @@ rule "Regla_17" priority=0
 		
 	end
 
-rule "Regla_18" priority=0
+rule "Regla_19" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->pendiente->porcentaje < 5 &&  $actividadAgricola->estadoClima=="lluvioso"
 	then 
@@ -162,7 +161,7 @@ rule "Regla_18" priority=0
 		
 	end
 
-rule "Regla_19" priority=0
+rule "Regla_20" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->practicaAgricola->nombre=="Barreras_Vivas" &&  ( $actividadAgricola->pendiente->porcentaje > 5 && $actividadAgricola->pendiente->porcentaje <= 8)  &&  $actividadAgricola->practicaAgricola->aplicar
 	then 
@@ -171,7 +170,7 @@ rule "Regla_19" priority=0
 		
 	end
 
-rule "Regla_20" priority=0
+rule "Regla_21" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->practicaAgricola->nombre=="Barreras_Vivas" &&  ( $actividadAgricola->pendiente->porcentaje > 8 && $actividadAgricola->pendiente->porcentaje <= 11)  &&  $actividadAgricola->practicaAgricola->aplicar
 	then 
@@ -253,59 +252,6 @@ rule "Regla_28" priority=0
 	
 	
 rule "Regla_29" priority=0
-	context ActividadAgricola $actividadAgricola 
-	if $actividadAgricola->pendiente->porcentaje >=2 &&  $actividadAgricola->pendiente->porcentaje <5
-	then 
-		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=30;
-		
-		
-	end
-
-rule "Regla_30" priority=0
-	context ActividadAgricola $actividadAgricola 
-	if $actividadAgricola->pendiente->porcentaje >=5 &&  $actividadAgricola->pendiente->porcentaje <10
-	then 
-		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=28;
-		
-	end	
-
-rule "Regla_31" priority=0
-	context ActividadAgricola $actividadAgricola 
-	if $actividadAgricola->pendiente->porcentaje >=10 &&  $actividadAgricola->pendiente->porcentaje <20
-	then 
-		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=20;
-		
-		
-	end	
-
-rule "Regla_32" priority=0
-	context ActividadAgricola $actividadAgricola 
-	if $actividadAgricola->pendiente->porcentaje >=20 &&  $actividadAgricola->pendiente->porcentaje <30
-	then 
-		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=14;
-		
-		
-	end	
-
-rule "Regla_33" priority=0
-	context ActividadAgricola $actividadAgricola 
-	if $actividadAgricola->pendiente->porcentaje >=30 &&  $actividadAgricola->pendiente->porcentaje <40
-	then 
-		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=10;
-		
-		
-	end	
-
-rule "Regla_34" priority=0
-	context ActividadAgricola $actividadAgricola 
-	if $actividadAgricola->pendiente->porcentaje >=40 
-	then 
-		$actividadAgricola->practicaAgricola->distanciaCurvaNivel=6;
-		
-		
-	end	
-
-rule "Regla_35" priority=0
 	context Poblacion $poblacion 
 	if $poblacion->numeroHabitantes > 50000
 	then 
@@ -315,7 +261,7 @@ rule "Regla_35" priority=0
 	 $poblacion->sistemaTratamientoResidual->setCosto(300000);
 	end	
 
-rule "Regla_36" priority=0
+rule "Regla_30" priority=0
 	context Poblacion $poblacion 
 	if $poblacion->numeroHabitantes <= 50000
 	then 
@@ -326,7 +272,7 @@ rule "Regla_36" priority=0
 		
 	end
 
-rule "Regla_37" priority=0
+rule "Regla_31" priority=0
 	context Poblacion $poblacion 
 	if $poblacion->sistemaTratamientoResidual->aplicar 
 	then 
