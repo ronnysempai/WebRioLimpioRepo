@@ -145,7 +145,7 @@ rule "Regla_17" priority=0
 
 rule "Regla_18" priority=0
 	context ActividadAgricola $actividadAgricola 
-	if $actividadAgricola->pendiente->porcentaje >= 5 &&  $actividadAgricola->pendiente->porcentaje<=14  && $actividadAgricola->estadoClima == "seco"
+	if $actividadAgricola->pendiente->porcentaje >= 5 &&  $actividadAgricola->pendiente->porcentaje<=14 
 	then 
 		$actividadAgricola->practicaAgricola->nombre="Siembra_en_contorno";
 		$actividadAgricola->practicaAgricola->costo=$actividadAgricola->numeroHectareas * 40 + $actividadAgricola->numeroHectareas* $actividadAgricola->cultivo->gananciaPorHectarea*0.1;
@@ -163,6 +163,15 @@ rule "Regla_19" priority=0
 
 rule "Regla_20" priority=0
 	context ActividadAgricola $actividadAgricola 
+	if $actividadAgricola->practicaAgricola->nombre=="Zanjas_de_Ladera"
+	then 
+		
+			$actividadAgricola->practicaAgricola->eficiencia=70;
+		
+	end
+	
+rule "Regla_21" priority=0
+	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->practicaAgricola->nombre=="Barreras_Vivas" &&  ( $actividadAgricola->pendiente->porcentaje > 5 && $actividadAgricola->pendiente->porcentaje <= 8)  &&  $actividadAgricola->practicaAgricola->aplicar
 	then 
 		
@@ -170,7 +179,7 @@ rule "Regla_20" priority=0
 		
 	end
 
-rule "Regla_21" priority=0
+rule "Regla_22" priority=0
 	context ActividadAgricola $actividadAgricola
 	if $actividadAgricola->practicaAgricola->nombre=="Barreras_Vivas" &&  ( $actividadAgricola->pendiente->porcentaje > 8 && $actividadAgricola->pendiente->porcentaje <= 11)  &&  $actividadAgricola->practicaAgricola->aplicar
 	then 
@@ -179,7 +188,7 @@ rule "Regla_21" priority=0
 		
 	end	
 	
-rule "Regla_22" priority=0
+rule "Regla_23" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->practicaAgricola->nombre=="Barreras_Vivas" &&  ( $actividadAgricola->pendiente->porcentaje > 11 && $actividadAgricola->pendiente->porcentaje <= 14)  &&  $actividadAgricola->practicaAgricola->aplicar
 	then 
@@ -191,7 +200,7 @@ rule "Regla_22" priority=0
 
 
 	
-rule "Regla_23" priority=0
+rule "Regla_24" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->practicaAgricola->nombre=="Cultivos_Cobertura_Abonos_verdes"  &&  $actividadAgricola->practicaAgricola->aplicar
 	then 
@@ -199,7 +208,7 @@ rule "Regla_23" priority=0
 		
 	end
 
-rule "Regla_24" priority=0
+rule "Regla_25" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->practicaAgricola->nombre=="Siembra_en_contorno" &&  $actividadAgricola->pendiente->porcentaje >=5 &&  $actividadAgricola->pendiente->porcentaje <=8  
 	then 
@@ -208,7 +217,7 @@ rule "Regla_24" priority=0
 		
 	end
 
-rule "Regla_25" priority=0
+rule "Regla_26" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->practicaAgricola->nombre=="Siembra_en_contorno" &&  $actividadAgricola->pendiente->porcentaje >8 &&  $actividadAgricola->pendiente->porcentaje <=11  
 	then 
@@ -217,7 +226,7 @@ rule "Regla_25" priority=0
 		
 	end
 
-rule "Regla_26" priority=0
+rule "Regla_27" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if $actividadAgricola->practicaAgricola->nombre=="Siembra_en_contorno" &&  $actividadAgricola->pendiente->porcentaje >11 &&  $actividadAgricola->pendiente->porcentaje <=14  
 	then 
@@ -226,7 +235,7 @@ rule "Regla_26" priority=0
 		
 	end
 
-rule "Regla_27" priority=0
+rule "Regla_28" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if  $actividadAgricola->practicaAgricola->aplicar   && $actividadAgricola->reduccionArea==0
 	then
@@ -240,7 +249,7 @@ rule "Regla_27" priority=0
 	end	
 	
 	
-rule "Regla_28" priority=0
+rule "Regla_29" priority=0
 	context ActividadAgricola $actividadAgricola 
 	if  $actividadAgricola->practicaAgricola->aplicar && $actividadAgricola->masaNitrogenoPromedio>0
 	then
@@ -251,7 +260,7 @@ rule "Regla_28" priority=0
 	
 	
 	
-rule "Regla_29" priority=0
+rule "Regla_30" priority=0
 	context Poblacion $poblacion 
 	if $poblacion->numeroHabitantes > 50000
 	then 
@@ -261,7 +270,7 @@ rule "Regla_29" priority=0
 	 $poblacion->sistemaTratamientoResidual->setCosto(300000);
 	end	
 
-rule "Regla_30" priority=0
+rule "Regla_31" priority=0
 	context Poblacion $poblacion 
 	if $poblacion->numeroHabitantes <= 50000
 	then 
@@ -272,7 +281,7 @@ rule "Regla_30" priority=0
 		
 	end
 
-rule "Regla_31" priority=0
+rule "Regla_32" priority=0
 	context Poblacion $poblacion 
 	if $poblacion->sistemaTratamientoResidual->aplicar 
 	then 

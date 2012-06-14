@@ -2,12 +2,12 @@
 {
 "practica":"Barreras_Vivas",
 "descripcion":
-"La barreras viva es una pr&aacutectica de conservaci&oacuten de suelos que utilizan muchos agricultores para protegerlo de la erosi&oacuten. Esta pr&aacutectica consiste en sembrar hilerasde plantas perennes, de crecimiento denso o de buen macollamiento, a manera defajas angostas, en contra de la pendiente del terreno siguiendo las curvas a nivel odesnivel. Estas fajas suelen ser plantas gram&iacuteneas de tallo duro y porte erecto."
+"La barreras viva es una pr&aacutectica de conservaci&oacuten de suelos que utilizan muchos agricultores para protegerlo de la erosi&oacuten. Esta pr&aacutectica consiste en sembrar hilerasde plantas perennes, de crecimiento denso o de buen macollamiento, a manera defajas angostas, en contra de la pendiente del terreno siguiendo las curvas a nivel o desnivel. Estas fajas suelen ser plantas gram&iacuteneas de tallo duro y porte erecto."
 },
 {
 "practica":"Zanjas_de_Ladera",
 "descripcion":
-"Las zanjas de ladera son canales que se construyen al contorno del terreno,siguiendo curvas de nivel o desnivel trazadas con la ayuda del nivel A. Tambi&eacuten sedenominan en muchos sitios como acequia de ladera."
+"Las zanjas de ladera son canales que se construyen al contorno del terreno,siguiendo curvas de nivel o desnivel trazadas con la ayuda de un nivel A. Tambi&eacuten sedenominan en muchos sitios como acequia de ladera."
 },
 {
 "practica":"Cultivos_Cobertura_Abonos_verdes",

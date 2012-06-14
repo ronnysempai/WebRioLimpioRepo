@@ -125,8 +125,8 @@
 			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="azucar">Azúcar</option> ');
 			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="cafe">Cafe</option> ');
 			//$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="cebolla">Cebolla</option> ');
-			//$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="maiz">Maiz</option>');
-			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="papa">Papa</option>');
+			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="maiz">Maiz</option>');
+			//$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="papa">Papa</option>');
 			$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="soja">Soja</option>');
 			//$( "#contenido_formulario_modal table #f1 td #cultivo" ).append('<option value="tomate">Tomate</option>');
 			
@@ -366,6 +366,16 @@
 							
 							$( "#modal_costos" ).css("background","#39f");
 							//modal_costos modal_concentracion
+							
+							$( "#modal_limite_permitido" ).dialog({
+														autoOpen: false,
+														title: 'Limite Premitido',
+														height: 250,
+														width: 300,
+														show: "drop",
+														hide: "clip",
+														modal: true
+														}); 
 							
 							
 		});

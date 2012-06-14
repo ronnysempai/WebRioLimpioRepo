@@ -7,6 +7,7 @@ var CLIMA='seco';
 var PENDIENTE=0;
 var arrayResultados=new Array();
 var arrayInfoPracticasAgricolas=new Array();
+var arrayInfoSistemasTratamiento=new Array();
 var infromacionConcentracionContaminante='';
 
 	function almacenarElementoActividadAgricola(cultivo,numeroHectareas,estadoClima,pendiente)
@@ -506,7 +507,7 @@ var infromacionConcentracionContaminante='';
 													texto+='<img  style="margin-left:40px;"  title="" src="imagenes/cultivos/'+arrayResultados[indice]['cultivo']+'.png" alt=""  />'
 													texto+='</div>';
 													texto+='<div>';
-													texto+=   'Masa de Nitrogeno en Fertilizantes:'+' '+formatoNotacionCientifica(arrayResultados[indice]['Carga Nitrogeno Promedio'])+' mg ';
+													texto+=   'Cantidad de Nitrogeno aplicado en Fertilizantes:'+' '+formatoNotacionCientifica(arrayResultados[indice]['Carga Nitrogeno Promedio'])+' mg ';
 													texto+='</div>';
 													texto+='<div>';
 													texto+=   'Perdida de Nitrogeno en Fertilizantes por Escorrentia:'+' '+arrayResultados[indice]['escorrrentia']+' %';
@@ -533,7 +534,7 @@ var infromacionConcentracionContaminante='';
 													
 													texto+='<div id="id_capa_practica_recomendada" >';
 													texto+='<div>'; 
-													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" >  '+cad_tmp+'</span>';
+													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" >  '+cad_tmp.replace(/_/gi," ")+'</span>';
 													texto+=  '<input type="checkbox" name="option2" '+txt_tmp+' onclick="aplicarMetodo('+"'"+arrayResultados[indice]['idCapa']+"'"+')" value="Milk"> Aplicar'
 													texto+='</div>';
 													texto+='<div id="descripcion_imagen">';
@@ -554,17 +555,31 @@ var infromacionConcentracionContaminante='';
 														texto+='<h3 style="color:#05991D; margin-bottom:10px;">Resumen de Fuente de Contaminacion Poblacion </h3>';
 														
 														texto+='<div>';
-														texto+=   'Masa de Nitrogeno aportado de Agua Residual:'+' '+formatoNotacionCientifica(arrayResultados[indice]['Carga Nitrogeno Promedio'])+' mg/año';
+														texto+=   'Carga de Nitrogeno en Aguas Residuales:'+' '+formatoNotacionCientifica(arrayResultados[indice]['Carga Nitrogeno Promedio'])+' mg/año';
 														texto+='</div>';
 														texto+='<div>';
-														texto+=   'Metodo de Tratamiento Residual Recomendado:'+' '+arrayResultados[indice]['Sistema de Tratamiento'].replace(/_/gi," ");
+														texto+=   'Sistema de Tratamiento Residual Recomendado: <span id="nombre_practica" onClick="muestraOcultaCapasEnModal()" >'+' '+arrayResultados[indice]['Sistema de Tratamiento'].replace(/_/gi," ")+'</span>';
 														txt_tmp= estaActivadoAplicarMetodo(arrayResultados[indice]['idCapa']) ? 'checked=checked' :'' 
 														texto+=  '<input type="checkbox" name="option1" '+txt_tmp+' onclick="aplicarMetodo('+"'"+arrayResultados[indice]['idCapa']+"'"+')" value="Milk"> Aplicar'
 														if(txt_tmp!='' && arrayResultados[indice]['Costo Sistema de Tratamiento']!='0')
 														texto+='<p>Costo de Aplicar Practica: $ '+arrayResultados[indice]['Costo Sistema de Tratamiento']+'</p>';
 														texto+='</div>';
-														
 														texto+='</div>';
+														
+														// here
+															texto+='<div id="id_capa_practica_recomendada" >';
+															texto+='<div>'; 
+															texto+=   ' Sistema de Tratamiento Residual Recomendado:'+' <span id="nombre_practica" >  '+arrayResultados[indice]['Sistema de Tratamiento'].replace(/_/gi," ")+'</span>';
+															texto+=  '<input type="checkbox" name="option2" '+txt_tmp+' onclick="aplicarMetodo('+"'"+arrayResultados[indice]['idCapa']+"'"+')" value="Milk"> Aplicar'
+															texto+='</div>';
+															texto+='<div id="descripcion_imagen">';
+															texto+=   ' Descripcion: <article>'+' '+arrayInfoSistemasTratamiento[arrayResultados[indice]['Sistema de Tratamiento']]+'</article> ';
+															texto+='<img  style="margin-left:40px;"  title="" src="imagenes/'+arrayResultados[indice]['Sistema de Tratamiento']+'.jpg" alt=""  />'
+															texto+=  ' <span id="atras" onClick="muestraOcultaCapasEnModal()" > Atras</span>';
+															texto+='</div>';
+															texto+='</div>';
+															
+														
 														
 													}
 											
@@ -734,6 +749,33 @@ var infromacionConcentracionContaminante='';
 		
 	}
 	
+	function cargarInformacionSistemasTratamiento()
+	{	var descripcion='';	
+			
+			$.ajax({
+			type: "POST",
+								url: "sistemasTratamiento/sistemasTratamiento.txt",
+								data: "datos='' ",		
+										success: function(datos)
+										{//alert(datos)
+											var jsonObj = $.parseJSON(datos);
+											arrayInfoSistemasTratamiento=new Array();				
+											for (i=0;i< jsonObj.length;i++)
+											{
+													
+														arrayInfoSistemasTratamiento[''+jsonObj[i]['practica']]=jsonObj[i]['descripcion'];	
+											}				
+											
+												
+											
+											
+									  }
+							});
+							
+							
+		
+	}
+	
 	function ordenarElementosPorContaminacion()
 	{
 			var l=arrayResultados.length;
@@ -884,6 +926,7 @@ var infromacionConcentracionContaminante='';
 											ordenarElementosPorContaminacion()
 											muestraCapaIndicador();
 											cargarInformacionPracticasAgricolas();
+											cargarInformacionSistemasTratamiento();
 											
 									  }
 							});

@@ -1,0 +1,12 @@
+[
+{
+"practica":"planta_de_tratamiento",
+"descripcion":
+"Una planta de tratamiento una instalaci&oacuten donde a las Aguas Residuales se les retiran los contaminantes, para hacer de ella un agua sin riesgos a la salud y/o medio ambiente al disponerla en un cuerpo receptor natural (mar, r&iacuteos o lagos) o por su reuso en otras actividades de nuestra vida cotidiana con excepci&oacuten del consumo humano (no para ingerir o aseo personal)."
+},
+{
+"practica":"humedal_artificial",
+"descripcion":
+"Los humedales artificiales suelen consistir en estanques o canales de poca profundidad, normalmente de menos de un metro, donde se ubican las especies vegetales acuáticas encargadas de los procesos naturales de depuración. Estas instalaciones cuentan además con canalizaciones y sistemas de aislamiento del suelo para no contaminar los ecosistemas adyacentes."
+}
+]
