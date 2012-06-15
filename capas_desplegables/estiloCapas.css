@@ -93,6 +93,7 @@
 }
 /*Estilo para */
 
+
 .capaConfiguracion
 {
 	background-color:#39f;
@@ -147,7 +148,7 @@ list-style: none;
 	float: right;
 	margin-right: 5px;
 
-	width:50px;
+	width:35px;
 	
 	
 }
@@ -169,6 +170,13 @@ list-style: none;
 
 	
 }
+.capaConfiguracion #unidades_caudal
+{
+	font-size:14px;
+	display:inline-block;
+	
+	vertical-align:top;
+}
 
 .capaConfiguracion	span
 {
@@ -182,7 +190,7 @@ list-style: none;
 .capaConfiguracion	button 
 {
 	margin:3px;
-		
+	padding:2px;
 }
 
 /**/

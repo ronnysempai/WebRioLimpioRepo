@@ -274,7 +274,7 @@
 											$datos_resultado.= ' "concentracion": ';
 											$datos_resultado.= ' "'.$rio->getConcentracionContaminante().'",  ';
 											$datos_resultado.= ' "excedeLimite": ';
-											if($rio->getConcentracionContaminante()>3)
+											if($rio->getConcentracionContaminante()>2.44)
 											$datos_resultado.= ' "1", ';
 											else
 											$datos_resultado.= ' "0", ';

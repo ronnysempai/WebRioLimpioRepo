@@ -203,13 +203,13 @@ var infromacionConcentracionContaminante='';
 				return false;
 	}
 	
-	function asignarPrametrosGenerales()
+	function asignarParametrosGenerales()
 	{
 			var caudal=$('#caudal').val();
 			var distancia_uso_suelo=$('#distancia_uso_suelo').val();
 			var pendiente=$('#one').val();
 			
-			if( ! ( !isNaN(parseFloat(caudal)) && isFinite(caudal) ))
+			if( ! ( !isNaN(parseFloat(caudal)) && isFinite(caudal) )  || (caudal*1<=0 ))
 			{	alert('por favor ingrese un dato valido en el caudal del rio')
 				return;
 			}
@@ -488,7 +488,7 @@ var infromacionConcentracionContaminante='';
 			var texto='';
 			var informacion_practica='';
 			var tags_metodo_recomendado='';
-			
+			var cad_tmp='',muestraOcultaCapasEnModal='';
 			$( "#dialog" ).html('');
 			$( "#ui-dialog-title-dialog" ).css('color','"red');
 							
@@ -497,7 +497,6 @@ var infromacionConcentracionContaminante='';
 												{
 												
 													
-							
 												
 													texto+='<div id="id_capa_resumen" style="border-bottom: 1px solid #31B404;" >';
 													
@@ -515,9 +514,19 @@ var infromacionConcentracionContaminante='';
 													texto+='<div>';
 													texto+=   'Carga Nitrogeno Aportada al Rio:'+' '+formatoNotacionCientifica(arrayResultados[indice]['Carga Nitrogeno Aportada al Rio'])+' mg/año ' ;
 													texto+='</div>';
-													cad_tmp=(arrayResultados[indice]['practicaAgricola']!='')?arrayResultados[indice]['practicaAgricola']:'No hay practica';
 													
-													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" onClick="muestraOcultaCapasEnModal()" >  '+cad_tmp.replace(/_/gi," ")+'</span>';
+													
+													
+													if(arrayResultados[indice]['practicaAgricola']!='')
+													{	cad_tmp=arrayResultados[indice]['practicaAgricola'];
+														muestraOcultaCapasEnModal='muestraOcultaCapasEnModal()';
+													}
+													else
+															cad_tmp='No hay practica , niveles de contaminacion en esta fuente son despreciables';
+															
+													
+													
+													texto+=   ' Practica Recomendada:'+' <span id="nombre_practica" onClick=" '+muestraOcultaCapasEnModal+' " >  '+cad_tmp.replace(/_/gi," ")+'</span>';
 													
 													//texto+=  '<button id="btoAplicarPractica" style="margin-left:40px;"  onclick="aplicarMetodo('+"'"+arrayResultados[indice]['practicaAgricola']+"'"+')">Aplicar</button>';
 													txt_tmp= estaActivadoAplicarMetodo(arrayResultados[indice]['idCapa']) ? 'checked=checked' :'' 
@@ -582,7 +591,8 @@ var infromacionConcentracionContaminante='';
 														
 														
 													}
-											
+											$( "#dialog" ).dialog("option", "width",1000);
+											$( "#dialog" ).dialog("option", "height",350);
 											
 											
 											$( "#dialog" ).html("<div  class='modalDiv'  > " +texto +'</div>');
@@ -610,8 +620,8 @@ var infromacionConcentracionContaminante='';
 													
 													texto+='<div >';
 													
-													texto+=  resumen_general  ;
 													
+													texto+=  resumen_general  ;
 													
 													texto+='</div>';
 													
@@ -625,6 +635,27 @@ var infromacionConcentracionContaminante='';
 	}
 	
 	
+	function muestraInformacionLimitePermitido()
+	{
+		var texto='';
+		texto+='<h3 style="color:#05991D; margin-bottom:10px;">Informacion sobre contaminacion </h3>';
+														
+										texto+='<div id="info_escala" >';
+													
+													texto+='<div style="text-align:justify" >';
+													
+													
+													texto+=  'El valor de el limite permitido segun las Norma de Calidad Ambiental y de Descarga de Efluentes de Recursos Hidricos es de 2.44 mg/l '  ;
+													
+													texto+='</div>';
+													
+										texto+='</div>';
+										
+										$( "#modal_concentracion" ).html("<div > " +texto +'</div>');
+											
+											
+											$( "#modal_concentracion" ).dialog('open');
+	}
 	function muestraInformacionEscala()
 	{
 						var texto='';			
@@ -641,6 +672,8 @@ var infromacionConcentracionContaminante='';
 										texto+='</div>';
 										
 										
+										$( "#dialog" ).dialog("option", "width",867);
+										$( "#dialog" ).dialog("option", "height",370);
 										
 										$( "#dialog" ).html("<div   > " +texto +'</div>');
 											
@@ -653,9 +686,10 @@ var infromacionConcentracionContaminante='';
 	{
 		
 		
-		
-		
-		
+				
+		if($('#id_capa_practica_recomendada').html().indexOf('Cultivos Cobertura Abonos verdes', 0)!=-1  )		
+													$( "#dialog" ).dialog({ height: 400 });
+													
 				if ($("#id_capa_practica_recomendada").is(":hidden")) 
 					{
 					
@@ -663,10 +697,11 @@ var infromacionConcentracionContaminante='';
 						$('#id_capa_resumen').hide('clip');
 					} 
 					else 
-					{
+					{	$( "#dialog" ).dialog({ height: 350 });
 					$('#id_capa_practica_recomendada').hide('clip');
 					
 						$('#id_capa_resumen').show('clip');
+						
 					}
 	}
 	
@@ -790,18 +825,11 @@ var infromacionConcentracionContaminante='';
 						
 						
 											for(indice=0;indice<arrayResultados.length;indice++)
-												if(arrayResultados[indice]['idCapa'].indexOf('agricola', 0)!=-1)
 												{
-														arrOrdenContaminante[arrayResultados[indice]['idCapa']]= arrayResultados[indice]['Carga Nitrogeno Promedio']
+														arrOrdenContaminante[arrayResultados[indice]['idCapa']]=arrayResultados[indice]['Carga Nitrogeno Promedio']
 														
 													
 												}
-												else
-													if(arrayResultados[indice]['idCapa'].indexOf('poblacion', 0)!=-1)
-													{
-														arrOrdenContaminante[arrayResultados[indice]['idCapa']]=arrayResultados[indice]['Carga Nitrogeno Promedio']
-														
-													}
 												
 													arrOrdenContaminante.sort();
 												
@@ -811,13 +839,14 @@ var infromacionConcentracionContaminante='';
 													posicion=$('#'+key).position() ;
 																			pos_x=  posicion.left-35 ;
 																			pos_y=posicion.top;
-												$('#imgSE').append('<div id="orden_'+ key+'" style="position:absolute;  top:'+pos_y+'px; left:'+pos_x+'px;" width="60" height="60"> <img  src="imagenes/img_adicionales/'+(i+1)+'.png" alt="" height="30" width="30" onclick="muestraInformacionEscala() " /></div>');
+												$('#imgSE').append('<div id="orden_'+ key+'" style="position:absolute;  top:'+pos_y+'px; left:'+pos_x+'px; cursor:pointer; " width="60" height="60" > <img  src="imagenes/img_adicionales/'+(i+1)+'.png" alt="" height="30" width="30" onclick="muestraInformacionEscala() " /></div>');
 												//background:#E3F6CE;
 												i++;
 	}											}
 	
 	function formatoNotacionCientifica(numero)
 	{
+	
 		var aux = numero;
 		var nDigitos = 0;
 
@@ -831,6 +860,7 @@ var infromacionConcentracionContaminante='';
 		
 		
 		return aux+'x10'+'<sup>'+nDigitos+'</sup>'
+		
 	}
 	
 	function enviarDatosSistemaExperto()
@@ -895,12 +925,12 @@ var infromacionConcentracionContaminante='';
 																{
 																if(jsonObj[i]['excedeLimite']=='1')
 																{
-																s+='<article>Malas Noticias , el contaminate ha excedido el <span style="cursor:pointer" onclick="">limite permitido</span>.</article><article>Aplicar soluciones recomendadas.  </article> <img  style="margin-top:10px; margin-left:30px; width:100px; height:70px; opacity: 1; "  title="" src="imagenes/tanque caido.png" alt=""  /> '; 
+																s+='<article>Malas Noticias , el contaminate ha excedido el <span style="cursor:pointer; text-decoration: underline; color:blue;" onclick="muestraInformacionLimitePermitido()">limite permitido</span>.</article><article>Aplicar soluciones recomendadas.  </article> <img  style="margin-top:10px; margin-left:30px; width:100px; height:70px; opacity: 1; "  title="" src="imagenes/tanque caido.png" alt=""  /> '; 
 																//$('#capa_resultados').css('backgroundImage',"url(imagenes/tanque caido.png)")
 																}
 																else
 																{	
-																	s+='<article>Felicitaciones el  Contaminante no ha excedido el <span style="cursor:pointer" onclick="" >limite permitido</span> </article> <img  style="margin-top:10px; margin-left:30px; width:70px; height:100px;"  title="" src="imagenes/tanque normal.png" alt=""  />';
+																	s+='<article>Felicitaciones el  Contaminante no ha excedido el <span style="cursor:pointer; text-decoration: underline; color:blue; " onclick="muestraInformacionLimitePermitido()" >limite permitido</span> </article> <img  style="margin-top:10px; margin-left:30px; width:70px; height:100px;"  title="" src="imagenes/tanque normal.png" alt=""  />';
 																	//$('#capa_resultados').css('backgroundImage',"url('imagenes/tanque normal.png')")
 																
 																}

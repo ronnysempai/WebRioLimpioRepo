@@ -7,6 +7,6 @@
 {
 "practica":"humedal_artificial",
 "descripcion":
-"Los humedales artificiales suelen consistir en estanques o canales de poca profundidad, normalmente de menos de un metro, donde se ubican las especies vegetales acuáticas encargadas de los procesos naturales de depuración. Estas instalaciones cuentan además con canalizaciones y sistemas de aislamiento del suelo para no contaminar los ecosistemas adyacentes."
+"Los humedales artificiales suelen consistir en estanques o canales de poca profundidad, normalmente de menos de un metro, donde se ubican las especies vegetales acu&aacuteticas encargadas de los procesos naturales de depuraci&oacuten. Estas instalaciones cuentan adem&aacutes con canalizaciones y sistemas de aislamiento del suelo para no contaminar los ecosistemas adyacentes."
 }
 ]

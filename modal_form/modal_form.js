@@ -79,10 +79,10 @@
 			
 			//alert(obj.val())
 			
-			if (obj.val()=='' )
+			if ( obj.val()==''   )
 			return ;
 			
-			if( ! ( !isNaN(parseFloat(obj.val())) && isFinite(obj.val()) ))
+			if( ! ( !isNaN(parseFloat(obj.val())) && isFinite(obj.val()) )   )
 			{	
 			
 				mensaje.css('color','red')
@@ -260,7 +260,7 @@
 				
 				idCapa=$( "#idCapaElemento" ).val();
 				
-				if($('#numero_hectareas').val()=='')
+				if($('#numero_hectareas').val()=='' || ($('#numero_hectareas').val()*1<=0  ))
 				{	
 					$('#mensaje_de_error').css('color','red')
 					$('#mensaje_de_error').css('font-size','20px')
@@ -270,7 +270,7 @@
 				
 				}
 				
-				if ($('#numero_habitantes').val()=='')
+				if ($('#numero_habitantes').val()==''  ||  ($('#numero_habitantes').val()*1<=0  ))
 				{	
 					$('#mensaje_de_error').css('color','red')
 					$('#mensaje_de_error').css('font-size','20px')
@@ -357,7 +357,7 @@
 							$( "#modal_costos" ).dialog({
 														autoOpen: false,
 														title: 'Costos',
-														height: 250,
+														height: 200,
 														width: 300,
 														show: "drop",
 														hide: "clip",

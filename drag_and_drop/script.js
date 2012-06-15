@@ -123,6 +123,7 @@ function eliminarElemento(id)
 		 $('#'+celda[0].id).css('backgroundImage','url(imagenes/area_contruccion.png)');
 		
 		$('#resultado_'+id).detach();
+		$('#orden_'+id).detach();
 		$( "#"+id ).detach();
 		eliminarElementoDeArray(id);
 		

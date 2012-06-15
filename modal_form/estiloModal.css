@@ -90,6 +90,7 @@
 	display:none;
 	height:50px;
 	
+	
 }
 
 .modalDiv span
@@ -157,3 +158,15 @@
 	width:80px;
 	
 }
+
+/*sobre escritura de estilo de capa modal de JQuery*/
+.ui-widget-overlay  
+{
+    background: black;
+    opacity:0.5;
+    
+   
+ }
+ 
+ 
+/**/
