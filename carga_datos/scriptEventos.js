@@ -819,30 +819,61 @@ var infromacionConcentracionContaminante='';
 			var informacion_practica='';
 			var tags_metodo_recomendado='';
 			var arrOrdenContaminante=new Array();
-			
+			var obj;
 			$( "#dialog" ).html('');
 			$( "#ui-dialog-title-dialog" ).css('color','"red');
 						
 						
 											for(indice=0;indice<arrayResultados.length;indice++)
 												{
-														arrOrdenContaminante[arrayResultados[indice]['idCapa']]=arrayResultados[indice]['Carga Nitrogeno Promedio']
+														
+														/*
+														obj['idCapa']=arrayResultados[indice]['idCapa'];
+														obj['cargaNitrogenoPromedio']=arrayResultados[indice]['Carga Nitrogeno Promedio'];
+														*/
+														arrOrdenContaminante[ arrOrdenContaminante.length]=arrayResultados[indice];
 														
 													
 												}
 												
-													arrOrdenContaminante.sort();
+												ordenar = function (a, b){
+																		 //	var f1, f2; 
+																			// Si son valores numéricos, convertirlos en float.
+																			n1=a['Carga Nitrogeno Promedio'];
+																			n2=b['Carga Nitrogeno Promedio'];	
+																			f1 = parseFloat(n1); 
+																			f2 = parseFloat(n2); 
+																			if (!isNaN(f1) && !isNaN(f2)) { 
+																			v1 = f1; 
+																			v2 = f2; 
+																			} 
+																			// Compara los dos valores. 
+																			if (v1 == v2) 
+																			return 0; 
+																			if (v1 > v2) 
+																			return 1; 
+																			return -1; 
+																		};
 												
-												i=0	
-												for (key in arrOrdenContaminante)
+													//arrOrdenContaminante.sort();
+												arrOrdenContaminante.sort( ordenar);
+													
+												for (var i=0 ;i<arrOrdenContaminante.length;i++)
 												{
-													posicion=$('#'+key).position() ;
-																			pos_x=  posicion.left-35 ;
+													posicion=$('#'+arrOrdenContaminante[i]['idCapa']).position() ;
+																			pos_x= posicion.left-35 ;
 																			pos_y=posicion.top;
-												$('#imgSE').append('<div id="orden_'+ key+'" style="position:absolute;  top:'+pos_y+'px; left:'+pos_x+'px; cursor:pointer; " width="60" height="60" > <img  src="imagenes/img_adicionales/'+(i+1)+'.png" alt="" height="30" width="30" onclick="muestraInformacionEscala() " /></div>');
+													
+													if(document.getElementById("orden_"+arrOrdenContaminante[i]['idCapa']) !=null )
+														$("#orden_"+arrOrdenContaminante[i]['idCapa']).detach();						
+														
+												$('#imgSE').append('<div id="orden_'+ arrOrdenContaminante[i]['idCapa']+'" style="position:absolute;  top:'+pos_y+'px; left:'+pos_x+'px; cursor:pointer; " width="60" height="60" > <img  src="imagenes/img_adicionales/'+(i+1)+'.png" alt="" height="30" width="30" onclick="muestraInformacionEscala() " /></div>');
 												//background:#E3F6CE;
-												i++;
-	}											}
+												
+												}											
+	}
+	
+	
 	
 	function formatoNotacionCientifica(numero)
 	{
